@@ -7,25 +7,31 @@
       <p class="fs-1 fw-bold" style="border-bottom: 2px black solid; width:100px">Others:</p>
 
 
-      <table style="border-collapse: separate; border-spacing: 10px 10px;">
-        <tr>
-          <td>● Git</td>
-          <td>● Git Hub</td>
-          <td>● Visual Studio Code</td>
-        </tr>
-        <tr>
-          <td>● Figma</td>
-          <td>● Linux</td>
-          <td>● AI Agents</td>
-        </tr>
-        <tr>
-          <td>● Prompting</td>
-
-        </tr>
-      </table>
-
-
+      <div class="skills-grid">
+        <div> ✓ Git </div>
+        <div> ✓ Git Hub </div>
+        <div> ✓ VS Code </div>
+        <div> ✓ Figma </div>
+        <div> ✓ Linux </div>
+        <div> ✓ AI Agents </div>
+        <div> ✓ Prompting </div>
+      </div>
     </div>
   </div>
   </div>
 </main>
+<style>
+  .skills-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10;
+  }
+  @media (max-width: 768px){
+    .skills-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10;
+    }
+
+  }
+</style>

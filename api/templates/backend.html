@@ -1,4 +1,3 @@
-
 <main
   style="
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
@@ -10,35 +9,44 @@
     class="album py-2 bg-body-tertiary w-100 border border-secondary rounded-3 mx-auto"
   >
     <div class="container">
-      <p class="fs-1 fw-bold" style="border-bottom: 2px black solid; width:100px">Backend:</p>
+      <p
+        class="fs-1 fw-bold"
+        style="border-bottom: 2px black solid; width: 100px"
+      >
+        Backend:
+      </p>
 
-      <table style="border-collapse: separate; border-spacing: 10px 10px;">
-        <tr>
-          <td>● Automation</td>
-          <td>● Web Scraping</td>
-          <td>● Java</td>
-        </tr>
-        <tr>
-          <td>● Selenium</td>
-          <td>● Beautiful Soup</td>
-          <td>● SQLite</td>
-        </tr>
-        <tr>
-          <td>● SQL Alchemy</td>
-          <td>● JSON</td>
-          <td>● Python</td>
-        </tr>
-        <tr>
-          <td>● Pandas</td>
-          <td>● Flask</td>
-          <td>● Django</td>
-        </tr>
-        <tr>
-          <td>● JSON</td>
-          <td>● Python</td>
-          <td>● Pandas</td>
-        </tr>
-      </table>
+      <div class="skills-grid">
+        <div>✓ Automation</div>
+        <div>✓ Web Scraping</div>
+        <div>✓ Java</div>
+        <div>✓ Selenium</div>
+        <div>✓ Beautiful Soup</div>
+        <div>✓ SQLite</div>
+        <div>✓ SQL Alchemy</div>
+        <div>✓ JSON</div>
+        <div>✓ Python</div>
+        <div>✓ Pandas</div>
+        <div>✓ Flask</div>
+        <div>✓ Django</div>
+        <div>✓ JSON</div>
+        <div>✓ Python</div>
+        <div>✓ Pandas</div>
+      </div>
     </div>
   </div>
 </main>
+<style>
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10;
+  }
+  @media (max-width: 768px) {
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10;
+    }
+  }
+</style>
