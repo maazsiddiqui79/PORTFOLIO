@@ -1,0 +1,63 @@
+TITLE:
+Mini Banking System
+
+DESC:
+A secure command-line banking application with user authentication, account management, and transaction features using object-oriented Python principles.
+
+BODY:
+
+html
+<h1>Mini Banking System (CLI)</h1>
+<p><a href="https://github.com/maazsiddiqui79/Mini-Banking-System" target="_blank">GitHub Repository</a> | </p>
+<hr />
+<h2><strong>Type:</strong> Command-Line Application (Python OOP)</h2>
+<hr />
+<h2>Overview</h2>
+<p>
+The Mini Banking System is a simple yet practical Python-based application that simulates basic banking operations such as account creation, deposit, withdrawal, balance inquiry, and transaction history. Designed with Object-Oriented Programming (OOP) principles, this CLI project helps users understand encapsulation, classes, methods, and file handling in Python.
+</p>
+
+<h2>Features</h2>
+<ul>
+  <li><strong>User Authentication:</strong> Login system with username and PIN verification.</li>
+  <li><strong>Account Creation:</strong> Create new accounts with user details and an initial deposit.</li>
+  <li><strong>Deposit Funds:</strong> Add money to an account balance.</li>
+  <li><strong>Withdraw Funds:</strong> Withdraw money with balance checks to prevent overdrafts.</li>
+  <li><strong>Check Balance:</strong> View current account balance at any time.</li>
+  <li><strong>Transaction History:</strong> Maintain logs of deposits and withdrawals.</li>
+  <li><strong>Exit Option:</strong> Secure exit with optional session summary.</li>
+</ul>
+
+<h2>User Interface (CLI)</h2>
+<ul>
+  <li>Text-based interactive menu system with clear navigation.</li>
+  <li>Prompt-based inputs for account actions.</li>
+  <li>Error handling for invalid operations (e.g., insufficient balance).</li>
+  <li>Basic terminal UI with ASCII formatting for clarity.</li>
+</ul>
+
+<h2>Example Use Case</h2>
+<p>
+This application serves as a foundational project for beginners learning Python OOP and file operations. It is useful for academic demonstrations, practice assignments, and conceptual understanding of how core banking functionalities work behind the scenes.
+</p>
+
+<h2>Technology Stack</h2>
+<ul>
+  <li><strong>Language:</strong> Python 3.x</li>
+  <li><strong>Concepts Used:</strong> OOP (Classes, Objects), File Handling, Exception Handling, Lists, Dictionaries</li>
+  <li><strong>Optional Extension:</strong> Use JSON or SQLite for persistent storage</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+  <li>Hands-on experience with object-oriented programming in Python.</li>
+  <li>Reinforces concepts of class-based design and data encapsulation.</li>
+  <li>Fully offline and lightweight CLI-based solution.</li>
+  <li>Easy to expand with additional features like interest calculation or multiple user support.</li>
+</ul>
+
+<h2>Security & Privacy</h2>
+<p>
+All user data is stored locally and processed securely without internet access. The PIN-based login system ensures basic account safety. Data is not shared or transmitted externally.
+</p>
+<hr />

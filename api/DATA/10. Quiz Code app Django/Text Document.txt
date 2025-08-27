@@ -1,0 +1,62 @@
+TITLE:
+Quiz Code App
+
+DESC:
+A secure command-line quiz app with authentication, quiz management, scoring, feedback, and persistent storage.
+BODY:
+
+Html
+<h1>Mini Quiz Code App (CLI)</h1>
+<p><a href="https://github.com/maazsiddiqui79/Mini-Quiz-Code-App" target="_blank">GitHub Repository</a> | </p>
+<hr />
+<h2><strong>Type:</strong> Command-Line Application (Python OOP)</h2>
+<hr />
+<h2>Overview</h2>
+<p>
+The Mini Quiz Code App is a Python-based command-line application that allows users to attempt quizzes, track their scores, and view detailed feedback. Built with Object-Oriented Programming (OOP) principles, this project introduces learners to classes, methods, encapsulation, and persistent data handling in Python.
+</p>
+
+<h2>Features</h2>
+<ul>
+  <li><strong>User Authentication:</strong> Register and login system for multiple users.</li>
+  <li><strong>Quiz Management:</strong> Create, update, and delete quizzes and questions (admin access).</li>
+  <li><strong>Question Categories:</strong> Organize questions by topics and difficulty levels.</li>
+  <li><strong>Attempt Quizzes:</strong> Users can take quizzes and answer multiple-choice questions.</li>
+  <li><strong>Score Calculation:</strong> Automatic scoring and feedback after quiz completion.</li>
+  <li><strong>Progress Tracking:</strong> Maintain quiz history and user scores.</li>
+  <li><strong>Exit Option:</strong> Secure exit with optional summary of attempted quizzes.</li>
+</ul>
+
+<h2>User Interface (CLI)</h2>
+<ul>
+  <li>Text-based interactive menu with clear navigation for users and admins.</li>
+  <li>Prompt-based input system for answering questions and selecting options.</li>
+  <li>Error handling for invalid inputs or attempts.</li>
+  <li>Clean terminal UI with ASCII formatting for readability.</li>
+</ul>
+
+<h2>Example Use Case</h2>
+<p>
+This application is ideal for beginners learning Python OOP, data handling, and basic application design. It can be used for practice assignments, academic demonstrations, or as a foundation for larger quiz systems.
+</p>
+
+<h2>Technology Stack</h2>
+<ul>
+  <li><strong>Language:</strong> Python 3.x</li>
+  <li><strong>Concepts Used:</strong> OOP (Classes, Objects), File Handling, Lists, Dictionaries, Exception Handling</li>
+  <li><strong>Optional Extension:</strong> Use JSON or SQLite for persistent data storage</li>
+</ul>
+
+<h2>Benefits</h2>
+<ul>
+  <li>Practical experience with object-oriented programming in Python.</li>
+  <li>Reinforces class-based design and data encapsulation concepts.</li>
+  <li>Fully offline and lightweight CLI application.</li>
+  <li>Expandable with features like timed quizzes, analytics, or leaderboard.</li>
+</ul>
+
+<h2>Security & Privacy</h2>
+<p>
+All user data is stored locally with optional basic encryption. Scores and progress are kept private and not transmitted externally.
+</p>
+<hr />

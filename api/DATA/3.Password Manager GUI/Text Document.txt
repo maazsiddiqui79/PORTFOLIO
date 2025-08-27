@@ -1,0 +1,8 @@
+TITLE:
+Password Manager GUI	
+
+DESC:
+"A secure GUI-based application to store, generate, and manage passwords, protected by a master key for safe access. "	
+
+BODY:
+<h1>Password Manager GUI</h1> <p><a href="https://github.com/maazsiddiqui79/100-Days-Python-Project/tree/main/32.Day30%20n%20Day29%20-Password%20Manager" target="_blank">GitHub Repository</a> |</p> <hr /> <h2><strong>Type:</strong> Desktop Application (GUI)</h2> <hr /> <h2><strong>Short Description</strong></h2> <p>A secure and user-friendly password manager built with Python and Tkinter. It allows users to generate, store, and retrieve encrypted passwords for various accounts in a single location.</p> <h2>Features</h2> <ul> <li>Secure password storage using encryption (e.g., Fernet/AES)</li> <li>Automatic strong password generation</li> <li>Search functionality for stored credentials</li> <li>Simple and intuitive Tkinter-based GUI</li> <li>Copy to clipboard functionality for easy use</li> </ul> <h2>How to Use</h2> <p>Enter your website, email/username, and password (or generate one). Click &quot;Save&quot; to store the credentials. Use the &quot;Search&quot; function to retrieve saved passwords anytime.</p> <h2>Technologies Used</h2> <ul> <li><strong>Python</strong> &ndash; Core logic</li> <li><strong>Tkinter</strong> &ndash; Graphical User Interface</li> <li><strong>JSON</strong> &ndash; Data storage</li> <li><strong>Cryptography/Fernet</strong> &ndash; Encryption and decryption</li> </ul> <hr />		

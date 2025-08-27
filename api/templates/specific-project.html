@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block title %}Maaz | Project{% endblock %} {% block
+head %}
+<style>
+  .project-bg {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+            url('{{ url_for("static", filename="uploads/" + post.img) }}');
+background-size: cover;
+background-position: center;
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+    color: whitesmoke;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .para{
+    
+    
+    text-align: center;
+  }
+</style>
+{% endblock %} {% block body %}
+
+<div class="project-bg">
+    <p class="para"><span style="font-size:45px;">{{post.title}}</span><br>{{post.s_description}}</p>
+  <!-- Content -->
+</div>
+<hr>
+{{post.body|safe}}
+
+
+{% endblock %}

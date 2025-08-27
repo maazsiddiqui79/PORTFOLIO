@@ -1,0 +1,148 @@
+.my-img {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    filter: grayscale(95%) opacity(75%);
+    transition: all 0.4s ease-out, transform 0.9s ease-in-out;
+
+}
+
+/* Default hover effect (for desktops/larger screens) */
+.my-img:hover {
+
+    border-radius: 5px;
+    box-shadow: 0 0 15px 10px rgba(13, 110, 253, 0.9);
+    transform: translateX(-5px) scale(1.07);
+    width: 366px;
+    height: 365px;
+    border-radius: 15%;
+    margin-top: 30px;
+
+    filter: grayscale(0%);
+}
+
+
+
+@media (max-width: 991.98px) {
+    .my-img {
+        width: 100%;
+        max-width: 280px;
+        height: 300px;
+        border-radius: 50%;
+        margin-top: 55px;
+        filter: grayscale(95%) opacity(75%);
+        transition: box-shadow 0.6s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .my-img:hover {
+        box-shadow: 0 0 15px 5px rgba(13, 110, 253, 0.9);
+        transform: translateX(-5px) scale(1.1);
+        max-width: 280px;
+        height: 300px;
+        border-radius: 50%;
+        margin-top: 55px;
+
+        filter: grayscale(0%);
+    }
+}
+
+
+.card-text-hover {
+    position: absolute;
+    transform: translateY(-100%);
+    transition: all 0.5s ease-in;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.card:hover {
+    box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.5);
+    transform: scale(1.05);
+    background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)),
+    url('static/uploads/{{i.img}}');
+}
+
+.card {
+    transition: all 0.5s ease-in-out;
+    background-size: cover;
+    background-position: center;
+
+    width: 360px;
+    height: 750px;
+    /* margin-left: 4rem; */
+}
+
+.card:hover .card-text-hover {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+small {
+    text-align: right;
+    margin-top: 140px;
+    color: white;
+}
+
+
+.card1 {
+    width: 950px;
+    padding-left: 100px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+
+    padding-right: 100px;
+
+}
+
+
+
+
+@media (max-width: 991.98px) {
+
+    .card1 {
+        padding-left: 10px;
+        padding-top: 45px;
+        padding-bottom: 45px;
+        padding-right: 10px;
+        width: 450px;
+
+    }
+}
+
+
+.contact-box {
+    background-color: antiquewhite;
+    width: 100%;
+    max-width: 365px;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+
+
+.card2 {
+
+    width: 100%;
+
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+
+.hrr {
+    width: 600px;
+    margin: 0 auto;
+}

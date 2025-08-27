@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project Submission Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .form-container {
+        max-width: 600px;
+        background-color: white;
+        padding: 25px;
+        margin: auto;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      input[type="text"],
+      input[type="url"],
+      textarea,
+      input[type="file"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-top: 5px;
+      }
+
+      textarea {
+        resize: vertical;
+        height: 100px;
+      }
+
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #0d6efd;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #084298;
+      }
+
+      a {
+        text-decoration: none;
+        color: #0d6efd;
+        font-weight: bold;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <a href="/">HOME</a>
+      <hr />
+      <h2>Submit Your Project</h2>
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div
+            style="
+              padding: 10px;
+              margin-bottom: 10px;
+              border-radius: 5px;
+              background-color: #d4edda;
+              color: #155724;
+            "
+          >
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      <form method="POST" action="/add-new-project" enctype="multipart/form-data">
+
+        <!-- Project Title -->
+        <label for="title">Project Title:</label>
+        <input type="text" id="title" name="title" required />
+
+        <!-- Short Description -->
+        <label for="short_desc">Short Description:</label>
+        <textarea id="short_desc" name="short_desc" required></textarea>
+
+        <label for="image">Feature Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+
+        <!-- Detailed Description (CKEditor) -->
+        <label for="body">Detailed Description:</label>
+        <textarea id="body" name="body"></textarea>
+        {{ ckeditor.load() }}
+        {{ ckeditor.config(name='body') }}
+
+        <!-- Submit Button -->
+        <button type="submit">Add</button>
+      </form>
+    </div>
+  </body>
+</html>
