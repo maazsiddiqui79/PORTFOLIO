@@ -1,75 +1,71 @@
 .my-img {
-    width: 360px;
-    height: 360px;
-    border-radius: 50%;
-    object-fit: cover;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 30px;
-    filter: grayscale(95%) opacity(75%);
-    transition: all 0.4s ease-out, transform 0.9s ease-in-out;
-
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  filter: grayscale(95%) opacity(75%);
+  transition: all 0.4s ease-out, transform 0.9s ease-in-out;
 }
 
-/* Default hover effect (for desktops/larger screens) */
+/* Hover effect */
 .my-img:hover {
-
-    border-radius: 5px;
-    box-shadow: 0 0 15px 10px rgba(13, 110, 253, 0.9);
-    transform: translateX(-5px) scale(1.07);
-    width: 366px;
-    height: 365px;
-    border-radius: 15%;
-    margin-top: 30px;
-
-    filter: grayscale(0%);
+  border-radius: 5px;
+  box-shadow: 0 0 15px 10px rgba(13, 110, 253, 0.9);
+  transform: translateX(-5px) scale(1.07);
+  width: 366px;
+  height: 365px;
+  border-radius: 15%;
+  margin-top: 30px;
+  filter: grayscale(0%);
 }
 
+/* Section left border box */
+.section-box {
+  border-left: 2px solid black;
+  margin-bottom: 1rem;
+  padding-left: 30px;
+}
 
+/* Prevent overflow white space */
+body {
+  overflow-x: hidden;
+}
 
+/* Mobile adjustments */
 @media (max-width: 991.98px) {
-    .my-img {
-        width: 100%;
-        max-width: 280px;
-        height: 300px;
-        border-radius: 50%;
-        margin-top: 55px;
-        filter: grayscale(95%) opacity(75%);
-        transition: box-shadow 0.6s ease-in-out, transform 0.3s ease-in-out;
-    }
-
-    .my-img:hover {
-        box-shadow: 0 0 15px 5px rgba(13, 110, 253, 0.9);
-        transform: translateX(-5px) scale(1.1);
-        max-width: 280px;
-        height: 300px;
-        border-radius: 50%;
-        margin-top: 55px;
-
-        filter: grayscale(0%);
-    }
-}
-
-
-.card-text-hover {
-    position: absolute;
-    transform: translateY(-100%);
-    transition: all 0.5s ease-in;
-    bottom: 0;
-    left: 0;
+  .my-img {
     width: 100%;
-    padding: 15px;
-    color: white;
-    opacity: 0;
-    visibility: hidden;
+    max-width: 280px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: 55px;
+    filter: grayscale(95%) opacity(75%);
+    transition: box-shadow 0.6s ease-in-out, transform 0.3s ease-in-out;
+  }
+
+  .my-img:hover {
+    box-shadow: 0 0 15px 5px rgba(13, 110, 253, 0.9);
+    transform: translateX(-5px) scale(1.1);
+    max-width: 280px;
+    height: 300px;
+    border-radius: 50%;
+    margin-top: 55px;
+    filter: grayscale(0%);
+  }
 }
+
+
 
 
 .card:hover {
     box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.5);
     transform: scale(1.05);
+    transform: translateY(-5%);
     background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)),
     url('static/uploads/{{i.img}}');
 }
@@ -78,16 +74,52 @@
     transition: all 0.5s ease-in-out;
     background-size: cover;
     background-position: center;
-
-    width: 360px;
-    height: 750px;
-    /* margin-left: 4rem; */
+    
+    
+    height: 450px;
+    
 }
 
 .card:hover .card-text-hover {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+}
+
+.card-text-hover {
+    position: absolute;
+    transform: translateY(100%);
+    transition: all 0.5s ease-in-out;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 15px;
+    color: white;
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+.card:hover .card-text-hover {
+    background-color: rgba(126, 126, 126, 0);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.card:hover .card-title {
+    transform: translateY(-100%);
+    /* move up on hover */
+    
+    opacity: 0;
+    /* optional: fade slightly */
+}
+
+.card-title {
+    transition: all 0.5s ease-in-out;
+    transform: translateY(0);
+    /* start position */
+    opacity: 1;
 }
 
 small {
@@ -102,7 +134,7 @@ small {
     padding-left: 100px;
     padding-top: 45px;
     padding-bottom: 45px;
-
+    
     padding-right: 100px;
 
 }

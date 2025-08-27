@@ -11,14 +11,12 @@
 
   input:focus {
     outline: none;
-    border: 0px black solid;
+    border-bottom: 1px black solid;
+    border-top: 1px black solid;
     font-weight: bolder;
   }
 
   textarea:focus {
-    outline: none;
-    border: 0px black solid;
-
     font-weight: bolder;
   }
 
@@ -29,10 +27,11 @@
   }
 </style>
 {% endblock %}
+
 <section class="container col-xl-8">
   <div class="row py-lg-5">
     <div class="container col-xl-8 mt-5"
-      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;">
+      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;margin-left:1.5rem">
       <h3 class="display-5 fw-bolder text-body-emphasis lh-1 mb-3" style="font-family: 'Cambria'">
         CONNECT
       </h3>
@@ -40,6 +39,7 @@
     </div>
   </div>
 </section>
+
 
 <div class="album py-5 ">
   <div class="container">
@@ -72,7 +72,7 @@
             </div>
             <div class="mb-3">
               <label for="msg" class="form-label"><strong>Message</strong></label><br />
-              <textarea name="msg" cols="30" rows="10" style="resize: both;"></textarea>
+              <textarea name="msg" placeholder="Enter your message here..." cols="30" rows="10" style="resize: both;"></textarea>
 
             </div>
 
@@ -131,44 +131,23 @@
 
 <div class="album py-5 ">
   <div class="container">
-    <div class="row  row-cols-sm-12 row-cols-lg-12 row-cols-md-12 g-3">
+    <h2 class="dispaly-3 wrapper text-center">Connect with Me</h2>
+    <div class="wrapper d-flex flex-column flex-md-row justify-content-center align-items-center mb-3">
+  <div class="col-12 col-md-6 d-flex flex-column flex-md-row justify-content-center align-items-center">
+    <a href="https://www.instagram.com/siddiqui.maazzz/" target="_blank" class="m-2 text-decoration-none text-reset">
+      <button class="btn btn-dark btn-outline-light border w-100">Instagram</button>
+    </a>
+    <a href="https://www.linkedin.com/in/siddiqui-maazzz/" target="_blank" class="m-2 text-decoration-none text-reset">
+      <button class="btn btn-dark btn-outline-light w-100">LinkedIn</button>
+    </a>
+    <a href="https://github.com/maazsiddiqui79/100-Days-Python-Project" target="_blank" class="m-2 text-decoration-none text-reset">
+      <button class="btn btn-dark btn-outline-light w-100">GitHub</button>
+    </a>
+    <a href="https://x.com/siddiquimaazzz" target="_blank" class="m-2 text-decoration-none text-reset">
+      <button class="btn btn-dark btn-outline-light w-100">X</button>
+    </a>
+  </div>
+</div>
 
-
-      <div class="col">
-
-        <div class="card-connect">
-          <div class="card-body d-felx flex-column justify-content-center">
-
-            <h2 class="dispaly-3 wrapper text-center">Connect with Me</h2>
-            <div class="wrapper d-flex flex-column flex-md-row justify-content-center align-items-center mb-3">
-              <div class="col-sm-6 col-sm-6 col-md-6">
-                <a href="https://www.instagram.com/siddiqui.maazzz/" target="_blank"  class="m-2 text-decoration-none text-reset">
-                  <button class=" btn btn-dark btn-outline-light border  ">Instagram </button>
-                </a>
-                <a href="https://www.linkedin.com/in/siddiqui-maazzz/" target="_blank"  class="m-2 text-decoration-none text-reset">
-                  <button class="btn btn-dark btn-outline-light">LinkedIn</button>
-                </a>
-                <a href="https://github.com/maazsiddiqui79/100-Days-Python-Project" target="_blank"  class="m-2 text-decoration-none text-reset">
-                  <button class="btn btn-dark btn-outline-light ">GitHub </button>
-                </a>
-                <a href="https://x.com/siddiquimaazzz" target="_blank"  class="m-2 text-decoration-none text-reset">
-                  <button class="btn btn-dark btn-outline-light">X</button>
-                </a>
-              </div>
-            </div>
-
-
-          </div>
-
-
-            </div>
-
-
-      </div>
-
-
-
-
-    </div>
   </div>
 </div>

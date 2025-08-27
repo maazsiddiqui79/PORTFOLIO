@@ -21,15 +21,30 @@ background-position: center;
     
     text-align: center;
   }
+  .c{
+    
+    width: 750px;
+    background-color: rgba(177, 203, 251, 0.231);
+    padding: 30px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 0 auto;
+    font-family:Cambria;
+  }
 </style>
-{% endblock %} {% block body %}
+{% endblock %} 
+{% block body %}
 
-<div class="project-bg">
-    <p class="para"><span style="font-size:45px;">{{post.title}}</span><br>{{post.s_description}}</p>
+<div class="project-bg" >
+  <p class="para"><span style="font-size:45px;">{{post.title}}</span><br>{{post.s_description}}</p>
   <!-- Content -->
 </div>
-<hr>
-{{post.body|safe}}
+<br>
+<div class="c">
+  {{ post.body|safe }}
+</div>
+
+
 
 
 {% endblock %}
