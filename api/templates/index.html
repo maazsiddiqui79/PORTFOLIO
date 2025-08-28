@@ -1,5 +1,41 @@
 {% extends 'base.html' %} {% block title %}Maaz | Portfolio{% endblock %} {%
 block body %}
+{% block style %}
+<style>    
+
+    .words {
+      display: inline-block;
+      position: relative;
+      width: 100%;  /* adjust based on longest word */
+      height: 40px;
+      overflow: hidden;
+      padding: 1.9rem;
+      
+    }
+
+    .words span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      animation: rotate 12s infinite; /* duration = total cycle */
+    }
+
+    /* Assign delays based on index */
+    .words span:nth-child(1) { animation-delay: 0s; }
+    .words span:nth-child(2) { animation-delay: 3s; }
+    .words span:nth-child(3) { animation-delay: 6s; }
+    .words span:nth-child(4) { animation-delay: 9s; }
+
+    @keyframes rotate {
+      0%   { opacity: 0; transform: translateY(100%); }
+      5%   { opacity: 1; transform: translateY(0); }
+      25%  { opacity: 1; transform: translateY(0); }
+      30%  { opacity: 0; transform: translateY(-100%); }
+      100% { opacity: 0; }
+    }
+  </style>
+{% endblock style %}
 <!-- First Look -->
 <div id="home">
   <div class="container px-4 py-5">
@@ -13,23 +49,28 @@ block body %}
         />
       </div>
       <div class="col-lg-6">
-        <h1 class="display-2 text-body-emphasis lh-1 mb-3">
+        <h1 class="display-3 text-body-emphasis lh-1 mb-3">
           <span
             class="fw-bold"
             style="
               color: rgba(13, 110, 253, 0.9);
               font-family: 'Cambria';
-              font-size: 90px;
+              font-size: 60px;
             "
             >@</span
-          ><b>the-maaz</b>
+          ><b>siddiqui-maaz</b>
         </h1>
-        <h2 class="display-5 text-body-emphasis lh-1 mb-3">
-          Python Full Stack Developer
+        <h2 class="display-6 text-body-emphasis">
+      <span class="words">
+      <span>Python Full Stack Dev</span>
+      <span>Frontend Developer</span>
+      <span>Backend Developer</span>
+      <span>Ui/Ux Designer</span>
+      </span>
         </h2>
 
         <p class="lead">
-          A passionate Python developer and final-year diploma student
+          Hi i am passionate Python developer and final-year diploma student
           specializing in full-stack development, automation, with a strong
           foundation in computer engineering.
         </p>
