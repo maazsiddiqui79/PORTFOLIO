@@ -44,7 +44,7 @@ html,body {
     height: 300px;
     border-radius: 50%;
     margin-top: 75px;
-    margin-left: 10%;
+    margin-left: 2%;
     filter: grayscale(80%) opacity(75%);
     transition: all 0.4s ease-out, transform 0.9s ease-in-out;
   }
