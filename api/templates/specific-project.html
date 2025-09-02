@@ -3,56 +3,48 @@ head %}
 <style>
   .project-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            url('{{ url_for("static", filename="uploads/" + post.img) }}');
-background-size: cover;
-background-position: center;
+      url('{{ url_for("static", filename="uploads/" + post.img) }}');
+    background-size: cover;
+    background-position: center;
     background-size: cover;
     background-position: center;
     height: 600px;
     color: whitesmoke;
-    
+
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .para{
-    
-    
+  .para {
     text-align: center;
   }
-  .c{
-    
-    width: 750px;
+  .c {
+    width: 1245px;
     background-color: rgba(177, 203, 251, 0.231);
     padding: 30px;
-    
+
     margin: 0 auto;
-    font-family:Cambria;
+    font-family: Cambria;
   }
-  @media(max-width: 991.98px){
-    .c{
-      
+  @media (max-width: 991.98px) {
+    .c {
       width: 100%;
       background-color: rgba(177, 203, 251, 0.231);
-      font-family:Cambria;
+      font-family: Cambria;
     }
-
   }
 </style>
-{% endblock %} 
-{% block body %}
+{% endblock %} {% block body %}
 
-<div class="project-bg" >
-  <p class="para"><span style="font-size:45px;">{{post.title}}</span><br>{{post.s_description}}</p>
+<div class="project-bg">
+  <p class="para">
+    <span style="font-size: 45px">{{post.title}}</span
+    ><br />{{post.s_description}}
+  </p>
   <!-- Content -->
 </div>
-<br>
-<div class="c">
-  {{ post.body|safe }}
-</div>
-
-
-
+<br />
+<div class="c">{{ post.body|safe }}</div>
 
 {% endblock %}
