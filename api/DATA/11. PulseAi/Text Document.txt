@@ -1,5 +1,5 @@
 TITLE:
-Pulse AI
+Pulse AI Chatbot
 
 DESC:
 "Pulse, AI is an intelligent chatbot designed to assist you with your daily tasks."
