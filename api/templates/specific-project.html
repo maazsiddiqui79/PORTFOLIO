@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% block title %}Maaz | Project{% endblock %} {% block
-head %}
+{% extends 'base.html' %} {% block title %}Maaz | {{post.title}}{% endblock %}
+{% block head %}
 <style>
   .project-bg {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
@@ -19,13 +19,17 @@ head %}
   .para {
     text-align: center;
   }
+  /*
+  Rubik bold
+
+Roboto Mono
+  */
   .c {
     width: 1145px;
     background-color: rgba(177, 203, 251, 0.231);
     padding: 30px;
-
+    font-family: Rubik bold;
     margin: 0 auto;
-    font-family: Cambria;
   }
   @media (max-width: 991.98px) {
     .c {
@@ -35,11 +39,12 @@ head %}
     }
   }
 </style>
+
 {% endblock %} {% block body %}
 
 <div class="project-bg">
-  <p class="para">
-    <span style="font-size: 45px">{{post.title}}</span
+  <p class="para"  style="font-family: Roboto Mono;">
+    <span style="font-size: 45px;font-family: Rubik bold;">{{post.title}}</span
     ><br />{{post.s_description}}
   </p>
   <!-- Content -->

@@ -12,6 +12,13 @@
   transition: all 0.4s ease-out, transform 0.9s ease-in-out;
 }
 
+header{
+  box-shadow: 0 0 15px 5px rgb(188, 210, 252);
+}
+footer{
+  box-shadow: 0 0 15px 5px rgba(13, 109, 253, 0.247);
+}
+
 /* Hover effect */
 .my-img:hover {
   border-radius: 5px;
@@ -24,6 +31,7 @@
   filter: grayscale(0%);
 }
 
+
 /* Section left border box */
 .section-box {
   border-left: 2px solid black;
@@ -32,7 +40,8 @@
 }
 
 /* Prevent overflow white space */
-html,body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -65,77 +74,77 @@ html,body {
 
 
 .card:hover {
-    box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.5);
-    transform: scale(1.05);
-    transform: translateY(-5%);
-    background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)),
-    url('static/uploads/{{i.img}}');
+  box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.5);
+  transform: scale(1.05);
+  transform: translateY(-5%);
+  background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)),
+  url('static/uploads/{{i.img}}');
 }
 
 .card {
-    transition: all 0.5s ease-in-out;
-    background-size: cover;
-    background-position: center;
-    height: 450px;
-    
+  transition: all 0.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  height: 450px;
+
 }
 
 .card:hover .card-text-hover {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .card-text-hover {
-    position: absolute;
-    transform: translateY(100%);
-    transition: all 0.5s ease-in-out;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 15px;
-    color: white;
-    opacity: 0;
-    visibility: hidden;
-    
+  position: absolute;
+  transform: translateY(100%);
+  transition: all 0.5s ease-in-out;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+
 }
 
 .card:hover .card-text-hover {
-    background-color: rgba(126, 126, 126, 0);
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  background-color: rgba(126, 126, 126, 0);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .card:hover .card-title {
-    transform: translateY(-100%);
-    /* move up on hover */
-    
-    opacity: 0;
-    /* optional: fade slightly */
+  transform: translateY(-100%);
+  /* move up on hover */
+
+  opacity: 0;
+  /* optional: fade slightly */
 }
 
 .card-title {
-    transition: all 0.5s ease-in-out;
-    transform: translateY(0);
-    /* start position */
-    opacity: 1;
+  transition: all 0.5s ease-in-out;
+  transform: translateY(0);
+  /* start position */
+  opacity: 1;
 }
 
 small {
-    text-align: right;
-    margin-top: 140px;
-    color: white;
+  text-align: right;
+  margin-top: 140px;
+  color: white;
 }
 
 
 .card1 {
-    width: 950px;
-    padding-left: 100px;
-    padding-top: 45px;
-    padding-bottom: 45px;
-    
-    padding-right: 100px;
+  width: 950px;
+  padding-left: 100px;
+  padding-top: 45px;
+  padding-bottom: 45px;
+
+  padding-right: 100px;
 
 }
 
@@ -144,37 +153,37 @@ small {
 
 @media (max-width: 991.98px) {
 
-    .card1 {
-        padding-left: 10px;
-        padding-top: 45px;
-        padding-bottom: 45px;
-        padding-right: 10px;
-        width: 450px;
+  .card1 {
+    padding-left: 10px;
+    padding-top: 45px;
+    padding-bottom: 45px;
+    padding-right: 10px;
+    width: 450px;
 
-    }
+  }
 }
 
 
 .contact-box {
-    background-color: antiquewhite;
-    width: 100%;
-    max-width: 365px;
-    margin: 0 auto;
-    padding: 10px;
-    margin-bottom: 1rem;
+  background-color: antiquewhite;
+  width: 100%;
+  max-width: 365px;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 1rem;
 }
 
 
 .card2 {
 
-    width: 100%;
+  width: 100%;
 
-    padding: 2rem;
-    border-radius: 10px;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
 
 .hrr {
-    width: 600px;
-    margin: 0 auto;
+  width: 600px;
+  margin: 0 auto;
 }

@@ -1,8 +1,15 @@
 {% extends 'base.html' %} {% block title %}Maaz | Portfolio{% endblock %} {%
 block body %}
+{% block head %}
+
+     
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap" rel="stylesheet">
+
+    
+
+{% endblock head %}
 {% block style %}
 <style>    
-
     .words {
       display: inline-block;
       position: relative;
@@ -54,14 +61,14 @@ block body %}
             class="fw-bold"
             style="
               color: rgba(13, 110, 253, 0.9);
-              font-family: 'Cambria';
+              font-family:Rubik bold;
               font-size: 60px;
             "
             >@</span
-          ><b>siddiqui-maaz</b>
+          ><b style="font-family:Roboto Mono;">siddiqui-maaz</b>
         </h1>
         <h2 class="display-6 text-body-emphasis">
-      <span class="words">
+      <span class="words" style="font-family:Rubki bold;">
       <span>Python Full Stack Dev</span>
       <span>Frontend Developer</span>
       <span>Backend Developer</span>
@@ -69,7 +76,7 @@ block body %}
       </span>
         </h2>
 
-        <p class="lead">
+        <p class="lead" style="font-family: Roboto Mono;">
           Hi i am passionate Python developer and final-year diploma student
           specializing in full-stack development, automation, with a strong
           foundation in computer engineering.
@@ -77,12 +84,14 @@ block body %}
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <a
             class="btn btn-outline-dark btn-lg px-4"
+            style="font-family: Roboto Mono;"
             href="https://drive.google.com/file/d/1KGTJaYMChPRo4EBtT70rZ071TIqBitYA/view"
             target="_blank"
-          >
+            >
             Resume
           </a>
           <a
+            style="font-family: Roboto Mono;"
             class="btn btn-dark btn-outline-light btn-lg px-4"
             href="https://github.com/maazsiddiqui79"
             target="_blank"
@@ -109,8 +118,8 @@ block body %}
 <section class="container col-xl-8">
   <div class="row py-lg-5">
     <div class="container col-xl-8 mt-5"
-      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;margin-left:1.5rem">
-      <h3 class="display-5 fw-bolder text-body-emphasis lh-1 mb-3" style="font-family: 'Cambria'">
+      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;margin-left:1.5rem;font-family: Roboto Mono;">
+      <h3 class="display-5 fw-bolder text-body-emphasis lh-1 mb-3" style="font-family:rubik-bold">
         DEPLOYED PROJECT
       </h3>
       <p class="lead text-body-secondary">Live projects showcasing <br>complete build and deployment</p>
@@ -119,7 +128,7 @@ block body %}
 </section>
 <div class="container col-xl-8">
   
-  <div class="container py-4">
+  <div class="container py-4" style="font-family:Roboto Mono;">
     <div class="row justify-content-center text-center">
       <div class="container">
         <div class="row text-center">
@@ -178,8 +187,8 @@ block body %}
  <section class="container col-xl-8">
   <div class="row py-lg-5">
     <div class="container col-xl-8 mt-5"
-      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;margin-left:1.5rem">
-      <h3 class="display-5 fw-bolder text-body-emphasis lh-1 mb-3" style="font-family: 'Cambria'">
+      style="border-left: 2px black solid;margin-bottom:1rem;height:150px;padding-left: 30px;margin-left:1.5rem;font-family: Roboto Mono;">
+      <h3 class="display-5 fw-bolder text-body-emphasis lh-1 mb-3" style="font-family: Rubik bold">
         TRACK
       </h3>
       <p class="lead text-body-secondary">Work in Figures</p>
