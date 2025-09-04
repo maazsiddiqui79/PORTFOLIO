@@ -1,12 +1,13 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
+
 
   <meta charset="UTF-8">
   <!-- CSS Bootstrap -->
@@ -16,90 +17,88 @@
 
 
   <!-- JS Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
-    crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap" rel="stylesheet">    
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap" rel="stylesheet">
   <title>{% block title %}{% endblock title %}</title>
 
-    <style>
-        .nav-link-header {
-            color: inherit;
-            transition: all 0.3s ease-out;
-            color: rgba(50, 50, 50, 0.913);
-            
-            text-decoration: none;
-            padding-left: 10px;
-            margin-left: 5px;
-            margin-right: 5px;
-            padding-right: 10px;
-        }
+  <style>
+    .nav-link-header {
+      color: inherit;
+      transition: all 0.3s ease-out;
+      color: rgba(50, 50, 50, 0.913);
+
+      text-decoration: none;
+      padding-left: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding-right: 10px;
+    }
 
 
-        .nav-link-header:hover,a:active,.nav-link-header:focus {
-            color: black;
+    .nav-link-header:hover,
+    a:active,
+    .nav-link-header:focus {
+      color: black;
 
-            box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
-            transition: all 0.2s ease-in;
-            transform-origin: center;
-            text-decoration: underline;
-            border-bottom: 1.5px solid rgb(0, 0, 0);
-            border-top: 1.5px solid rgb(0, 0, 0);
-            
+      box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
+      transition: all 0.2s ease-in;
+      transform-origin: center;
+      text-decoration: underline;
+      border-bottom: 1.5px solid rgb(0, 0, 0);
+      border-top: 1.5px solid rgb(0, 0, 0);
 
-            
-            padding-left: 3px;
-            padding-right: 3px;
 
-        }
 
-        header {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem;
-        }
-    </style>
+      padding-left: 3px;
+      padding-right: 3px;
+
+    }
+
+    header {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  </style>
 
   {% block head %}{% endblock %}
   <link rel="shortcut icon" href="../static/icons-portfolio.png" type="image/x-icon">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
-  
 
 </head>
 
 
+
 <body>
 
-      <div class="container">
+  <div class="container">
 
 
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom fixed-top"
-            style="background-color:whitesmoke;"> <a href="/"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-                <h5><span style="font-family:Rubik bold ;">C:\Users\</span>maaz\-</h5>
-                <p class="nav nav-pills">
-                    <a href="#home" class="nav-link-header active-link" aria-current="page">Home</a> /
-                    <a href="#skills" class="nav-link-header active-link">Skills</a> /
-                    <a href="#projects" class="nav-link-header active-link">Project</a> /
-                    <a href="#about" class="nav-link-header active-link">About</a> /
-                    <a href="#connect" class="nav-link-header active-link">Connect</a>
-                </p>
-        </header>
-    </div>
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 fixed-top"
+      style="background-color:rgb(255, 255, 255);"> <a href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <h5><span style="font-family:Rubik bold ;">C:\Users\</span>maaz\-</h5>
+        <p class="nav nav-pills">
+          <a href="#home" class="nav-link-header active-link" aria-current="page">Home</a> /
+          <a href="#skills" class="nav-link-header active-link">Skills</a> /
+          <a href="#projects" class="nav-link-header active-link">Project</a> /
+          <a href="#about" class="nav-link-header active-link">About</a> /
+          <a href="#connect" class="nav-link-header active-link">Connect</a>
+        </p>
+    </header>
+  </div>
 
   {% block body %} {% endblock %}
-  
+
 
 </body>
 
 
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 border-top border-dark">
-    
-    <p class="col-md-5 ms-4 mb-0 text-body-secondary">© 2025 | Portfolio | <i>Developed and Designed by Maaz Siddiqui</i></p>
-    <ul class="nav col-md-5 justify-content-end">
-      
-      <li class="nav-item nav-link px-2 text-body-secondary" style="font-style:italic;font-weight:bolder"><a href="#" class="px-2 text-dark text-decoration-none">Home</a>~<span style="text-decoration: underline;font-style:italic;font-weight:bolder">Code every day, Grow every way</span></li>
-    </ul>
-  </footer>
+<footer class="py-3 "
+  style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
+
+  <p class="col-md-5 ms-4 mb-0 text-body-secondary">© 2025 | Portfolio | Built with ❤️ by Maaz Siddiqui</p>
+
+</footer>
 
 
 </html>

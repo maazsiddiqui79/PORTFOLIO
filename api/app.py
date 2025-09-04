@@ -88,6 +88,7 @@ Portfolio Website Notification System
                 msg=message.encode("utf-8")
             )
         print("Mail Sent")
+        flash(f'Your message has been successfully sent. Our team will review your details and get back to you shortly.','success')
 
     return render_template('index.html', all_post=p)
 
