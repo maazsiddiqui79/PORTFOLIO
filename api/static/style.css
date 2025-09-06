@@ -8,8 +8,8 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
-  filter: grayscale(80%) opacity(75%);
-  transition: all 0.4s ease-out, transform 0.9s ease-in-out;
+  filter: grayscale(80%) opacity(75%) blur(2px);
+  transition: all 0.4s ease-in-out, transform 0.9s ease-in-out;
 }
 
 header{
@@ -54,18 +54,19 @@ body {
     border-radius: 50%;
     margin-top: 75px;
     margin-left: 2%;
-    filter: grayscale(80%) opacity(75%);
-    transition: all 0.4s ease-out, transform 0.9s ease-in-out;
+    filter: grayscale(80%) opacity(75%) blur(2px) ;
+    
+    transition: all 0.4s ease-in-out, transform 0.9s ease-in-out;
   }
 
   .my-img:hover {
     box-shadow: 0 0 15px 5px rgba(13, 110, 253, 0.9);
     transform: translateX(-5px) scale(1.1);
-    max-width: 280px;
-    height: 300px;
+    max-width: 250px;
+    height: 270px;
     border-radius: 15%;
     margin-top: 75px;
-    margin-left: 10%;
+    margin-left: 8%;
     filter: grayscale(0%);
   }
 }
