@@ -1,22 +1,45 @@
 
 ---
-# 💼 Maaz Siddiqui – Developer Portfolio
 
-[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/) [![Flask](https://img.shields.io/badge/Flask-Web%20Framework-000000.svg)](https://flask.palletsprojects.com/) [![Figma](https://img.shields.io/badge/Design-Figma-F24E1E.svg)](https://www.figma.com/) [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717.svg)](https://github.com/maazsiddiqui79) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+<div align="center">
+<h1>💼 Maaz Siddiqui – Developer Portfolio</h1>
+</div>
 
+<div align="right">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="bootstrap logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/css/1572B6" height="40" alt="css logo"  />
+  <img width="12" />
+    <img width="12" />
+  <img src="https://skillicons.dev/icons?i=flask" height="40" alt="flask logo"  />
+  <img width="12" />
+    <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
+  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=py" height="40" alt="python logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/sqlite/003B57" height="40" alt="sqlite logo"  />
+  <img width="12" />
+  <img src="https://cdn.simpleicons.org/vercel/000000" height="40" alt="vercel logo"  />
+  <img width="12" />
+</div>
+<br>
+<br>
 A personal portfolio highlighting my projects in **software development, backend systems, and UI/UX design**.  
 This portfolio reflects my learning journey as a **Diploma student in Computer Engineering**, showcasing web applications, Python projects, and design prototypes.
 
 ---
 
-# 🚀 Live Portfolio
+<div align="center">
+<h1> 🚀 Live Portfolio</h1></div>
 
-📍 **Live Now on Vercel**  
-🔗 [https://the-maaz-portfolio.app](https://the-maaz-portfolio.vercel.app)
+📍 **Live Now on Vercel** 
+<br><a href="https://the-maaz-portfolio.vercel.app/"><img align="left" src="https://visitor-badge.laobi.icu/badge?page_id=maurodesouzas.maurodesouzas&left_color=maroon&right_color=cornflowerblue&left_text=Portfolio"  /></a>
+<br>
 
 ---
 
-# 📚 Portfolio Overview
+<div align="center">
+<h1> 📚 Portfolio Overview</h1></div>
 
 This portfolio includes:
 
@@ -26,9 +49,12 @@ This portfolio includes:
 - UI/UX prototypes in Figma
 - Deployed apps on Render and Vercel
 
+
+
 ---
 
-# 🔁 Featured Projects
+<div align="center">
+<h1> 🔁 Featured Projects</h1></div>
 
 ➡️ **Check out some highlighted work:**
 
@@ -43,7 +69,8 @@ This portfolio includes:
 
 ---
 
-# 📁 Project Structure
+<div align="center">
+<h1> 📁 Project Structure</h1></div>
 
 ```
 Portfolio/
@@ -65,7 +92,8 @@ Portfolio/
 
 ---
 
-# 🔐 Core Features
+<div align="center">
+<h1> 🔐 Core Features</h1></div>
 
 | Feature                 | Description                                     |
 | ----------------------- | ----------------------------------------------- |
@@ -77,7 +105,8 @@ Portfolio/
 
 ---
 
-# 🧰 Tech Stack
+<div align="center">
+<h1> 🧰 Tech Stack</h1></div>
 
 | Tool / Skill     | Purpose                                       |
 | ---------------- | --------------------------------------------- |
@@ -92,7 +121,8 @@ Portfolio/
 
 ---
 
-# 📈 Planned Enhancements
+<div align="center">
+<h1> 📈 Planned Enhancements</h1></div>
 
 | Feature                      | Status |
 | ---------------------------- | ------ |
@@ -103,13 +133,30 @@ Portfolio/
 | Showcase AI/ML mini-projects | ☑️     |
 
 ---
+<div align="center">
+<h1><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> Author
+</2>
+</div>
 
-# 🧑‍💻 Author
+
 
 **Maaz Siddiqui**  
 🎓 FInal Year Diploma in Computer Engineering, M.H. Saboo Siddik College  
-🔗 GitHub: [maazsiddiqui79](https://github.com/maazsiddiqui79)  
-💼 LinkedIn: [linkedin.com/siddiqui-maazzz/](https://www.linkedin.com/in/siddiqui-maazzz/)  
+
 💡 Passionate about **AI, backend systems, and clean UI design**
 
+<a href="https://www.linkedin.com/in/siddiqui-maazzz/">
+      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/linkedin.png?raw=true">
+   </a>&nbsp;&nbsp;
+   <a href="https://the-maaz-portfolio.vercel.app/">
+      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/devto.png?raw=true">
+   </a>&nbsp;&nbsp;
+   <a href="https://github.com/maazsiddiqui79">
+        <img src="https://cdn.simpleicons.org/github/181717" height="35" alt="github logo"  /></a>&nbsp;&nbsp;
+
+
+
 ---
+![MaazSiddiqui GitHub stats](https://github-readme-stats.vercel.app/api?username=maazsiddiqui79&theme=tokyonight&show_icons=true)
+
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=maazsiddiqui79&repo=PORTFOLIO)](https://github.com/maazsiddiqui79/PORTFOLIO)
