@@ -22,7 +22,7 @@ footer{
 /* Hover effect */
 .my-img:hover {
   border-radius: 5px;
-  box-shadow: 0 0 15px 10px rgba(13, 110, 253, 0.9);
+  box-shadow: 0 0 15px 10px rgb(13 110 253 / 67%);
   transform: translateX(-5px) scale(1.07);
   width: 366px;
   height: 365px;
@@ -60,7 +60,7 @@ body {
   }
 
   .my-img:hover {
-    box-shadow: 0 0 15px 5px rgba(13, 110, 253, 0.9);
+    box-shadow: 0 0 15px 10px rgb(13 110 253 / 67%);
     transform: translateX(-5px) scale(1.1);
     max-width: 250px;
     height: 270px;
