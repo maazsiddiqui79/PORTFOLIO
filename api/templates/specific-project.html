@@ -1,55 +1,158 @@
-{% extends 'base.html' %} {% block title %}Maaz | {{post.title}}{% endblock %}
-{% block head %}
-<style>
-  .project-bg {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+
+  <link rel="shortcut icon" href="../static/icons-portfolio.png" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <title>Maaz | {{post.title}}</title>
+
+  <style>
+    .project-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
       url('{{ url_for("static", filename="uploads/" + post.img) }}');
-    background-size: cover;
-    background-position: center;
-    background-size: cover;
-    background-position: center;
-    height: 600px;
-    color: whitesmoke;
+      background-size: cover;
+      background-position: center;
+      background-size: cover;
+      background-position: center;
+      height: 650px;
+      color: whitesmoke;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .para {
-    text-align: center;
-  }
-  /*
-  Rubik bold
-
-Roboto Mono
-  */
-  .c {
-    width: 1145px;
-    
-    padding: 30px;
-    font-family: Rubik bold;
-    margin: 0 auto;
-  }
-  @media (max-width: 991.98px) {
-    .c {
-      width: 100%;
-      
-      font-family: Rubik bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  }
-</style>
+    
+    .para {
+      text-align: center;
+    }
+    
+    /*
+    Rubik bold
+    
+    Roboto Mono
+    */
+    .c {
+      width: 1200px;
+      background-color:rgba(114, 168, 248, 0.094);
+      
+      padding: 30px;
+      padding-top: 45px;
+      padding-bottom: 65px;
+      font-family: Rubik bold;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 991.98px) {
+      .project-bg {
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('{{ url_for("static", filename="uploads/" + post.img) }}');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center; 
+        height: 650px;
+        color: whitesmoke;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .c {
+        width: 100%;
 
-{% endblock %} {% block body %}
+        font-family: Rubik bold;
+      }
+    }
 
-<div class="project-bg">
-  <p class="para"  style="font-family: Roboto Mono;">
-    <span style="font-size: 45px;font-family: Rubik bold;">{{post.title}}</span
-    ><br />{{post.s_description}}
-  </p>
-  <!-- Content -->
-</div>
-<br />
-<div class="c">{{ post.body|safe }}</div>
+    .nav-link-header {
+      color: inherit;
+      transition: all 0.3s ease-out;
+      color: rgba(50, 50, 50, 0.913);
 
-{% endblock %}
+      text-decoration: none;
+      padding-left: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding-right: 10px;
+    }
+
+
+    .nav-link-header:hover,
+    a:active,
+    .nav-link-header:focus {
+      color: black;
+
+      box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
+      transition: all 0.2s ease-in;
+      transform-origin: center;
+      text-decoration: underline;
+      border-bottom: 1.5px solid rgb(0, 0, 0);
+      border-top: 1.5px solid rgb(0, 0, 0);
+      letter-spacing: 4.5px;
+      padding-left: 3px;
+      padding-right: 3px;
+
+    }
+
+    header {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      size: 1px;
+      font-size: 20px;
+      padding-top: 1rem !important;
+      padding-bottom: 1rem !important;
+      margin-bottom: 1.5rem !important;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div class="container">
+
+
+    <header class="d-flex flex-wrap justify-content-center  mb-4 fixed-top"
+      style="background-color:rgb(255, 255, 255);"> <a href="/"
+        class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+        <h5><span style="font-family:Rubik bold ;font-size: 28px;">>_</span>siddiqui.maazzz</h5>
+        <p class="nav nav-pills">
+          <a href="/#home" class="nav-link-header active-link" aria-current="page">Home</a> /
+          <a href="/#skills" class="nav-link-header active-link">Skills</a> /
+          <a href="/#projects" class="nav-link-header active-link">Project</a> /
+          <a href="/#about" class="nav-link-header active-link">About</a> /
+          <a href="/#connect" class="nav-link-header active-link">Connect</a>
+        </p>
+    </header>
+  </div>
+
+
+  <div class="project-bg ">
+    <p class="para" style="font-family: Roboto Mono;font-size: 17px;">
+      <span style="font-size: 50px; font-family: Rubik bold">{{post.title}}</span><br />{{post.s_description}}
+    </p>
+    <!-- Content -->
+  </div>
+  <br />
+  <div class="c container ">{{ post.body|safe }}</div>
+
+  <footer class="py-3 "
+    style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;background-color:rgba(31, 31, 31, 0.062);">
+
+    <p class="col-md-5 ms-4 mb-0 text-body-secondary">© 2025 | Portfolio | Designed and Engineered by `<u>Maaz Siddiqui</u></p>
+
+  </footer>
+
+</body>
+
+</html>
