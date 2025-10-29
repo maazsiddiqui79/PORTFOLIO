@@ -76,10 +76,11 @@ body {
 
 .card:hover {
   box-shadow: 0 0 15px 3px rgba(13, 110, 253, 0.5);
-  transform: scale(1.05);
-  transform: translateY(-5%);
+  
+  transform: translateY(-8%) scale(0.95);
   background: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)),
   url('static/uploads/{{i.img}}');
+  
 }
 
 .card {
