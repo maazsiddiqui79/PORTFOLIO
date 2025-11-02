@@ -8,7 +8,7 @@
   align-items: center;
   justify-content: center;
   margin-top: 30px;
-  filter: grayscale(80%) opacity(75%) blur(2px);
+  filter: grayscale(60%) opacity(55%) blur(2px);
   transition: all 0.4s ease-in-out, transform 0.9s ease-in-out;
 }
 
@@ -54,7 +54,7 @@ body {
     border-radius: 50%;
     margin-top: 75px;
     margin-left: 2%;
-    filter: grayscale(80%) opacity(75%) blur(2px) ;
+    filter: grayscale(60%) opacity(55%) blur(2px) ;
     
     transition: all 0.4s ease-in-out, transform 0.9s ease-in-out;
   }
