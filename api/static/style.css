@@ -22,11 +22,11 @@ footer{
 /* Hover effect */
 .my-img:hover {
   border-radius: 5px;
-  box-shadow: 00 0 15px 5px rgb(75 133 244));
+  box-shadow: 0 0 15px 5px rgb(75 133 244);
   transform: translateX(-5px) scale(1.07);
   width: 366px;
   height: 365px;
-  border-radius: 15%;
+  border-radius: 1%;
   margin-top: 30px;
   filter: grayscale(0%);
 }
