@@ -1,10 +1,11 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request, flash , session
 from flask_sqlalchemy import SQLAlchemy
 import os
 from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import smtplib
 import os
+import random
 
 
 
@@ -43,7 +44,13 @@ class PROJECT_POSTS(db.Model):
     def __repr__(self):
         return f"<PROJECT_POSTS(id={self.id}, title='{self.title}'),DESC={self.s_description}>"
     
+
+
     
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("error.html")
+
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     p = PROJECT_POSTS.query.all()
@@ -92,8 +99,89 @@ Portfolio Website Notification System
 
     return render_template('index.html', all_post=p)
 
-@app.route('/add-new-project', methods=['GET', 'POST'])
+USER_OTP = None
+chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+URL_FOR_ADDING_PROJ = ''.join(random.choices(chars,k=12))
+URL_FOR_DELETE_PROJ = ''.join(random.choices(chars,k=12))
+
+@app.route('/make-changes', methods=['GET', 'POST'])
+def make_changes():
+    global USER_OTP
+    global URL_FOR_ADDING_PROJ
+    global URL_FOR_DELETE_PROJ
+    
+    if request.method == 'POST':
+        OTP = request.form.get('otp', '').strip()
+        option = request.form.get('course',"").strip()
+        
+        
+        if not OTP:
+            flash('No OTP found. Please request a new code.', 'warning')
+            return render_template('validatepage.html')
+        
+        if int(OTP) == int(USER_OTP):
+            # Testing Purpose
+            # print("+________________________________+")
+            # print(f"OTP:{OTP}\nUSER:{USER_OTP}")
+            # print("+________________________________+")
+            if int(option) == 1:
+                return redirect(f'/{URL_FOR_ADDING_PROJ}')
+            elif int(option) == 2:
+                return redirect(f'/{URL_FOR_DELETE_PROJ}')
+                
+                
+            else:
+                flash('Password incorrect ','danger')
+                return render_template('validatepage.html')
+        else:
+            flash('OTP incorrect.', 'danger')
+            return render_template('validatepage.html')
+    
+    
+    USER_OTP = str(random.randint(1000,9999))
+    
+    # ---------------------------------------
+
+    sender_mail = "maaz.irshad.siddiqui@gmail.com"
+    password = "tvud sggg rdle ywll"
+    message = f"""Subject: Portfolio Verification Code
+
+Dear Admin,
+
+A verification request was initiated for your portfolio website.
+Your 4-digit verification code is:
+
+------------------------------
+Verification Code: {USER_OTP}
+------------------------------
+
+This code was generated automatically to confirm activity on your portfolio.
+
+Best regards,
+Portfolio Website Notification System
+"""
+
+    with smtplib.SMTP_SSL("smtp.gmail.com", port=465) as connection:
+        connection.login(user=sender_mail, password=password)
+        connection.sendmail(
+            from_addr=sender_mail,
+            to_addrs='siddiqui.maaz79@gmail.com',
+            msg=message.encode("utf-8")
+        )
+    print("Mail Sent")
+    # ----------------------------------------
+    
+    flash('Mail sent check ','success')
+    return render_template('validatepage.html')
+
+
+                
+    
+
+@app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
 def add_new_project():
+
+
     if request.method == 'POST':
         print('+=========================================REACHED New project=========================================+')
         title = request.form.get('title')
@@ -124,19 +212,22 @@ def add_new_project():
             flash(f'ERROR: {e}', 'danger')
         return render_template('new_pro.html')
 
+    URL_FOR_ADDING_PROJ = ''.join(random.choices(chars,k=12))
     return render_template('new_pro.html')
 
 
 
-@app.route("/maaz-project/<id>")
+@app.route(f"/maaz-project/<id>")
 def maaz_project(id):
+
     print('+=========================================REACHED View Project=========================================+')
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
     return render_template("specific-project.html", post=post)
 # all_post
 
-@app.route("/maaz-project-edits/")
+@app.route(f"/{URL_FOR_DELETE_PROJ}")
 def maaz_project_edit():
+    URL_FOR_DELETE_PROJ = ''.join(random.choices(chars,k=12))
     post = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=post)
 
