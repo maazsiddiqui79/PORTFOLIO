@@ -28,9 +28,15 @@ body.darkk .darkmodeheader {
 }
 
 body.darkk .footerdarkmode {
-  color: #000000;
+  color: white;
+  background-color: #303030;
 
-  /* background-color: rgb(255, 255, 255); */
+}
+
+body.darkk .navdarkmode {
+  color: white;
+  box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
+  background-color: #303030;
 
 }
 
@@ -63,6 +69,14 @@ body.darkk .darkmode {
   box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.578);
 
 }
+body.darkk .skillsdarkmode {
+  border: 1px white solid;
+  background: white;
+  color: black;
+  box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
+  
+
+}
 
 /* WHEN LIGHT MODE */
 .darkmodelogo {
@@ -72,10 +86,20 @@ body.darkk .darkmode {
   color: #000;
 }
 
+.navdarkmode {
+
+  box-shadow: 0 0 11px 5px rgba(0, 0, 0, 0.163);
+
+  color: #222222;
+
+  background-color: rgba(255, 255, 255, 0.966);
+
+}
+
 .footerdarkmode {
   color: #222222;
 
-  background-color: rgba(255, 255, 255, 0.945);
+  background-color: rgba(255, 255, 255, 0);
 
 
 }
@@ -86,6 +110,12 @@ body.darkk .darkmode {
 }
 
 .darkmode {
+  background-color: #f8f9fa;
+  box-shadow:
+    0 12px 20px -3px rgba(0, 0, 0, 0.18),
+    0 6px 8px -4px rgba(0, 0, 0, 0.12);
+}
+.skillsdarkmode {
   background-color: #f8f9fa;
   box-shadow:
     0 12px 20px -3px rgba(0, 0, 0, 0.18),
@@ -117,11 +147,11 @@ Accent / Element Color (buttons, borders, highlights)
 }
 
 header {
-  box-shadow: 0 0 15px 5px rgb(188, 210, 252);
+  box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
 }
 
 footer {
-  box-shadow: 0 0 15px 5px rgba(13, 109, 253, 0.162);
+  box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
 }
 
 /* Hover effect */
