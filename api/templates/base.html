@@ -81,17 +81,37 @@
   <div class="container">
 
 
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 fixed-top"
-      style="background-color:rgb(255, 255, 255);"> <a href="/"
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 fixed-top footerdarkmode"
+      > 
+      <a href="/"
         class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
         <h5><span style="font-family:Rubik bold ;text-decoration: underline; text-decoration-thickness: 3px; text-decoration-color: black;">Portfolio</span></h5>
         <p class="nav nav-pills">
+          
           <a href="#home" class="nav-link-header active-link" aria-current="page">Home</a> /
           <a href="#skills" class="nav-link-header active-link">Skills</a> /
           <a href="#projects" class="nav-link-header active-link">Project</a> /
           <a href="#about" class="nav-link-header active-link">About</a> /
           <a href="#connect" class="nav-link-header active-link">Connect</a>
         </p>
+      <div style="cursor:pointer">
+
+          <!-- SUN ICON (light mode default) -->
+          <svg onclick="document.body.classList.toggle('darkk')" xmlns="http://www.w3.org/2000/svg" width="30"
+            height="30" fill="currentColor" class="darkmode-sun darkmodelogo bi bi-brightness-high-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
+          </svg>
+
+          <!-- MOON ICON (for dark mode) -->
+          <svg onclick="document.body.classList.toggle('darkk')" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="darkmode-moon darkmodelogo bi bi-moon-fill"
+            viewBox="0 0 16 16">
+            <path
+              d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+          </svg>
+
+        </div>
     </header>
   </div>
 
@@ -101,10 +121,10 @@
 </body>
 
 
-<footer class="py-3 "
+<footer class="py-3 footerdarkmode"
   style="display: flex; justify-content: center; align-items: center; flex-direction: column; text-align: center;">
 
-  <p class="col-md-5 ms-4 mb-0 text-body-secondary">© 2025 | Portfolio | Designed and Engineered by `Maaz Siddiqui</p>
+  <p class="col-md-5 ms-4 mb-0">© 2025 | Portfolio | Designed and Engineered by `Maaz Siddiqui</p>
 
 </footer>
 
