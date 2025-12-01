@@ -212,7 +212,7 @@ def add_new_project():
             flash(f'ERROR: {e}', 'danger')
         return render_template('new_pro.html')
 
-    URL_FOR_ADDING_PROJ = ''.join(random.choices(chars,k=12))
+    
     return render_template('new_pro.html')
 
 
@@ -227,7 +227,6 @@ def maaz_project(id):
 
 @app.route(f"/{URL_FOR_DELETE_PROJ}")
 def maaz_project_edit():
-    URL_FOR_DELETE_PROJ = ''.join(random.choices(chars,k=12))
     post = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=post)
 
