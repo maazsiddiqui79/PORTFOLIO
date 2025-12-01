@@ -9,28 +9,27 @@ import random
 
 
 
-
-# ✅ Fix for Vercel (use /tmp if static/ is read-only)
+# upload folder (works on Vercel)
 if os.environ.get("VERCEL"):
     UPLOAD_FOLDER = "/tmp/uploads"
+    db_path = "/tmp/my_database.db"
 else:
     UPLOAD_FOLDER = "static/uploads"
-
-os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-if os.environ.get("VERCEL"):
-    db_path = '/tmp/my_database.db'
-else:
     db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
 
+# ensure upload folder and DB parent folder exist
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+db_dir = os.path.dirname(db_path)
+if db_dir:
+    os.makedirs(db_dir, exist_ok=True)
 
+app = Flask(__name__, static_folder="static", template_folder='templates')
 
-app = Flask(__name__, static_folder="static",template_folder='templates')
-
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://go_todo_task_db_user:z3YSJb1og6V5aDVXuJqv9Kgsn7VgBpTO@dpg-d20liqndiees739m4op0-a.oregon-postgres.render.com/go_todo_task_db'
-db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
+# use the db_path variable (do NOT reassign db_path later)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
 ckeditor = CKEditor(app)
 app.secret_key = 'your_secret_key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
