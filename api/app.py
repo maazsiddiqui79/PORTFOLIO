@@ -4,8 +4,11 @@ import os
 from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import smtplib
+import os
 import random
-from flask import jsonify
+
+
+
 
 # ✅ Fix for Vercel (use /tmp if static/ is read-only)
 if os.environ.get("VERCEL"):
@@ -14,6 +17,7 @@ else:
     UPLOAD_FOLDER = "static/uploads"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 
 app = Flask(__name__, static_folder="static",template_folder='templates')
 
@@ -28,6 +32,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # ✅ Ensure the upload folder exists (non-intrusive, does not change logic)
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 class PROJECT_POSTS(db.Model):
     __tablename__ = 'PROJECTS'
     id = db.Column(db.Integer, primary_key=True)
@@ -37,12 +42,14 @@ class PROJECT_POSTS(db.Model):
     body = db.Column(db.String, nullable=False)
     
     def __repr__(self):
-        return f"<PROJECT_POSTS id={self.id} title={self.title}desc={self.s_description}>"
-    
+        return f"<PROJECT_POSTS(id={self.id}, title='{self.title}'),DESC={self.s_description}>"
     
 
 
-    
+
+@app.before_first_request
+def create_db():
+    db.create_all()
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template("error.html")
@@ -95,16 +102,6 @@ Portfolio Website Notification System
 
     return render_template('index.html', all_post=p)
 
-@app.route('/debug-posts')
-def debug_posts():
-    posts = PROJECT_POSTS.query.all()
-    return jsonify([{
-        "id": p.id,
-        "title": p.title,
-        "s_description": p.s_description,
-        "img": p.img,
-        "body": p.body
-    } for p in posts])
 
 USER_OTP = None
 chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
