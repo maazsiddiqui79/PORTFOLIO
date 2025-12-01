@@ -197,8 +197,8 @@ def add_new_project():
 
         if img and img.filename != '':
             filename = secure_filename(img.filename)
-            upload = cloudinary.uploader.upload(img)
-            img_filename = upload['secure_url']
+            img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            img_filename = filename
 
 
         try:
