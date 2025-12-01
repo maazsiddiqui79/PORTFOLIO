@@ -9,27 +9,23 @@ import random
 
 
 
-# upload folder (works on Vercel)
+
+# ✅ Fix for Vercel (use /tmp if static/ is read-only)
 if os.environ.get("VERCEL"):
     UPLOAD_FOLDER = "/tmp/uploads"
-    db_path = "/tmp/my_database.db"
 else:
     UPLOAD_FOLDER = "static/uploads"
-    db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
 
-# ensure upload folder and DB parent folder exist
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-db_dir = os.path.dirname(db_path)
-if db_dir:
-    os.makedirs(db_dir, exist_ok=True)
 
-app = Flask(__name__, static_folder="static", template_folder='templates')
 
-# use the db_path variable (do NOT reassign db_path later)
+app = Flask(__name__, static_folder="static",template_folder='templates')
+
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://go_todo_task_db_user:z3YSJb1og6V5aDVXuJqv9Kgsn7VgBpTO@dpg-d20liqndiees739m4op0-a.oregon-postgres.render.com/go_todo_task_db'
+db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
-
 ckeditor = CKEditor(app)
 app.secret_key = 'your_secret_key'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -238,22 +234,12 @@ def maaz_project_edit():
 @app.route("/delete-maaz-project/<id>")
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
-    if not post:
-        flash('Project not found', 'warning')
-        posts = PROJECT_POSTS.query.all()
-        return 'ERROR'
+    db.session.delete(post)
+    db.session.commit()
+    
+    post = PROJECT_POSTS.query.all()
+    return render_template("delete.html", post=post)
 
-    try:
-        db.session.delete(post)
-        db.session.commit()
-        flash('Project deleted', 'success')
-    except Exception as e:
-        app.logger.exception("Failed to delete project id=%s", id)
-        db.session.rollback()
-        return (f'Error deleting project: {e}', 'danger')
-
-    posts = PROJECT_POSTS.query.all()
-    return render_template("delete.html", post=posts)
 with app.app_context():
     db.create_all()
 
