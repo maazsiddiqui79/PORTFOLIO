@@ -249,11 +249,13 @@ def add_new_project():
 
 @app.route(f"/maaz-project/<id>")
 def maaz_project(id):
-
     print('+=========================================REACHED View Project=========================================+')
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
+    if not post:
+        # either show custom page or return 404
+        return render_template('error.html'), 404
+        # or: abort(404)
     return render_template("specific-project.html", post=post)
-# all_post
 
 @app.route(f"/{URL_FOR_DELETE_PROJ}")
 def maaz_project_edit():
@@ -264,11 +266,15 @@ def maaz_project_edit():
 @app.route("/delete-maaz-project/<id>", methods=["POST","GET"])
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
+    if not post:
+        flash('Project not found.', 'warning')
+        posts = PROJECT_POSTS.query.all()
+        return render_template("delete.html", post=posts)
     db.session.delete(post)
     db.session.commit()
-    
-    post = PROJECT_POSTS.query.all()
-    return render_template("delete.html", post=post)
+    posts = PROJECT_POSTS.query.all()
+    flash('Deleted.', 'success')
+    return render_template("delete.html", post=posts)
 
 with app.app_context():
     db.create_all()
