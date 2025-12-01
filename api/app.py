@@ -32,7 +32,13 @@ app = Flask(__name__, static_folder="static",template_folder='templates')
 # if Render's connection string needs sslmode, you can append it:
 # sql_url += "?sslmode=require"
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
+# config (replace in your file)
+DATABASE_URL = os.environ.get("DATABASE_URL")
+if DATABASE_URL:
+    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
+else:
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ckeditor = CKEditor(app)
