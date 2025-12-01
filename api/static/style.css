@@ -69,12 +69,13 @@ body.darkk .darkmode {
   box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.578);
 
 }
+
 body.darkk .skillsdarkmode {
   border: 1px white solid;
   background: white;
   color: black;
   box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
-  
+
 
 }
 
@@ -115,6 +116,7 @@ body.darkk .skillsdarkmode {
     0 12px 20px -3px rgba(0, 0, 0, 0.18),
     0 6px 8px -4px rgba(0, 0, 0, 0.12);
 }
+
 .skillsdarkmode {
   background-color: #f8f9fa;
   box-shadow:
