@@ -242,7 +242,7 @@ def delete_maaz_project(id):
     if not post:
         flash('Project not found', 'warning')
         posts = PROJECT_POSTS.query.all()
-        return render_template("delete.html", post=posts)
+        return 'ERROR'
 
     try:
         db.session.delete(post)
@@ -251,7 +251,7 @@ def delete_maaz_project(id):
     except Exception as e:
         app.logger.exception("Failed to delete project id=%s", id)
         db.session.rollback()
-        flash(f'Error deleting project: {e}', 'danger')
+        return (f'Error deleting project: {e}', 'danger')
 
     posts = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=posts)
