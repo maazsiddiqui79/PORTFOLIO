@@ -109,16 +109,19 @@ def make_changes():
     global USER_OTP
     global URL_FOR_ADDING_PROJ
     global URL_FOR_DELETE_PROJ
-    
+
     if request.method == 'POST':
         OTP = request.form.get('otp', '').strip()
         option = request.form.get('course',"").strip()
-        
-        
+
+
         if not OTP:
             flash('No OTP found. Please request a new code.', 'warning')
             return render_template('validatepage.html')
-        
+        if not USER_OTP:
+            flash('Request a code first','warning'); return render_template('validatepage.html')
+        if not OTP.isdigit():
+            flash('Enter numeric OTP','warning'); return render_template('validatepage.html')
         if int(OTP) == int(USER_OTP):
             # Testing Purpose
             # print("+________________________________+")
@@ -128,18 +131,18 @@ def make_changes():
                 return redirect(f'/{URL_FOR_ADDING_PROJ}')
             elif int(option) == 2:
                 return redirect(f'/{URL_FOR_DELETE_PROJ}')
-                
-                
+
+
             else:
                 flash('Password incorrect ','danger')
                 return render_template('validatepage.html')
         else:
             flash('OTP incorrect.', 'danger')
             return render_template('validatepage.html')
-    
-    
+
+
     USER_OTP = str(random.randint(1000,9999))
-    
+
     # ---------------------------------------
 
     sender_mail = "maaz.irshad.siddiqui@gmail.com"
@@ -170,13 +173,13 @@ Portfolio Website Notification System
         )
     print("Mail Sent")
     # ----------------------------------------
-    
+
     flash('Mail sent check ','success')
     return render_template('validatepage.html')
 
 
-                
-    
+
+
 
 @app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
 def add_new_project():
@@ -190,12 +193,13 @@ def add_new_project():
         img_filename = ""
 
         img = request.files['image'] if 'image' in request.files else None
-        
+
 
         if img and img.filename != '':
             filename = secure_filename(img.filename)
-            img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_filename = filename
+            upload = cloudinary.uploader.upload(img)
+            img_filename = upload['secure_url']
+
 
         try:
             new_post = PROJECT_POSTS(
@@ -212,36 +216,41 @@ def add_new_project():
             flash(f'ERROR: {e}', 'danger')
         return render_template('new_pro.html')
 
-    URL_FOR_ADDING_PROJ = ''.join(random.choices(chars,k=12))
+
     return render_template('new_pro.html')
 
 
 
 @app.route(f"/maaz-project/<id>")
 def maaz_project(id):
-
     print('+=========================================REACHED View Project=========================================+')
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
+    if not post:
+        # either show custom page or return 404
+        return render_template('error.html'), 404
+        # or: abort(404)
     return render_template("specific-project.html", post=post)
-# all_post
 
 @app.route(f"/{URL_FOR_DELETE_PROJ}")
 def maaz_project_edit():
-    URL_FOR_DELETE_PROJ = ''.join(random.choices(chars,k=12))
+
     post = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=post)
 
-@app.route("/delete-maaz-project/<id>")
+@app.route("/delete-maaz-project/<id>", methods=["POST","GET"])
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
+    if not post:
+        flash('Project not found.', 'warning')
+        posts = PROJECT_POSTS.query.all()
+        return render_template("delete.html", post=posts)
     db.session.delete(post)
     db.session.commit()
-    
-    post = PROJECT_POSTS.query.all()
-    return render_template("delete.html", post=post)
+    posts = PROJECT_POSTS.query.all()
+    flash('Deleted.', 'success')
+    return render_template("delete.html", post=posts)
 
 with app.app_context():
     db.create_all()
-
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
