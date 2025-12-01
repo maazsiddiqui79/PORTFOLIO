@@ -12,10 +12,10 @@ import random
 # ✅ Fix for Vercel (use /tmp if static/ is read-only)
 if os.environ.get("VERCEL"):
     UPLOAD_FOLDER = "/tmp/uploads"
-    db_path = "/tmp/my_databse.db"
+    db_path = "/tmp/my_database.db"
 else:
     UPLOAD_FOLDER = "static/uploads"
-    db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
+    db_path = os.path.join(os.path.dirname(__file__), "my_database.db")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
