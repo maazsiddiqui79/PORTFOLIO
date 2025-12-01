@@ -261,7 +261,7 @@ def maaz_project_edit():
     post = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=post)
 
-@app.route("/delete-maaz-project/<id>", methods=["POST"])
+@app.route("/delete-maaz-project/<id>", methods=["POST","GET"])
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
     db.session.delete(post)

@@ -95,7 +95,7 @@
         {% endif %}
       {% endwith %}
 
-      <form method="POST" action="/add-new-project" enctype="multipart/form-data">
+      <form method="POST" action="{{ url_for('add_new_project') }}" enctype="multipart/form-data">
 
         <!-- Project Title -->
         <label for="title">Project Title:</label>
