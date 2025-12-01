@@ -7,7 +7,17 @@ import smtplib
 import random
 from flask import jsonify
 
+import cloudinary
+import cloudinary.uploader
+from cloudinary.utils import cloudinary_url
 
+# Configuration       
+cloudinary.config( 
+    cloud_name = "difmncjre", 
+    api_key = "739838813376712", 
+    api_secret = "KFdx9vnHDTptDscOD3rDohrFo2I", # Click 'View API Keys' above to copy your API secret
+    secure=True
+)
 
 
 
@@ -224,8 +234,9 @@ def add_new_project():
 
         if img and img.filename != '':
             filename = secure_filename(img.filename)
-            img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_filename = filename
+            upload = cloudinary.uploader.upload(img)
+            img_filename = upload['secure_url']
+
 
         try:
             new_post = PROJECT_POSTS(
