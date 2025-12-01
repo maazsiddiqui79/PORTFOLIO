@@ -7,48 +7,19 @@ import smtplib
 import random
 from flask import jsonify
 
-import cloudinary
-import cloudinary.uploader
-from cloudinary.utils import cloudinary_url
-
-# Configuration       
-cloudinary.config( 
-    cloud_name = "difmncjre", 
-    api_key = "739838813376712", 
-    api_secret = "KFdx9vnHDTptDscOD3rDohrFo2I", # Click 'View API Keys' above to copy your API secret
-    secure=True
-)
-
-
-
-
 # ✅ Fix for Vercel (use /tmp if static/ is read-only)
 if os.environ.get("VERCEL"):
     UPLOAD_FOLDER = "/tmp/uploads"
-    db_path = "/tmp/my_database.db"
 else:
     UPLOAD_FOLDER = "static/uploads"
-    db_path = os.path.join(os.path.dirname(__file__), "my_database.db")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
-
 
 app = Flask(__name__, static_folder="static",template_folder='templates')
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://go_todo_task_db_user:z3YSJb1og6V5aDVXuJqv9Kgsn7VgBpTO@dpg-d20liqndiees739m4op0-a.oregon-postgres.render.com/go_todo_task_db'
-
-
-# if Render's connection string needs sslmode, you can append it:
-# sql_url += "?sslmode=require"
-
-# config (replace in your file)
-DATABASE_URL = os.environ.get("DATABASE_URL")
-if DATABASE_URL:
-    app.config['SQLALCHEMY_DATABASE_URI'] = DATABASE_URL
-else:
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
-
+db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 ckeditor = CKEditor(app)
@@ -57,7 +28,6 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # ✅ Ensure the upload folder exists (non-intrusive, does not change logic)
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
-
 class PROJECT_POSTS(db.Model):
     __tablename__ = 'PROJECTS'
     id = db.Column(db.Integer, primary_key=True)
@@ -234,9 +204,8 @@ def add_new_project():
 
         if img and img.filename != '':
             filename = secure_filename(img.filename)
-            upload = cloudinary.uploader.upload(img)
-            img_filename = upload['secure_url']
-
+            img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            img_filename = filename
 
         try:
             new_post = PROJECT_POSTS(
