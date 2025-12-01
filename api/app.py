@@ -17,6 +17,11 @@ else:
     UPLOAD_FOLDER = "static/uploads"
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+if os.environ.get("VERCEL"):
+    db_path = '/tmp/my_database.db'
+else:
+    db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
+
 
 
 app = Flask(__name__, static_folder="static",template_folder='templates')
@@ -234,12 +239,22 @@ def maaz_project_edit():
 @app.route("/delete-maaz-project/<id>")
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
-    db.session.delete(post)
-    db.session.commit()
-    
-    post = PROJECT_POSTS.query.all()
-    return render_template("delete.html", post=post)
+    if not post:
+        flash('Project not found', 'warning')
+        posts = PROJECT_POSTS.query.all()
+        return render_template("delete.html", post=posts)
 
+    try:
+        db.session.delete(post)
+        db.session.commit()
+        flash('Project deleted', 'success')
+    except Exception as e:
+        app.logger.exception("Failed to delete project id=%s", id)
+        db.session.rollback()
+        flash(f'Error deleting project: {e}', 'danger')
+
+    posts = PROJECT_POSTS.query.all()
+    return render_template("delete.html", post=posts)
 with app.app_context():
     db.create_all()
 
