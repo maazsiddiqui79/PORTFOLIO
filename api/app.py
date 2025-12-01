@@ -5,6 +5,9 @@ from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import smtplib
 import random
+from flask import jsonify
+
+
 
 
 
@@ -105,6 +108,17 @@ Portfolio Website Notification System
         flash(f'Your message has been successfully sent. Our team will review your details and get back to you shortly.','success')
 
     return render_template('index.html', all_post=p)
+
+@app.route('/debug-posts')
+def debug_posts():
+    posts = PROJECT_POSTS.query.all()
+    return jsonify([{
+        "id": p.id,
+        "title": p.title,
+        "s_description": p.s_description,
+        "img": p.img,
+        "body": p.body
+    } for p in posts])
 
 USER_OTP = None
 chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
