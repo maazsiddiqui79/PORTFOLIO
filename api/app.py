@@ -4,7 +4,6 @@ import os
 from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import smtplib
-import os
 import random
 
 
@@ -13,16 +12,23 @@ import random
 # ✅ Fix for Vercel (use /tmp if static/ is read-only)
 if os.environ.get("VERCEL"):
     UPLOAD_FOLDER = "/tmp/uploads"
+    db_path = "/tmp/my_databse.db"
 else:
     UPLOAD_FOLDER = "static/uploads"
+    db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
 
 
 app = Flask(__name__, static_folder="static",template_folder='templates')
 
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg://go_todo_task_db_user:z3YSJb1og6V5aDVXuJqv9Kgsn7VgBpTO@dpg-d20liqndiees739m4op0-a.oregon-postgres.render.com/go_todo_task_db'
-db_path = os.path.join(os.path.dirname(__file__), "my_databse.db")
+
+
+# if Render's connection string needs sslmode, you can append it:
+# sql_url += "?sslmode=require"
+
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -42,7 +48,8 @@ class PROJECT_POSTS(db.Model):
     body = db.Column(db.String, nullable=False)
     
     def __repr__(self):
-        return f"<PROJECT_POSTS(id={self.id}, title='{self.title}'),DESC={self.s_description}>"
+        return f"<PROJECT_POSTS id={self.id} title={self.title}desc={self.s_description}>"
+    
     
 
 
@@ -118,7 +125,10 @@ def make_changes():
         if not OTP:
             flash('No OTP found. Please request a new code.', 'warning')
             return render_template('validatepage.html')
-        
+        if not USER_OTP:
+            flash('Request a code first','warning'); return render_template('validatepage.html')
+        if not OTP.isdigit():
+            flash('Enter numeric OTP','warning'); return render_template('validatepage.html')
         if int(OTP) == int(USER_OTP):
             # Testing Purpose
             # print("+________________________________+")
@@ -227,10 +237,11 @@ def maaz_project(id):
 
 @app.route(f"/{URL_FOR_DELETE_PROJ}")
 def maaz_project_edit():
+    
     post = PROJECT_POSTS.query.all()
     return render_template("delete.html", post=post)
 
-@app.route("/delete-maaz-project/<id>")
+@app.route("/delete-maaz-project/<id>", methods=["POST"])
 def delete_maaz_project(id):
     post = PROJECT_POSTS.query.filter_by(id=int(id)).first()
     db.session.delete(post)
@@ -241,6 +252,8 @@ def delete_maaz_project(id):
 
 with app.app_context():
     db.create_all()
+
+    
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
