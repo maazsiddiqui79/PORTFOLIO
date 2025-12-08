@@ -65,13 +65,41 @@ block body %} {% block head %}
       transform: translateY(-100%) scale(1.95);
     }
   }
+  .page_load_class_img {
+    animation: page_load_animation 5s ease-in infinite;
+  }
+
+  @keyframes page_load_animation {
+    0% {
+      transform: translateY(5%);
+      opacity: 0;
+    }
+    10% {
+      transform: translateY(0%);
+      opacity: 1;
+    }
+  }
+  .page_load_class_text {
+    animation: page_load_animation_txt 5s ease-in infinite;
+  }
+
+  @keyframes page_load_animation_txt {
+    0% {
+      transform: translateX(-5%);
+      opacity: 0;
+    }
+    10% {
+      transform: translateX(0%);
+      opacity: 1;
+    }
+  }
 </style>
 {% endblock style %}
 <!-- First Look -->
 <div id="home">
   <div class="container px-4 py-5">
     <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-12 col-sm-12 col-lg-6">
+      <div class="col-12 col-sm-12 col-lg-6 page_load_class_img">
         <img
           src="../static/my_img.jpg"
           draggable="false"
@@ -79,7 +107,7 @@ block body %} {% block head %}
           alt="My Image"
         />
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-6 page_load_class_text">
         <h1 class="display-4 lh-1 mb-3">
           <span
             class="fw-bold"
