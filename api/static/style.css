@@ -19,13 +19,13 @@ body.darkk .darkmode-moon {
 }
 
 body.darkk {
-  background: #222222;
+  background: #151515;
   color: white;
 
 }
 
 body.darkk .darkmodeheader {
-  background: #222222;
+  background: #151515;
 
   color: white;
 
@@ -53,7 +53,7 @@ body.darkk .darkmodelogo {
 }
 
 body.darkk .darkmodesubheading {
-  background: #222222;
+  background: #151515;
 
   color: #c9c9c9;
 
@@ -68,16 +68,86 @@ body.darkk .contactdetail-in-darkmode {
 
 body.darkk .darkmode {
   border: 1px white solid;
-  background: white;
-  color: black;
+  background: #252526;
+  color: white;
   box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.578);
+
+}
+
+body.darkk .spclbtn {
+  border: 1px white solid;
+  background: #3f3f40;
+  color: white;
+
+
+}
+
+/* git */
+body.darkk .spclbtn:hover {
+  border: 1px white solid;
+  background: #222222;
+  color: white;
+  box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.253);
+
+}
+
+/* resume */
+body.darkk .spclbtn2 {
+  border: 1px white solid;
+  color: white;
+  box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.253);
+  background: #222222;
+
+}
+
+body.darkk .spclbtn2:hover {
+  border: 1px white solid;
+  box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0);
+  background: #3f3f40;
+  color: white;
+
+}
+
+body.darkk .darkmodespcl {
+  border: 1px white solid;
+  background: #151515;
+  color: white;
+  box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.578);
+
+}
+
+body.darkk .headingborder {
+  border-left: 3.5px solid rgb(75, 134, 244);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+
+  margin-bottom: 1rem;
+  height: 150px;
+  padding-left: 30px;
+  margin-left: 1.1rem;
+
+
+}
+
+body.darkk .skillsubheadingborder {
+
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom: 2px solid #ffffff;
+  
+  width: 100px;
+
+
+
 
 }
 
 body.darkk .skillsdarkmode {
   border: 1px white solid;
-  background: white;
-  color: black;
+  background: #252526;
+  color: white;
   box-shadow: 0 0 11px 5px rgba(255, 255, 255, 0.163);
 
 
@@ -90,18 +160,42 @@ body.darkk .skillsdarkmode {
   color: #000;
 }
 
+.headingborder {
+  border-left: 3px solid rgb(0, 0, 0);
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+
+  margin-bottom: 1rem;
+  height: 150px;
+  padding-left: 30px;
+  margin-left: 1.1rem;
+
+
+}
+
+.skillsubheadingborder {
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+  border-bottom: 2px rgb(0, 0, 0) solid;
+  width: 100px;
+
+
+}
+
 .navdarkmode {
 
   box-shadow: 0 0 11px 5px rgba(0, 0, 0, 0.163);
 
-  color: #222222;
+  color: #151515;
 
   background-color: rgba(255, 255, 255, 0.966);
 
 }
 
 .footerdarkmode {
-  color: #222222;
+  color: #151515;
 
   background-color: rgba(255, 255, 255, 0);
 
