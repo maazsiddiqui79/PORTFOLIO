@@ -53,42 +53,37 @@
     <title>{% block title %}{% endblock title %}</title>
 
     <style>
-    .nav-link-header {
-      
-      transition: all 0.3s ease-out;
+      .nav-link-header {
+        transition: all 0.3s ease-out;
 
-      text-decoration: none;
-      padding-left: 10px;
-      margin-left: 5px;
-      margin-right: 5px;
-      padding-right: 10px;
-      
-    }
+        text-decoration: none;
+        padding-left: 10px;
+        margin-left: 5px;
+        margin-right: 5px;
+        padding-right: 10px;
+      }
 
+      .nav-link-header:hover,
+      a:active,
+      .nav-link-header:focus {
+        color: black;
+        box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
+        transition: all 0.2s ease-in;
+        transform-origin: center;
+        text-decoration: underline;
+        border-bottom: 1.5px solid;
+        border-top: 1.5px solid;
+        letter-spacing: 4.5px;
+        padding-left: 3px;
+        padding-right: 3px;
+        text-transform: uppercase;
+      }
 
-    .nav-link-header:hover,
-    a:active,
-    .nav-link-header:focus {
-      color: black; 
-      box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
-      transition: all 0.2s ease-in;
-      transform-origin: center;
-      text-decoration: underline;
-      border-bottom: 1.5px solid ;
-      border-top: 1.5px solid ;
-      letter-spacing: 4.5px;
-      padding-left: 3px;
-      padding-right: 3px;
-      text-transform: uppercase;
-
-
-    }
-
-    header {
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-  </style>
+      header {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    </style>
 
     {% block head %}{% endblock %}
     <link
@@ -107,7 +102,10 @@
       <header class="py-3 mb-4 fixed-top navdarkmode">
         <div class="d-flex align-items-center justify-content-between">
           <!-- Logo -->
-          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto   nav-link-header footerdarkmode">
+          <a
+            href="/"
+            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto nav-link-header footerdarkmode"
+          >
             <h5
               style="
                 font-family: Rubik bold;
@@ -120,27 +118,46 @@
           </a>
 
           <!-- Desktop Nav -->
-          <p class="d-none d-md-flex gap-1 align-items-left" style="margin-top: 5px;">
-            <a href="#home" class="nav-link-header footerdarkmode active-link" aria-current="page">Home</a>
+          <p
+            class="d-none d-md-flex gap-1 align-items-left"
+            style="margin-top: 5px"
+          >
+            <a
+              href="#home"
+              class="nav-link-header footerdarkmode active-link"
+              aria-current="page"
+              >Home</a
+            >
             /
-            <a href="#skills" class="nav-link-header footerdarkmode active-link">Skills</a>
+            <a href="#skills" class="nav-link-header footerdarkmode active-link"
+              >Skills</a
+            >
             /
-            <a href="#projects" class="nav-link-header footerdarkmode active-link" >Project</a>
+            <a
+              href="#projects"
+              class="nav-link-header footerdarkmode active-link"
+              >Project</a
+            >
             /
-            <a href="#about" class="nav-link-header footerdarkmode active-link">About</a>
+            <a href="#about" class="nav-link-header footerdarkmode active-link"
+              >About</a
+            >
             /
-            <a href="#connect" class="nav-link-header footerdarkmode active-link" >Connect</a >
-            </p>
+            <a
+              href="#connect"
+              class="nav-link-header footerdarkmode active-link"
+              >Connect</a
+            >
+          </p>
 
           <!-- Right Controls -->
           <div class="d-flex align-items-center gap-1">
-            
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="30"
               height="30"
-              style="margin-right: 25px;"
-              onclick="toggleMobileNav()"
+              style="margin-right: 25px"
+              onclick="toggleTheme()"
               class="d-md-none"
               fill="currentColor"
               class="bi bi-list-task"
@@ -160,13 +177,12 @@
             </svg>
 
             <!-- Mobile Menu Button (TEXT, NOT HAMBURGER) -->
-            
 
             <!-- Dark Mode Toggle (ALWAYS SEPARATE) -->
             <div style="cursor: pointer">
               <!-- SUN ICON (light mode default) -->
               <svg
-                onclick="document.body.classList.toggle('darkk')"
+                onclick="toggleTheme()"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -180,7 +196,7 @@
               </svg>
               <!-- MOON ICON (for dark mode) -->
               <svg
-                onclick="document.body.classList.toggle('darkk')"
+                onclick="toggleTheme()"
                 xmlns="http://www.w3.org/2000/svg"
                 width="30"
                 height="30"
@@ -199,17 +215,32 @@
         <!-- Mobile Dropdown Panel -->
         <div class="collapse d-md-none mt-3" id="mobileNav">
           <div class="gap-2">
-            
-            <a href="#home" class="nav-link-header footerdarkmode active-link" aria-current="page">Home</a>
+            <a
+              href="#home"
+              class="nav-link-header footerdarkmode active-link"
+              aria-current="page"
+              >Home</a
+            >
             /
-            <a href="#skills" class="nav-link-header footerdarkmode active-link">Skills</a>
+            <a href="#skills" class="nav-link-header footerdarkmode active-link"
+              >Skills</a
+            >
             /
-            <a href="#projects" class="nav-link-header footerdarkmode active-link" >Project</a>
+            <a
+              href="#projects"
+              class="nav-link-header footerdarkmode active-link"
+              >Project</a
+            >
             /
-            <a href="#about" class="nav-link-header footerdarkmode active-link">About</a>
+            <a href="#about" class="nav-link-header footerdarkmode active-link"
+              >About</a
+            >
             /
-            <a href="#connect" class="nav-link-header footerdarkmode active-link" >Connect</a >
-            
+            <a
+              href="#connect"
+              class="nav-link-header footerdarkmode active-link"
+              >Connect</a
+            >
           </div>
         </div>
       </header>
@@ -230,6 +261,30 @@
 
     {% block body %} {% endblock %}
   </body>
+  <script>
+    // ===== THEME PERSISTENCE =====
+
+    const THEME_KEY = "theme";
+
+    // Apply saved theme on page load
+    document.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem(THEME_KEY);
+      if (savedTheme === "dark") {
+        document.body.classList.add("darkk");
+      }
+    });
+
+    // Toggle theme + save preference
+    function toggleTheme() {
+      document.body.classList.toggle("darkk");
+
+      const theme = document.body.classList.contains("darkk")
+        ? "dark"
+        : "light";
+
+      localStorage.setItem(THEME_KEY, theme);
+    }
+  </script>
 
   <footer
     class="py-3 footerdarkmode"
