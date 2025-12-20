@@ -333,7 +333,7 @@ body {
 
 
 .card:hover {
-  box-shadow: 0 0 15px 3px rgb(13, 109, 253);
+  box-shadow: 0 0 15px 3px rgb(75 133 244);
 
   transform: translateY(-8%) scale(0.95);
 
