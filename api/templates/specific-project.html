@@ -69,7 +69,7 @@
         padding: 30px;
         padding-top: 45px;
         padding-bottom: 65px;
-        font-family: Rubik bold;
+        font-family: 'Manrope', sans-serif;
         margin: 0 auto;
         margin-top: 2rem;
       }
@@ -91,7 +91,7 @@
         .darkmodespcl {
           width: 100%;
 
-          font-family: Rubik bold;
+          font-family: 'Manrope', sans-serif;
         }
       }
 
@@ -127,13 +127,10 @@
         padding-left: 1rem;
         padding-right: 1rem;
         size: 1px;
-        font-size: 20px;
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-        margin-bottom: 1.5rem !important;
-        padding-left: 20px;
-        padding-right: 20px;
+        font-size: 15px;
+        
       }
+    
     </style>
   </head>
 
@@ -148,7 +145,7 @@
           >
             <h5
               style="
-                font-family: Rubik bold;
+                font-family: 'Rubik', sans-serif;
                 text-decoration: underline;
                 text-decoration-thickness: 3px;
               "
@@ -304,16 +301,16 @@
     </script>
 
     <div class="project-bg">
-      <p class="para" style="font-family: Roboto Mono; font-size: 17px">
-        <span style="font-size: 50px; font-family: Rubik bold"
+      <p class="para" style="font-size: 17px">
+        <span style="font-family: 'Rubik', sans-serif;font-size: 50px;"
           >{{post.title}}</span
-        ><br />{{post.s_description}}
+        ><br /><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px">{{post.s_description}}</span>
       </p>
       <!-- Content -->
     </div>
     <br />
     <div class="container darkmodespcl">{{ post.body|safe }}</div>
-
+    <br><br><br>
     <footer
       class="py-3 footerdarkmode"
       style="
