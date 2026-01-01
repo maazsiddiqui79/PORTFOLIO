@@ -13,6 +13,11 @@ body.darkk .darkmode-sun {
   display: none;
 }
 
+body.darkk #sub-head-text {
+  border-top: white 1px solid;
+  border-bottom: white 1px solid;
+}
+
 body.darkk .darkmode-moon {
   display: inline;
 
@@ -88,6 +93,13 @@ body.darkk .spclbtn:hover {
   background: #222222;
   color: white;
   box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.253);
+
+}
+.spclbtn:hover {
+  border: 1px white solid;
+  background: white;
+  color: black;
+  border: #000 1px solid;
 
 }
 
@@ -279,6 +291,13 @@ body {
   overflow-x: hidden;
 }
 
+body::selection {
+  background-color: #0F172A;
+  background-color: #1E293B;
+  font-weight: bolder;
+  color: white;
+}
+
 /* Mobile adjustments */
 @media (max-width: 991.98px) {
   .my-img {
@@ -304,6 +323,7 @@ body {
     filter: grayscale(0%) brightness(1.3);
   }
 }
+
 /*  */
 .card::before {
   content: "";
@@ -347,8 +367,8 @@ body {
   background-size: cover;
   background-position: center;
   height: 350px;
-  
-  
+
+
 
 }
 

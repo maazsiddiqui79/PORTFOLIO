@@ -8,61 +8,28 @@ block body %} {% block head %}
 
 {% endblock head %} {% block style %}
 <style>
-  .words {
-    position: relative;
-    display: inline-block;
-    margin-left: 8px; /* spacing after "I'm" */
-
-    height: 1.2em;
-    vertical-align: top;
+  #sub-head-text::after {
+    content: "|";
+    margin-left: 4px;
+    animation: blink 1s infinite;
+  }
+  #sub-head-text {
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+    margin-bottom: 10px;
+  }
+  #sub-head-text::before {
+    content: "I'm ";
   }
 
-  .words span {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    white-space: nowrap;
-    animation: rotate 7.5s infinite cubic-bezier(0.25, 1.5, 0.5, 1);
-  }
-
-  /* delays */
-  .words span:nth-child(1) {
-    animation-delay: 0s;
-  }
-  .words span:nth-child(2) {
-    animation-delay: 1.5s;
-  }
-  .words span:nth-child(3) {
-    animation-delay: 3s;
-  }
-  .words span:nth-child(4) {
-    animation-delay: 4.5s;
-  }
-  .words span:nth-child(5) {
-    animation-delay: 6s;
-  }
-
-  @keyframes rotate {
-    0% {
-      opacity: 0;
-      transform: translateY(100%) scale(0.95);
-    }
-    8% {
+  @keyframes blink {
+    0%,
+    50% {
       opacity: 1;
-      transform: translateY(0);
     }
-    12% {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    28% {
-      opacity: 0;
-      transform: translateY(-100%) scale(0.95);
-    }
+    51%,
     100% {
       opacity: 0;
-      transform: translateY(-100%);
     }
   }
 </style>
@@ -92,23 +59,64 @@ block body %} {% block head %}
             >Siddiqui Maaz</b
           >
         </h1>
-        <h2 class="darkmodesubheading" style="font-family: Rubik">
-          I'm
-          <span class="words">
-            <span>Python Full Stack Dev</span>
-            <span>Frontend Developer</span>
-            <span>Backend Developer</span>
-            <span>UI/UX Designer</span>
-            <span>Data Analyst</span>
-          </span>
-        </h2>
+        <h2
+          class="darkmodesubheading"
+          style="font-family: Rubik"
+          id="sub-head-text"
+        ></h2>
 
-        <p style="font-size: 120%; font-family: Roboto Mono">
+        <script>
+          const roleList = [
+            "Python Full Stack Dev",
+            "Frontend Developer",
+            "Backend Developer",
+            "UI/UX Designer",
+            "Data Analyst",
+          ];
+
+          const textElement = document.querySelector("#sub-head-text");
+
+          let currentRoleIndex = 0;
+          let currentCharPosition = 0;
+
+          function startTyping() {
+            if (currentCharPosition < roleList[currentRoleIndex].length) {
+              textElement.textContent +=
+                roleList[currentRoleIndex].charAt(currentCharPosition);
+              currentCharPosition++;
+              setTimeout(startTyping, 50);
+            } else {
+              setTimeout(startErasing, 1500);
+            }
+          }
+
+          function startErasing() {
+            if (currentCharPosition > 0) {
+              textElement.textContent = roleList[currentRoleIndex].substring(
+                0,
+                currentCharPosition - 1
+              );
+              currentCharPosition--;
+              setTimeout(startErasing, 30);
+            } else {
+              currentRoleIndex = (currentRoleIndex + 1) % roleList.length;
+              setTimeout(startTyping, 300);
+            }
+          }
+
+          startTyping();
+        </script>
+
+        <p
+          id="typing-text"
+          style="font-size: 120%; font-family: 'Roboto Mono', monospace"
+        >
           Hi, I’m a passionate Python developer and a final-year diploma student
           specializing in full-stack development and web design. I develop
           practical products and solutions that address real-world problems with
           precision.
         </p>
+        
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
           <a
             class="btn btn-outline-dark btn-lg px-4 spclbtn2"
@@ -143,66 +151,6 @@ block body %} {% block head %}
 <hr />
 <div id="projects">{% include 'projects.html' %}</div>
 
-<hr />
-<section class="container col-xl-8">
-  <div class="row py-lg-5">
-    <div class="container col-xl-8 mt-5 headingborder" style="font-family: 'Roboto Mono', monospace">
-      <h3
-        class="display-5 fw-bolder darkmodeheader lh-1 mb-3 "
-        style="font-family: 'Rubik', sans-serif"
-      >
-        DEPLOYED PROJECT
-      </h3>
-      <p class="lead darkmodesubheading">
-        Live projects showcasing <br />complete build and deployment
-      </p>
-    </div>
-  </div>
-</section>
-<div class="container col-xl-8">
-  <div class="container py-4 " style="font-family: Roboto Mono">
-    <div class="row justify-content-center text-center">
-      <div class="container darkmode">
-        <div class="row text-center">
-          <div class="col-12 col-md-4 border shadow-lg p-4 ">
-            ToDo List Web App
-            <hr />
-            <a
-              target="_blank"
-              class="btn btn-outline-light btn-dark spclbtn"
-              href="https://go-todo-task.vercel.app/docs"
-              >go-todo-task.com</a
-            >
-          </div>
-          <div class="stats-hover col-12 col-md-4 border shadow-lg p-4 ">
-            URL Shortner
-            <hr />
-            <a
-              target="_blank"
-              class="btn btn-outline-dark spclbtn2"
-              href="https://shortify-maazdev.vercel.app/"
-              >shortify-maazdev.com</a
-            >
-          </div>
-          <div class="stats-hover col-12 col-md-4 border shadow-lg p-4 ">
-            Morse Encoder & Decoder
-            <hr />
-            <a
-              target="_blank"
-              class="btn btn-outline-light btn-dark spclbtn"
-              href="http://morse-origin.vercel.app/"
-              >morse-origin.app</a
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<br />
-
-<!-- End Projects -->
-
 <!-- About  -->
 <hr />
 <div id="about">{% include 'about.html' %}</div>
@@ -215,49 +163,6 @@ block body %} {% block head %}
 
 <!-- End Projects -->
 
-<!-- Stats -->
-<section class="container col-xl-8">
-  <div class="row py-lg-5">
-    <div
-      class="container col-xl-8 mt-5 headingborder"
-      
-      style="font-family: 'Roboto Mono', monospace"
-    >
-      <h3
-        class="display-5 fw-bolder darkmodeheader lh-1 mb-3"
-        style="font-family:  sans-serif;"
-      >
-        TRACK
-      </h3>
-      <p class="lead darkmodesubheading">Work in Figures</p>
-    </div>
-  </div>
-</section>
-<div class="container col-xl-8">
-  <div class="container py-4">
-    <div class="row justify-content-center text-center">
-      <div class="container darkmode">
-        <div class="row text-center" style="font-family: 'Roboto Mono', monospace">
-          <div class="stats-hover col-12 col-md-4 border shadow-lg p-4 ">
-            <strong>Project Built</strong>
-            <hr />
-            +75
-          </div>
-          <div class="stats-hover col-12 col-md-4 border shadow-lg p-4 ">
-            <strong>Deployed</strong>
-            <hr />
-            +6
-          </div>
-          <div class="stats-hover col-12 col-md-4 border shadow-lg p-4 ">
-            <strong>GUI Application</strong>
-            <hr />
-            +7
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <br /><br /><br /><br /><br />
 
 <!-- End Stats -->
