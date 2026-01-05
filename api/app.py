@@ -5,6 +5,7 @@ from flask_ckeditor import CKEditor
 from werkzeug.utils import secure_filename
 import smtplib
 import os
+from flask import Flask, render_template, send_from_directory
 import random
 
 
@@ -219,6 +220,15 @@ def add_new_project():
 
     return render_template('new_pro.html')
 
+@app.route("/manifest.json")
+def manifest():
+    return send_from_directory("static", "manifest.json")
+
+@app.route("/service-worker.js")
+def service_worker():
+    response = send_from_directory("static", "service-worker.js")
+    response.headers["Content-Type"] = "application/javascript"
+    return response
 
 
 @app.route(f"/maaz-project/<id>")
@@ -250,7 +260,10 @@ def delete_maaz_project(id):
     flash('Deleted.', 'success')
     return render_template("delete.html", post=posts)
 
-with app.app_context():
-    db.create_all()
+# Change
+if not os.environ.get("VERCEL"):
+    with app.app_context():
+        db.create_all()
+
 if __name__ == '__main__':
     app.run(port=5000, debug=True)

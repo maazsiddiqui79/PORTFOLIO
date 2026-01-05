@@ -14,6 +14,9 @@
       integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
       crossorigin="anonymous"
     />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#257CFD" />
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -69,7 +72,7 @@
         padding: 30px;
         padding-top: 45px;
         padding-bottom: 65px;
-        font-family: 'Manrope', sans-serif;
+        font-family: "Manrope", sans-serif;
         margin: 0 auto;
         margin-top: 2rem;
       }
@@ -91,7 +94,7 @@
         .darkmodespcl {
           width: 100%;
 
-          font-family: 'Manrope', sans-serif;
+          font-family: "Manrope", sans-serif;
         }
       }
 
@@ -128,11 +131,14 @@
         padding-right: 1rem;
         size: 1px;
         font-size: 15px;
-        
       }
-    
     </style>
   </head>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("/service-worker.js");
+    }
+  </script>
 
   <body>
     <div class="container">
@@ -302,15 +308,18 @@
 
     <div class="project-bg">
       <p class="para" style="font-size: 17px">
-        <span style="font-family: 'Rubik', sans-serif;font-size: 50px;"
+        <span style="font-family: 'Rubik', sans-serif; font-size: 50px"
           >{{post.title}}</span
-        ><br /><span style="font-family: 'JetBrains Mono', monospace; font-size: 15px">{{post.s_description}}</span>
+        ><br /><span
+          style="font-family: 'JetBrains Mono', monospace; font-size: 15px"
+          >{{post.s_description}}</span
+        >
       </p>
       <!-- Content -->
     </div>
     <br />
     <div class="container darkmodespcl">{{ post.body|safe }}</div>
-    <br><br><br>
+    <br /><br /><br />
     <footer
       class="py-3 footerdarkmode"
       style="
