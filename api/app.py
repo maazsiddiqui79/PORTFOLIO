@@ -107,6 +107,7 @@ chars="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 URL_FOR_ADDING_PROJ = ''.join(random.choices(chars,k=12))
 URL_FOR_DELETE_PROJ = ''.join(random.choices(chars,k=12))
 
+
 @app.route('/make-changes', methods=['GET', 'POST'])
 def make_changes():
     global USER_OTP
@@ -125,23 +126,23 @@ def make_changes():
             flash('Request a code first','warning'); return render_template('validatepage.html')
         if not OTP.isdigit():
             flash('Enter numeric OTP','warning'); return render_template('validatepage.html')
-        if int(OTP) == int(USER_OTP):
-            # Testing Purpose
-            # print("+________________________________+")
-            # print(f"OTP:{OTP}\nUSER:{USER_OTP}")
-            # print("+________________________________+")
-            if int(option) == 1:
-                return redirect(f'/{URL_FOR_ADDING_PROJ}')
-            elif int(option) == 2:
-                return redirect(f'/{URL_FOR_DELETE_PROJ}')
+        # if int(OTP) == int(USER_OTP):
+        #     # Testing Purpose
+        #     # print("+________________________________+")
+        #     # print(f"OTP:{OTP}\nUSER:{USER_OTP}")
+        #     # print("+________________________________+")
+        #     # if int(option) == 1:
+        #     #     return redirect(f'/{URL_FOR_ADDING_PROJ}')
+        #     # elif int(option) == 2:
+        #     #     return redirect(f'/{URL_FOR_DELETE_PROJ}')
 
 
-            else:
-                flash('Password incorrect ','danger')
-                return render_template('validatepage.html')
-        else:
-            flash('OTP incorrect.', 'danger')
-            return render_template('validatepage.html')
+        #     # else:
+        #     #     flash('Password incorrect ','danger')
+        #     #     return render_template('validatepage.html')
+        # else:
+        #     flash('OTP incorrect.', 'danger')
+        #     return render_template('validatepage.html')
 
 
     USER_OTP = str(random.randint(1000,9999))
@@ -184,43 +185,43 @@ Portfolio Website Notification System
 
 
 
-@app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
-def add_new_project():
+# @app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
+# def add_new_project():
 
 
-    if request.method == 'POST':
-        print('+=========================================REACHED New project=========================================+')
-        title = request.form.get('title')
-        short_desc = request.form.get('short_desc')
-        body = request.form.get('body')
-        img_filename = ""
+#     if request.method == 'POST':
+#         print('+=========================================REACHED New project=========================================+')
+#         title = request.form.get('title')
+#         short_desc = request.form.get('short_desc')
+#         body = request.form.get('body')
+#         img_filename = ""
 
-        img = request.files['image'] if 'image' in request.files else None
-
-
-        if img and img.filename != '':
-            filename = secure_filename(img.filename)
-            img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            img_filename = filename
+#         img = request.files['image'] if 'image' in request.files else None
 
 
-        try:
-            new_post = PROJECT_POSTS(
-                title=title,
-                s_description=short_desc,
-                img=img_filename,
-                body=body
-            )
-            print(title,img_filename,img,body)
-            db.session.add(new_post)
-            db.session.commit()
-            flash('ADDED', 'success')
-        except Exception as e:
-            flash(f'ERROR: {e}', 'danger')
-        return render_template('new_pro.html')
+#         if img and img.filename != '':
+#             filename = secure_filename(img.filename)
+#             img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             img_filename = filename
 
 
-    return render_template('new_pro.html')
+#         try:
+#             new_post = PROJECT_POSTS(
+#                 title=title,
+#                 s_description=short_desc,
+#                 img=img_filename,
+#                 body=body
+#             )
+#             print(title,img_filename,img,body)
+#             db.session.add(new_post)
+#             db.session.commit()
+#             flash('ADDED', 'success')
+#         except Exception as e:
+#             flash(f'ERROR: {e}', 'danger')
+#         return render_template('new_pro.html')
+
+
+#     return render_template('new_pro.html')
 
 @app.route("/manifest.json")
 def manifest():
@@ -232,10 +233,10 @@ def service_worker():
     response.headers["Content-Type"] = "application/javascript"
     return response
 
-@app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
-def add_new_project():
-    if is_vercel():
-        return "Disabled on production", 403
+# @app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
+# def add_new_project():
+#     if is_vercel():
+#         return "Disabled on production", 403
     ...
 
 @app.route(f"/maaz-project/<id>")
@@ -248,11 +249,11 @@ def maaz_project(id):
         # or: abort(404)
     return render_template("specific-project.html", post=post)
 
-@app.route(f"/{URL_FOR_DELETE_PROJ}")
-def maaz_project_edit():
+# @app.route(f"/{URL_FOR_DELETE_PROJ}")
+# def maaz_project_edit():
 
-    post = PROJECT_POSTS.query.all()
-    return render_template("delete.html", post=post)
+#     post = PROJECT_POSTS.query.all()
+#     return render_template("delete.html", post=post)
 
 @app.route("/delete-maaz-project/<id>", methods=["POST","GET"])
 def delete_maaz_project(id):
