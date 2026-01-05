@@ -45,6 +45,8 @@ class PROJECT_POSTS(db.Model):
     def __repr__(self):
         return f"<PROJECT_POSTS(id={self.id}, title='{self.title}'),DESC={self.s_description}>"
     
+def is_vercel():
+    return os.environ.get("VERCEL") is not None
 
 
     
@@ -55,7 +57,7 @@ def page_not_found(error):
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     p = PROJECT_POSTS.query.all()
-    print(p)
+    # print(p)
     if request.method == 'POST':
         name = request.form.get('name')
         subject = request.form.get('subject')
@@ -230,6 +232,11 @@ def service_worker():
     response.headers["Content-Type"] = "application/javascript"
     return response
 
+@app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
+def add_new_project():
+    if is_vercel():
+        return "Disabled on production", 403
+    ...
 
 @app.route(f"/maaz-project/<id>")
 def maaz_project(id):
