@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/api/app.py"
+      "dest": "/static/$1"
     },
     {
       "src": "/(.*)",
@@ -17,4 +17,5 @@
     }
   ]
 }
+
 
