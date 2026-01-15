@@ -2,14 +2,34 @@
 {% block head %}
 <head>
   <link rel="stylesheet" href="skills.css" />
+  <style>
+    /* Ensure full-width containers */
+    .skills-wrapper {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    /* Skill item spacing */
+    .skill-item {
+      margin-bottom: 12px;
+    }
+
+    .skill-level {
+      display: inline-block;
+      border: 1px solid black;
+      padding: 1.5px 6px;
+      border-radius: 5px;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 {% endblock %}
 
 <!-- Heading -->
-<section class="container col-xl-8">
-  <div class="row py-lg-5">
+<section class="container-fluid">
+  <div class="row py-lg-5 justify-content-center">
     <div
-      class="darkmodeheader container col-xl-8 mt-5 headingborder"
+      class="darkmodeheader col-12 col-xl-10 mt-5 headingborder text-center"
       style="font-family: 'Roboto Mono', monospace"
     >
       <h3
@@ -25,78 +45,88 @@
   </div>
 </section>
 
-<!-- Content -->
-<section class="container col-xxl-10 mb-5">
-  <div class="row g-3 justify-content-center">
+<!-- ================= CONTENT ================= -->
+<section class="container-fluid skills-wrapper mb-5">
+  <div class="row g-4 justify-content-center">
 
-    <!-- BACKEND -->
-    <div class="col-12 col-lg-10">
-      <div class="skillsdarkmode border-secondary rounded-3 p-3">
-        <div class="text-center">
-          <h4
-            class="fw-bold mb-3 skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace"
-          >
-            Backend
-          </h4>
+    <!-- ================= BACKEND ================= -->
+    <div class="col-12">
+      <div class="skillsdarkmode border-secondary rounded-3 p-4">
+        <h4
+          class="fw-bold mb-4 text-center skillsubheadingborder"
+          style="font-family: 'Roboto Mono', monospace"
+        >
+          Backend
+        </h4>
 
-          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-5 fs-6">
-            <div>✓ Web Scraping <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
-            <div>✓ Java <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ◌ ◌ ◌</span></div>
-            <div>✓ Beautiful Soup <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
-            <div>✓ SQL Alchemy <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ MySQL <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ JSON <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ Python <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ●</span></div>
-            <div>✓ Pandas <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ Flask <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ●</span></div>
-            <div>✓ Django <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
-            <div>✓ Matplotlib <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
+        <!-- Split into 2 columns on large screens -->
+        <div class="row row-cols-1 row-cols-lg-2">
+
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ Web Scraping <br><span class="skill-level">● ● ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Java <br><span class="skill-level">● ◌ ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Beautiful Soup <br><span class="skill-level">● ● ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ SQL Alchemy <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ MySQL <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ JSON <br><span class="skill-level">● ● ● ◌</span></div>
+          </div>
+
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ Python <br><span class="skill-level">● ● ● ●</span></div>
+            <div class="skill-item skillsdarkmode">✓ Pandas <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Flask <br><span class="skill-level">● ● ● ●</span></div>
+            <div class="skill-item skillsdarkmode">✓ Django <br><span class="skill-level">● ● ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Matplotlib <br><span class="skill-level">● ● ◌ ◌</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= FRONTEND ================= -->
+    <div class="col-12">
+      <div class="skillsdarkmode border-secondary rounded-3 p-4">
+        <h4
+          class="fw-bold mb-4 text-center skillsubheadingborder"
+          style="font-family: 'Roboto Mono', monospace"
+        >
+          Frontend
+        </h4>
+
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ HTML <br><span class="skill-level">● ● ● ●</span></div>
+            <div class="skill-item skillsdarkmode">✓ CSS <br><span class="skill-level">● ● ● ◌</span></div>
+          </div>
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ Bootstrap <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ JavaScript <br><span class="skill-level">● ● ● ◌</span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- FRONTEND -->
-    <div class="col-12 col-md-6">
-      <div class="skillsdarkmode border-secondary rounded-3 p-3 h-100">
-        <div class="text-center">
-          <h4
-            class="fw-bold mb-3 skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace"
-          >
-            Frontend
-          </h4>
+    <!-- ================= OTHERS ================= -->
+    <div class="col-12">
+      <div class="skillsdarkmode border-secondary rounded-3 p-4">
+        <h4
+          class="fw-bold mb-4 text-center skillsubheadingborder"
+          style="font-family: 'Roboto Mono', monospace"
+        >
+          Others
+        </h4>
 
-          <div class="row row-cols-2 row-cols-sm-3 fs-6">
-            <div>✓ HTML <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ●</span></div>
-            <div>✓ CSS <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ Bootstrap <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ JavaScript <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
+        <div class="row row-cols-1 row-cols-lg-2">
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ Git <br><span class="skill-level">● ● ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ GitHub <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ VS Code <br><span class="skill-level">● ● ● ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Linux <br><span class="skill-level">● ● ◌ ◌</span></div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- OTHERS -->
-    <div class="col-12 col-md-6">
-      <div class="skillsdarkmode border-secondary rounded-3 p-3 h-100">
-        <div class="text-center">
-          <h4
-            class="fw-bold mb-3 skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace"
-          >
-            Others
-          </h4>
-
-          <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 fs-6">
-            <div>✓ Git <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
-            <div>✓ GitHub <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ VS Code <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ● ◌</span></div>
-            <div>✓ Figma <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ◌ ◌ ◌</span></div>
-            <div>✓ Linux <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
-            <div>✓ AI Agents <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ◌ ◌ ◌</span></div>
-            <div>✓ Prompting <br /><span class="skillsdarkmode" style="border:1px solid black;padding:1.5px;border-radius:5px">● ● ◌ ◌</span></div>
+          <div class="col">
+            <div class="skill-item skillsdarkmode">✓ Figma <br><span class="skill-level">● ◌ ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ AI Agents <br><span class="skill-level">● ◌ ◌ ◌</span></div>
+            <div class="skill-item skillsdarkmode">✓ Prompting <br><span class="skill-level">● ● ◌ ◌</span></div>
           </div>
         </div>
       </div>
