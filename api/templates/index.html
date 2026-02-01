@@ -66,6 +66,11 @@ block body %} {% block head %}
         ></h2>
 
         <script>
+          if ("serviceWorker" in navigator) {
+            navigator.serviceWorker
+              .getRegistrations()
+              .then((r) => r.forEach((reg) => reg.unregister()));
+          }
           const roleList = [
             "Python Full Stack Dev",
             "Frontend Developer",
