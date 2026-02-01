@@ -70,6 +70,8 @@ block body %} {% block head %}
             "Python Full Stack Dev",
             "Frontend Developer",
             "Backend Developer",
+            "Flask Developer",
+            "Web Application Developer",
             "UI/UX Designer",
             "Data Analyst",
           ];
@@ -94,7 +96,7 @@ block body %} {% block head %}
             if (currentCharPosition > 0) {
               textElement.textContent = roleList[currentRoleIndex].substring(
                 0,
-                currentCharPosition - 1
+                currentCharPosition - 1,
               );
               currentCharPosition--;
               setTimeout(startErasing, 30);
@@ -109,12 +111,14 @@ block body %} {% block head %}
 
         <p
           id="typing-text"
-          style="font-size: 120%; font-family: 'Roboto Mono', monospace"
+          style="
+            font-size: 120%;
+            font-family: &quot;Roboto Mono&quot;, monospace;
+          "
         >
-          Hi, I’m a passionate Python developer and a final-year diploma student
-          specializing in full-stack development and web design. I develop
-          practical products and solutions that address real-world problems with
-          precision.
+          Hi, I’m a Python developer and final-year diploma student focused on
+          full-stack development and web design. I design and develop practical,
+          scalable solutions for real-world problems.
         </p>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
