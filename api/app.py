@@ -223,9 +223,6 @@ Portfolio Website Notification System
 
 #     return render_template('new_pro.html')
 
-@app.route("/manifest.json")
-def manifest():
-    return send_from_directory("static", "manifest.json")
 
 @app.route("/service-worker.js")
 def service_worker():
