@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
@@ -11,7 +11,25 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-    
+
+    <script>
+      (async () => {
+        if ("serviceWorker" in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          for (const reg of regs) {
+            await reg.unregister();
+          }
+        }
+
+        if (window.caches) {
+          const keys = await caches.keys();
+          for (const key of keys) {
+            await caches.delete(key);
+          }
+        }
+      })();
+    </script>
+
     <meta name="theme-color" content="#257CFD" />
 
     <meta charset="UTF-8" />
@@ -98,11 +116,6 @@
       href="{{ url_for('static', filename='style.css') }}"
     />
   </head>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js");
-    }
-  </script>
 
   <body>
     <div class="container">
@@ -115,7 +128,7 @@
           >
             <h5
               style="
-                font-family: 'Rubik', sans-serif;
+                font-family: &quot;Rubik&quot;, sans-serif;
                 text-decoration: underline;
                 text-decoration-thickness: 2px;
               "
