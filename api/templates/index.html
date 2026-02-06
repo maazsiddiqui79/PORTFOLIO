@@ -32,6 +32,57 @@ block body %} {% block head %}
       opacity: 0;
     }
   }
+
+  /**/
+  /* Initial hidden state */
+.page_load_class_text,
+.page_load_class_img {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+}
+
+/* Left text animation */
+.page_load_class_text {
+  animation-name: slideFromLeft;
+}
+
+/* Right image animation */
+.page_load_class_img {
+  animation-name: slideFromRight;
+}
+
+/* Keyframes */
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromRight {
+  from {
+    transform: translateX(60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.page_load_class_text {
+  animation-delay: 0.1s;
+}
+
+.page_load_class_img {
+  animation-delay: 0.3s;
+}
+
 </style>
 {% endblock style %}
 <!-- First Look -->

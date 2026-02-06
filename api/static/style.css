@@ -95,6 +95,7 @@ body.darkk .spclbtn:hover {
   box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.253);
 
 }
+
 .spclbtn:hover {
   border: 1px white solid;
   background: white;
@@ -242,6 +243,24 @@ Container Background (cards, sections, divs)
 
 Accent / Element Color (buttons, borders, highlights)
 #238636 */
+
+/* SKILL SECTION CERTIFICATION & ACHIVEMENT */
+.skill-link {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  
+}
+
+.skill-link:hover {
+  text-decoration: underline;
+  text-decoration-color:rgb(75, 134, 244);
+  text-decoration-thickness: 2.5px;
+  font-style: italic;
+  color: inherit;
+  font-weight: bolder;
+  
+}
 
 .my-img {
   width: 360px;
