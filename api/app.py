@@ -185,7 +185,45 @@ Portfolio Website Notification System
 
 
 
+# ========================FOR_FUTURE===============================
 # @app.route(f'/{URL_FOR_ADDING_PROJ}', methods=['GET', 'POST'])
+# def add_new_project():
+
+
+#     if request.method == 'POST':
+#         print('+=========================================REACHED New project=========================================+')
+#         title = request.form.get('title')
+#         short_desc = request.form.get('short_desc')
+#         body = request.form.get('body')
+#         img_filename = ""
+
+#         img = request.files['image'] if 'image' in request.files else None
+
+
+#         if img and img.filename != '':
+#             filename = secure_filename(img.filename)
+#             img.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+#             img_filename = filename
+
+
+#         try:
+#             new_post = PROJECT_POSTS(
+#                 title=title,
+#                 s_description=short_desc,
+#                 img=img_filename,
+#                 body=body
+#             )
+#             print(title,img_filename,img,body)
+#             db.session.add(new_post)
+#             db.session.commit()
+#             flash('ADDED', 'success')
+#         except Exception as e:
+#             flash(f'ERROR: {e}', 'danger')
+#         return render_template('new_pro.html')
+
+
+#     return render_template('new_pro.html')
+# @app.route(f'/add-new-proj', methods=['GET', 'POST'])
 # def add_new_project():
 
 
@@ -246,6 +284,7 @@ def maaz_project(id):
         # or: abort(404)
     return render_template("specific-project.html", post=post)
 
+# ========================FOR_FUTURE===============================
 # @app.route(f"/{URL_FOR_DELETE_PROJ}")
 # def maaz_project_edit():
 
