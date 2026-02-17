@@ -41,6 +41,8 @@ class PROJECT_POSTS(db.Model):
     s_description = db.Column(db.String, nullable=False)
     img = db.Column(db.String, nullable=False)
     body = db.Column(db.String, nullable=False)
+    type = db.Column(db.String, nullable=False)
+    date = db.Column(db.String, nullable=False)
     
     def __repr__(self):
         return f"<PROJECT_POSTS(id={self.id}, title='{self.title}'),DESC={self.s_description}>"
@@ -57,7 +59,9 @@ def page_not_found(error):
 @app.route('/', methods=['GET', 'POST'])
 def home_page():
     p = PROJECT_POSTS.query.all()
-    # print(p)
+    # print("+++++++++++++++++++++++++++")
+    # print(p[0].title)
+    # print(p[0].type)
     if request.method == 'POST':
         name = request.form.get('name')
         subject = request.form.get('subject')

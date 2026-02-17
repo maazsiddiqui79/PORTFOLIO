@@ -1,52 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <!-- CSS Bootstrap -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#257CFD" />
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-    ></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Rubik:wght@700&display=swap"
+    rel="stylesheet" />
+  <!-- CSS Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#257CFD" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="shortcut icon"
-      href="../static/icons-portfolio.png"
-      type="image/x-icon"
-    />
-    <link
-      rel="stylesheet"
-      href="{{ url_for('static', filename='style.css') }}"
-    />
-    <title>Maaz | {{post.title}}</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
 
-    <style>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous" />
+  <link rel="shortcut icon" href="../static/icons-portfolio.png" type="image/x-icon" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <title>Maaz | {{post.title}}</title>
+
+  <style>
+    .project-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url('{{ url_for("static", filename="uploads/" + post.img) }}');
+      background-size: cover;
+      background-position: center;
+      background-size: cover;
+      background-position: center;
+      height: 650px;
+      color: whitesmoke;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .para {
+      text-align: center;
+    }
+
+    /*
+    Rubik bold
+    
+    Roboto Mono
+    */
+    .darkmodespcl {
+      width: 1200px;
+      background-color: rgba(114, 168, 248, 0.094);
+
+      padding: 30px;
+      padding-top: 45px;
+      padding-bottom: 65px;
+      font-family: "Manrope", sans-serif;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 991.98px) {
       .project-bg {
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url('{{ url_for("static", filename="uploads/" + post.img) }}');
+        url('{{ url_for("static", filename="uploads/" + post.img) }}');
         background-size: cover;
-        background-position: center;
-        background-size: cover;
+        background-repeat: no-repeat;
         background-position: center;
         height: 650px;
         color: whitesmoke;
@@ -56,283 +74,169 @@
         justify-content: center;
       }
 
-      .para {
-        text-align: center;
-      }
-
-      /*
-    Rubik bold
-    
-    Roboto Mono
-    */
       .darkmodespcl {
-        width: 1200px;
-        background-color: rgba(114, 168, 248, 0.094);
+        width: 100%;
 
-        padding: 30px;
-        padding-top: 45px;
-        padding-bottom: 65px;
         font-family: "Manrope", sans-serif;
-        margin: 0 auto;
-        margin-top: 2rem;
       }
-
-      @media (max-width: 991.98px) {
-        .project-bg {
-          background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-            url('{{ url_for("static", filename="uploads/" + post.img) }}');
-          background-size: cover;
-          background-repeat: no-repeat;
-          background-position: center;
-          height: 650px;
-          color: whitesmoke;
-
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .darkmodespcl {
-          width: 100%;
-
-          font-family: "Manrope", sans-serif;
-        }
-      }
-
-      .nav-link-header {
-        color: inherit;
-        transition: all 0.3s ease-out;
-        color: rgba(50, 50, 50, 0.913);
-
-        text-decoration: none;
-        padding-left: 10px;
-        margin-left: 5px;
-        margin-right: 5px;
-        padding-right: 10px;
-      }
-
-      .nav-link-header:hover,
-      a:active,
-      .nav-link-header:focus {
-        color: black;
-
-        box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
-        transition: all 0.2s ease-in;
-        transform-origin: center;
-        text-decoration: underline;
-        border-bottom: 1.5px solid rgb(0, 0, 0);
-        border-top: 1.5px solid rgb(0, 0, 0);
-        letter-spacing: 4.5px;
-        padding-left: 3px;
-        padding-right: 3px;
-      }
-
-      header {
-        padding-left: 1rem;
-        padding-right: 1rem;
-        size: 1px;
-        font-size: 15px;
-      }
-    </style>
-  </head>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/service-worker.js");
     }
-  </script>
 
-  <body>
-    <div class="container">
-      <header class="py-3 mb-4 fixed-top navdarkmode">
-        <div class="d-flex align-items-center justify-content-between">
-          <!-- Logo -->
-          <a
-            href="/"
-            class="d-flex align-items-center mb-3 mb-md-0 me-md-auto nav-link-header footerdarkmode"
-          >
-            <h5
-              style="
+    .nav-link-header {
+      color: inherit;
+      transition: all 0.3s ease-out;
+      color: rgba(50, 50, 50, 0.913);
+
+      text-decoration: none;
+      padding-left: 10px;
+      margin-left: 5px;
+      margin-right: 5px;
+      padding-right: 10px;
+    }
+
+    .nav-link-header:hover,
+    a:active,
+    .nav-link-header:focus {
+      color: black;
+
+      box-shadow: 3px 3px 10px rgba(1, 1, 1, 0.2);
+      transition: all 0.2s ease-in;
+      transform-origin: center;
+      text-decoration: underline;
+      border-bottom: 1.5px solid rgb(0, 0, 0);
+      border-top: 1.5px solid rgb(0, 0, 0);
+      letter-spacing: 4.5px;
+      padding-left: 3px;
+      padding-right: 3px;
+    }
+
+    header {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      size: 1px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+<script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("/service-worker.js");
+  }
+</script>
+
+<body>
+  <div class="container">
+    <header class="py-3 mb-4 fixed-top navdarkmode">
+      <div class="d-flex align-items-center justify-content-center">
+        <!-- Logo -->
+       <a href="/" class="d-flex align-items-center mb-3 mb-md-0 nav-link-header footerdarkmode">
+
+          <h5 style="
                 font-family: 'Rubik', sans-serif;
                 text-decoration: underline;
                 text-decoration-thickness: 3px;
-              "
-            >
-              Portfolio.
-            </h5>
-          </a>
+              ">
+            Portfolio.
+          </h5>
+        </a>
 
-          <!-- Desktop Nav -->
-          <p
-            class="d-none d-md-flex gap-1 align-items-left"
-            style="margin-top: 5px"
-          >
-            <a
-              href="/#home"
-              class="nav-link-header footerdarkmode active-link"
-              aria-current="page"
-              >Home</a
-            >
-            /
-            <a
-              href="/#skills"
-              class="nav-link-header footerdarkmode active-link"
-              >Skills</a
-            >
-            /
-            <a
-              href="/#projects"
-              class="nav-link-header footerdarkmode active-link"
-              >Project</a
-            >
-            /
-            <a href="/#about" class="nav-link-header footerdarkmode active-link"
-              >About</a
-            >
-            /
-            <a
-              href="/#connect"
-              class="nav-link-header footerdarkmode active-link"
-              >Connect</a
-            >
-          </p>
+        <!-- Desktop Nav -->
+        <p class="d-none d-md-flex gap-1 align-items-left" style="margin-top: 5px">
+          <a href="/#home" class="nav-link-header footerdarkmode active-link" aria-current="page">Home</a>
 
-          <!-- Right Controls -->
-          <div class="d-flex align-items-center gap-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="30"
-              style="margin-right: 25px"
-              onclick="toggleMobileNav()"
-              class="d-md-none"
-              fill="currentColor"
-              class="bi bi-list-task"
-              viewBox="0 0 16 16"
-            >
+          <a href="/#skills" class="nav-link-header footerdarkmode active-link">Skills</a>
+
+          <a href="/#projects" class="nav-link-header footerdarkmode active-link">Project</a>
+
+          <a href="/#about" class="nav-link-header footerdarkmode active-link">About</a>
+
+          <a href="/#connect" class="nav-link-header footerdarkmode active-link">Connect</a>
+        </p>
+
+        <!-- Right Controls -->
+        <div class="d-flex align-items-center gap-1">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" style="margin-right: 25px"
+            onclick="toggleMobileNav()" class="d-md-none" fill="currentColor" class="bi bi-list-task"
+            viewBox="0 0 16 16">
+            <path fill-rule="evenodd"
+              d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z" />
+            <path
+              d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z" />
+            <path fill-rule="evenodd"
+              d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z" />
+          </svg>
+
+          <!-- Mobile Menu Button (TEXT, NOT HAMBURGER) -->
+
+          <!-- Dark Mode Toggle (ALWAYS SEPARATE) -->
+          <div style="cursor: pointer">
+            <!-- SUN ICON (light mode default) -->
+            <svg onclick="document.body.classList.toggle('darkk')" xmlns="http://www.w3.org/2000/svg" width="30"
+              height="30" fill="currentColor" class="darkmode-sun darkmodelogo bi bi-brightness-high-fill"
+              viewBox="0 0 16 16">
               <path
-                fill-rule="evenodd"
-                d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z"
-              />
-              <path
-                d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5M5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1z"
-              />
-              <path
-                fill-rule="evenodd"
-                d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5zM2 7h1v1H2zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5zm1 .5H2v1h1z"
-              />
+                d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708" />
             </svg>
-
-            <!-- Mobile Menu Button (TEXT, NOT HAMBURGER) -->
-
-            <!-- Dark Mode Toggle (ALWAYS SEPARATE) -->
-            <div style="cursor: pointer">
-              <!-- SUN ICON (light mode default) -->
-              <svg
-                onclick="document.body.classList.toggle('darkk')"
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                class="darkmode-sun darkmodelogo bi bi-brightness-high-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0M8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0m0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13m8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5M3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8m10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0m-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0m9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707M4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708"
-                />
-              </svg>
-              <!-- MOON ICON (for dark mode) -->
-              <svg
-                onclick="document.body.classList.toggle('darkk')"
-                xmlns="http://www.w3.org/2000/svg"
-                width="30"
-                height="30"
-                fill="currentColor"
-                class="darkmode-moon darkmodelogo bi bi-moon-fill"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278"
-                />
-              </svg>
-            </div>
+            <!-- MOON ICON (for dark mode) -->
+            <svg onclick="document.body.classList.toggle('darkk')" xmlns="http://www.w3.org/2000/svg" width="30"
+              height="30" fill="currentColor" class="darkmode-moon darkmodelogo bi bi-moon-fill" viewBox="0 0 16 16">
+              <path
+                d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278" />
+            </svg>
           </div>
         </div>
+      </div>
 
-        <!-- Mobile Dropdown Panel -->
-        <div class="collapse d-md-none mt-3" id="mobileNav">
-          <div class="gap-2">
-            <a
-              href="/#home"
-              class="nav-link-header footerdarkmode active-link"
-              aria-current="page"
-              >Home</a
-            >
-            /
-            <a
-              href="/#skills"
-              class="nav-link-header footerdarkmode active-link"
-              >Skills</a
-            >
-            /
-            <a
-              href="/#projects"
-              class="nav-link-header footerdarkmode active-link"
-              >Project</a
-            >
-            /
-            <a href="/#about" class="nav-link-header footerdarkmode active-link"
-              >About</a
-            >
-            /
-            <a
-              href="/#connect"
-              class="nav-link-header footerdarkmode active-link"
-              >Connect</a
-            >
-          </div>
+      <!-- Mobile Dropdown Panel -->
+      <div class="collapse d-md-none mt-3" id="mobileNav">
+        <div class="gap-2">
+          <a href="/#home" class="nav-link-header footerdarkmode active-link" aria-current="page">Home</a>
+          /
+          <a href="/#skills" class="nav-link-header footerdarkmode active-link">Skills</a>
+          /
+          <a href="/#projects" class="nav-link-header footerdarkmode active-link">Project</a>
+          /
+          <a href="/#about" class="nav-link-header footerdarkmode active-link">About</a>
+          /
+          <a href="/#connect" class="nav-link-header footerdarkmode active-link">Connect</a>
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
+  </div>
 
-    <script>
-      let mobileNav;
+  <script>
+    let mobileNav;
 
-      document.addEventListener("DOMContentLoaded", () => {
-        const nav = document.getElementById("mobileNav");
-        mobileNav = new bootstrap.Collapse(nav, { toggle: false });
-      });
+    document.addEventListener("DOMContentLoaded", () => {
+      const nav = document.getElementById("mobileNav");
+      mobileNav = new bootstrap.Collapse(nav, { toggle: false });
+    });
 
-      function toggleMobileNav() {
-        mobileNav.toggle();
-      }
-    </script>
+    function toggleMobileNav() {
+      mobileNav.toggle();
+    }
+  </script>
 
-    <div class="project-bg">
-      <p class="para" style="font-size: 17px">
-        <span style="font-family: 'Rubik', sans-serif; font-size: 50px"
-          >{{post.title}}</span
-        ><br /><span
-          style="font-family: 'JetBrains Mono', monospace; font-size: 15px"
-          >{{post.s_description}}</span
-        >
-      </p>
-      <!-- Content -->
-    </div>
-    <br />
-    <div class="container darkmodespcl">{{ post.body|safe }}</div>
-    <br /><br /><br />
-    <footer
-      class="py-3 footerdarkmode"
-      style="
+  <div class="project-bg">
+    <p class="para" style="font-size: 17px">
+      <span style="font-family: 'Rubik', sans-serif; font-size: 50px">{{post.title}}</span><br /><span
+        style="font-family: 'JetBrains Mono', monospace; font-size: 15px">{{post.s_description}}</span>
+    </p>
+    <!-- Content -->
+  </div>
+  <br />
+  <div class="container darkmodespcl">{{ post.body|safe }}</div>
+  <br /><br /><br />
+  <footer class="py-3 footerdarkmode" style="
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
         text-align: center;
-      "
-    >
-      <p class="col-md-5 ms-4 mb-0">
-        © 2025 | Portfolio | Designed and Engineered by `<u>Maaz Siddiqui</u>
-      </p>
-    </footer>
-  </body>
+      ">
+    <p class="col-md-5 ms-4 mb-0">
+      © 2025 | Portfolio | Designed and Engineered by `<u>Maaz Siddiqui</u>
+    </p>
+  </footer>
+</body>
+
 </html>

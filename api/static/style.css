@@ -79,6 +79,14 @@ body.darkk .darkmode {
 
 }
 
+body.darkk .hover-effect:hover {
+  border: 2px rgb(0, 0, 0) solid;
+  background: #252526;
+  color: white;
+  box-shadow: 0 0 15px 5px rgba(75, 134, 244, 0.578);
+
+}
+
 body.darkk .spclbtn {
   border: 1px white solid;
   background: #3f3f40;
@@ -249,23 +257,20 @@ Accent / Element Color (buttons, borders, highlights)
   text-decoration: none;
   color: inherit;
   font: inherit;
-  
+
 }
 
 .skill-link:hover {
   text-decoration: underline;
-  text-decoration-color:rgb(75, 134, 244);
-  text-decoration-thickness: 2.5px;
-  font-style: italic;
-  color: inherit;
-  font-weight: bolder;
-  
+  text-decoration-color: rgb(146, 146, 146);
+  color:#151515;
+
 }
 
 .my-img {
-  width: 360px;
-  height: 360px;
-  border-radius: 50%;
+  width: 400px;
+  height: 260px;
+  border-radius: 20px;
   object-fit: cover;
   overflow: hidden;
   display: flex;
@@ -288,10 +293,10 @@ footer {
 .my-img:hover {
   border-radius: 5px;
   box-shadow: 0 0 15px 5px rgb(75 133 244);
-  transform: translateX(-5px) scale(1.07);
-  width: 366px;
-  height: 365px;
-  border-radius: 1%;
+  transform: translateX(-5px) scale(1.09);
+    width: 400px;
+  height: 300px;
+  border-radius: 0%;
   margin-top: 30px;
   filter: grayscale(0%);
 }

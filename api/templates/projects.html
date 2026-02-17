@@ -1,13 +1,7 @@
 <section class="container col-xl-8">
   <div class="row py-lg-5">
-    <div
-      class="darkmodeheader container col-xl-8 mt-5 headingborder"
-      style="font-family: 'Roboto Mono', monospace"
-    >
-      <h3
-        class="display-5 fw-bolder lh-1 mb-3"
-        style="font-family: 'Rubik', sans-serif"
-      >
+    <div class="darkmodeheader container col-xl-8 mt-5 headingborder" style="font-family: 'Roboto Mono', monospace">
+      <h3 class="display-5 fw-bolder lh-1 mb-3" style="font-family: 'Rubik', sans-serif">
         PROJECTS
       </h3>
       <p class="lead darkmodesubheading">Highlighted Projects</p>
@@ -18,39 +12,29 @@
 <main>
   <div class="album">
     <div class="container">
-      <div
-        class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xxl-5 g-3"
-      >
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-xxl-5 g-3">
         {% for i in all_post %}
         <div class="col">
-          <a
-            href="/maaz-project/{{i.id}}"
-            class="text-decoration-none"
-            target="_blank"
-          >
-            <div
-              class="card"
-              style="
+          <a href="/maaz-project/{{i.id}}" class="text-decoration-none" target="_blank">
+            <div class="card" style="
               background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
                          url('static/uploads/{{i.img}}');
               background-size: cover;
               background-position: center;
-            "
-            >
-              <div
-                class="card-body d-flex flex-column justify-content-center align-items-center"
-              >
-                <p
-                  class="card-title display-6 text-white mt-5"
-                  style="font-family: 'Rubik', sans-serif"
-                >
+            ">
+              <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                <p class="card-title display-6 text-white mt-5" style="font-family: 'Rubik', sans-serif">
                   {{i.title}}
                 </p>
-
-                <p
-                  class="card-text-hover text-white"
-                  style="font-family: 'Roboto Mono', monospace"
-                >
+                
+                
+                <p class="card-text-hover text-white" style="font-family: 'Roboto Mono', monospace">
+                  <span class="text-body-secondary bg-body-tertiary rounded-pill px-2  border border-black small position-absolute top-0 end-0 mt-2 me-2 "
+                   style="font-family: 'Rubik', sans-serif;size: 10px; font-size: 10px;">
+                    {{i.date}}
+                  </span>
+                  <span class="text-body-secondary bg-body-tertiary rounded-pill px-2  border border-black small position-absolute top-0 start-0 mt-2 ms-2">{{i.type}}</span>
+                  <br>
                   {{i.s_description}}
                 </p>
 

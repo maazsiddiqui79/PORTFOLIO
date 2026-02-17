@@ -1,5 +1,6 @@
 <!-- ================= SKILLS SECTION ================= -->
 {% block head %}
+
 <head>
   <link rel="stylesheet" href="skills.css" />
   <style>
@@ -23,7 +24,7 @@
     }
 
     /* FIXED selector (was wrong before) */
-    .skill-level.skillsdarkmode {
+    ..skillsdarkmode {
       display: inline-block;
       border: 1px solid black;
       padding: 2px 8px;
@@ -31,26 +32,27 @@
       font-size: 0.8rem;
       margin-top: 4px;
     }
+
+    .hover-effect:hover {
+      transform: translateY(-10px);
+      transition: all 0.3s ease-in-out;
+      border: 1px solid black;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
   </style>
 </head>
 {% endblock %}
 
 <!-- ================= HEADING ================= -->
-<section class="container-fluid">
-  <div class="row py-lg-5 justify-content-center">
-    <div
-      class="darkmodeheader col-12 col-xl-10 mt-5 headingborder"
-      style="font-family: 'Roboto Mono', monospace"
-    >
-      <h3
-        class="display-5 fw-bolder lh-1 mb-3"
-        style="font-family: 'Rubik', sans-serif"
-      >
+
+
+<section class="container col-xl-8">
+  <div class="row py-lg-5">
+    <div class="darkmodeheader container col-xl-8 mt-5 headingborder" style="font-family: 'Roboto Mono', monospace">
+      <h3 class="display-5 fw-bolder lh-1 mb-3" style="font-family: 'Rubik', sans-serif">
         SKILLS
       </h3>
-      <p class="lead darkmodesubheading">
-        Tools and skills I’ve focused on in the last 1.5 years
-      </p>
+      <p class="lead darkmodesubheading">Tools and skills I’ve focused on in the last 1.5 years</p>
     </div>
   </div>
 </section>
@@ -62,68 +64,63 @@
 
     <!-- FRONTEND -->
     <div class="col-12 col-lg-4">
-      <div class="darkmode border-secondary rounded-3 p-4 skills-card">
-        <h4 class="fw-bold mb-4 text-center skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace">
+      <div class="darkmode hover-effect border-secondary rounded-3 p-4 skills-card">
+        <h4 class="fw-bold mb-4 text-center skillsubheadingborder" style="font-family: 'Roboto Mono', monospace">
           Frontend
         </h4>
-        <p class="fw-bold"
-        style="font-family: 'Rubik', sans-serif">
-        Frontend technologies, frameworks, and client-side tools for building user interfaces.</p>
+        <p class="fw-bold" style="font-family: 'Rubik', sans-serif">
+          Frontend technologies, frameworks, and client-side tools for building user interfaces.</p>
 
 
         <div class="skills-grid">
-          <div class="skill-item">✓ HTML<br><span class="skill-level skillsdarkmode">● ● ● ●</span></div>
-          <div class="skill-item">✓ CSS<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ Bootstrap<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ JavaScript<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
+          <div class="skill-item">✓ HTML<br><span class=" ">● ● ● ●</span></div>
+          <div class="skill-item">✓ CSS<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ Bootstrap<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ JavaScript<br><span class=" ">● ● ● ◌</span></div>
         </div>
       </div>
     </div>
 
     <!-- OTHERS -->
     <div class="col-12 col-lg-4">
-      <div class="skillsdarkmode border-secondary rounded-3 p-4 skills-card">
-        <h4 class="fw-bold mb-4 text-center skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace">
+      <div class="skillsdarkmode hover-effect  border-secondary rounded-3 p-4 skills-card">
+        <h4 class="fw-bold mb-4 text-center skillsubheadingborder" style="font-family: 'Roboto Mono', monospace">
           Others
         </h4>
-        <p class="fw-bold"
-        style="font-family: 'Rubik', sans-serif">
-        Development tools, version control systems, design utilities, and productivity technologies.</p>
+        <p class="fw-bold" style="font-family: 'Rubik', sans-serif">
+          Development tools, version control systems, design utilities, and productivity technologies.</p>
 
         <div class="skills-grid">
-          <div class="skill-item">✓ Git<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ GitHub<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ VS Code<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ Linux<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ Figma<br><span class="skill-level skillsdarkmode">● ◌ ◌ ◌</span></div>
-          <div class="skill-item">✓ AI / Prompting<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Git<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ GitHub<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ VS Code<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ Linux<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Figma<br><span class=" ">● ◌ ◌ ◌</span></div>
+          <div class="skill-item">✓ AI / Prompting<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Vibe Coding<br><span class=" ">● ● ◌ ◌</span></div>
         </div>
       </div>
     </div>
 
     <!-- BACKEND -->
     <div class="col-12 col-lg-8">
-      <div class="darkmode border-secondary rounded-3 p-4 skills-card">
-        <h4 class="fw-bold mb-4 text-center skillsubheadingborder"
-            style="font-family: 'Roboto Mono', monospace">
+      <div class="darkmode hover-effect border-secondary rounded-3 p-4 skills-card">
+        <h4 class="fw-bold mb-4 text-center skillsubheadingborder" style="font-family: 'Roboto Mono', monospace">
           Backend
         </h4>
-        <p class="fw-bold"
-        style="font-family: 'Rubik', sans-serif">
-        Backend modules, frameworks, databases, and server-side technologies I work with.</p>
+        <p class="fw-bold" style="font-family: 'Rubik', sans-serif">
+          Backend modules, frameworks, databases, and server-side technologies I work with.</p>
 
         <div class="skills-grid">
-          <div class="skill-item">✓ Python<br><span class="skill-level skillsdarkmode">● ● ● ●</span></div>
-          <div class="skill-item">✓ Flask<br><span class="skill-level skillsdarkmode">● ● ● ●</span></div>
-          <div class="skill-item">✓ SQLAlchemy<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ MySQL<br><span class="skill-level skillsdarkmode">● ● ● ◌</span></div>
-          <div class="skill-item">✓ Web Scraping<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ Django<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ Web Scraping<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ Beautiful Soup<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
-          <div class="skill-item">✓ Matplotlib<br><span class="skill-level skillsdarkmode">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Python<br><span class=" ">● ● ● ●</span></div>
+          <div class="skill-item">✓ Flask<br><span class=" ">● ● ● ●</span></div>
+          <div class="skill-item">✓ SQLAlchemy<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ MySQL<br><span class=" ">● ● ● ◌</span></div>
+          <div class="skill-item">✓ Web Scraping<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Django<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Web Scraping<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Beautiful Soup<br><span class=" ">● ● ◌ ◌</span></div>
+          <div class="skill-item">✓ Matplotlib<br><span class=" ">● ● ◌ ◌</span></div>
         </div>
       </div>
     </div>
