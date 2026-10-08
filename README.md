@@ -6,21 +6,19 @@
 </div>
 
 <div align="right">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" height="40" alt="bootstrap logo"  />
+  <img src="https://skillicons.dev/icons?i=react" height="40" alt="react logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/css/1572B6" height="40" alt="css logo"  />
+  <img src="https://skillicons.dev/icons?i=vite" height="40" alt="vite logo"  />
   <img width="12" />
-    <img width="12" />
-  <img src="https://skillicons.dev/icons?i=flask" height="40" alt="flask logo"  />
+  <img src="https://skillicons.dev/icons?i=js" height="40" alt="javascript logo"  />
   <img width="12" />
-    <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
+  <img src="https://skillicons.dev/icons?i=css" height="40" alt="css logo"  />
   <img width="12" />
-  <img src="https://skillicons.dev/icons?i=py" height="40" alt="python logo"  />
+  <img src="https://skillicons.dev/icons?i=html" height="40" alt="html logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/sqlite/003B57" height="40" alt="sqlite logo"  />
+  <img src="https://skillicons.dev/icons?i=github" height="40" alt="github logo"  />
   <img width="12" />
-  <img src="https://cdn.simpleicons.org/vercel/000000" height="40" alt="vercel logo"  />
-  <img width="12" />
+  <img src="https://skillicons.dev/icons?i=vercel" height="40" alt="vercel logo"  />
 </div>
 <br>
 <br>
@@ -58,14 +56,12 @@ This portfolio includes:
 
 ➡️ **Check out some highlighted work:**
 
-| Project                                     |
-| ------------------------------------------- |
-| **To-Do with Auth**                         |
-| **Go-Todo Task**                            |
-| **URL Shortner**                            |
-| **Morse & Cipher text encoder and decoder** |
-| **PulseAi Chatbot —— Gemini**               |
-| **Presonal Blog Website**                   |
+| Project                                            |
+| -------------------------------------------------- |
+| **Shortify — URL Shortener**                       |
+| **Text ↔ Morse Code Translator**                   |
+| **SpeakEasy — AI Communication Training Platform** |
+| **Smart Blogging Platform**                        |
 
 ---
 
@@ -74,20 +70,20 @@ This portfolio includes:
 
 ```
 Portfolio/
-├── static/
-│ └── images/
-│ ├── portfolio-home.png
-│ └── projects.png
+├── public/
+├── src/
+│ ├── assets/
+│ ├── components/
+│ ├── data/
+│ ├── utils/
+│ ├── App.jsx
+│ ├── index.css
+│ └── main.jsx
 │
-├── templates/
-│ ├── index.html
-│ ├── projects.html
-│ └── contact.html
-│
-├── app.py
-├── requirements.txt
+├── index.html
+├── package.json
+├── vite.config.js
 └── README.md
-
 ```
 
 ---
@@ -110,11 +106,11 @@ Portfolio/
 
 | Tool / Skill     | Purpose                                       |
 | ---------------- | --------------------------------------------- |
-| **Python 3.10+** | Core backend language                         |
-| **Flask**        | Web framework for portfolio & apps            |
-| **Html**         | Markup Language to make structure of the code |
-| **SQLite**       | Database management (for apps)                |
-| **Bootstrap 4**  | Responsive web design framework               |
+| **React 19**     | Core frontend library                         |
+| **Vite**         | Next-generation frontend tooling              |
+| **JavaScript**   | Logic and interactivity                       |
+| **CSS3**         | Styling and responsive design                 |
+| **HTML5**        | Markup and document structure                 |
 | **Figma**        | UI/UX design & prototyping                    |
 | **Git & GitHub** | Version control & project hosting             |
 | **Vercel**       | Deployment of apps and portfolio website      |
@@ -141,7 +137,7 @@ Portfolio/
 
 
 **Maaz Siddiqui**  
-🎓 FInal Year Diploma in Computer Engineering, M.H. Saboo Siddik College  
+🎓 Diploma Graduate in Computer Engineering | B.E at TCET
 
 💡 Passionate about **AI, backend systems, and clean UI design**
 
