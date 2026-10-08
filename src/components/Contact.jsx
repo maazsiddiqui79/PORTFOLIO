@@ -37,11 +37,7 @@ export default function Contact() {
                             AI, automation and software engineering.
                         </p>
                         
-                        <div className="availability-signal" style={{ marginTop: '2rem', padding: '1rem', background: 'rgba(255,255,255,0.05)', borderRadius: '8px', borderLeft: '4px solid #4ade80' }}>
-                            <p style={{ margin: 0, fontSize: '0.9rem', color: '#e2e8f0' }}>
-                                <span role="img" aria-label="available">🟢</span> <strong>Currently Available</strong> for Software Engineering, Full Stack, and Web Development roles in Mumbai or Remote.
-                            </p>
-                        </div>
+                        
 
 
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+// import researchCertificate from '../assets/';
 
 export default function Hero() {
     return (
@@ -64,7 +65,7 @@ export default function Hero() {
 
                     <div className="hero-card glass">
                         <img
-                            src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?auto=format&fit=crop&w=900&q=85"
+                            src="src\assets\myimg.jpeg"
                             alt="Aesthetic workspace graphic representing build, learn, iterate mentality"
                         />
                         <div className="hero-card-info">

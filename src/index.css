@@ -417,11 +417,11 @@ html[data-theme="light"] .grid-bg {
 
     border-radius: 18px;
 
-    background: rgba(20, 20, 20, .45);
+    background: rgba(20, 20, 20, 0.726);
 
-    border: 1px solid rgba(255, 255, 255, .1);
+    border: 1px solid rgba(255, 255, 255, 0.265);
 
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 1px 0 rgba(255, 255, 255, 0.838);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.306), inset 0 1px 1px 0 rgba(255, 255, 255, 0.838);
 
     backdrop-filter: blur(24px) saturate(150%);
 
@@ -2107,16 +2107,22 @@ html[data-theme="light"] .floating-chip {
 ========================================================= */
 
 @keyframes modalBackdropFadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes modalBoxSlideUp {
-    from { 
+    from {
         opacity: 0;
         transform: translateY(40px) scale(0.95);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: translateY(0) scale(1);
     }
@@ -2174,20 +2180,25 @@ html[data-theme="light"] .floating-chip {
 .modal-box::-webkit-scrollbar {
     width: 6px;
 }
+
 .modal-box::-webkit-scrollbar-track {
     background: transparent;
     margin: 15px 0;
 }
+
 .modal-box::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
+
 html[data-theme="light"] .modal-box::-webkit-scrollbar-thumb {
     background: rgba(0, 0, 0, 0.2);
 }
+
 .modal-box::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.4);
 }
+
 html[data-theme="light"] .modal-box::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.4);
 }
@@ -2607,8 +2618,8 @@ html[data-theme="light"] .modal-box::-webkit-scrollbar-thumb:hover {
    CONTENT
 ========================= */
 .recognition-summary {
-        margin-top: 20px;
-    }
+    margin-top: 20px;
+}
 
 .achievement-content {
     position: relative;
@@ -4829,20 +4840,29 @@ html[data-theme="light"] .back-to-top:hover {
         height: 45px;
     }
 }
+
 /* Accessibility */
 .skip-link {
-  position: absolute;
-  top: -40px;
-  left: 0;
-  background: #000;
-  color: white;
-  padding: 8px;
-  z-index: 100;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
 }
+
 .skip-link:focus {
-  top: 0;
+    top: 0;
 }
 
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
+    to {
+        opacity: 1;
+    }
+}
