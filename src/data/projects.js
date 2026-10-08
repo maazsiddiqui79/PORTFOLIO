@@ -125,7 +125,7 @@ export const projectData = [
         ],
         "builtBy": "Solo-built by Maaz Siddiqui",
         "githubUrl": "https://github.com/maazsiddiqui79/Morse-Code-Encoder-Decoder",
-        "liveUrl": "",
+        "liveUrl": "https://morse-origin.vercel.app/",
         "featured": true,
         "achievement": "",
         "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85"
@@ -525,7 +525,7 @@ export const projectData = [
         ],
         "builtBy": "Solo-built by Maaz Siddiqui",
         "githubUrl": "https://github.com/maazsiddiqui79/digitalClock",
-        "liveUrl": "",
+        "liveUrl": "https://maazsiddiqui79.github.io/digitalClock/",
         "featured": false,
         "achievement": "",
         "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=1200&q=85"
