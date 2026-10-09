@@ -67,6 +67,7 @@ export default function Navbar() {
                 <a href="/#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
                 <a href="/#achievements" onClick={() => setIsMenuOpen(false)}>Achievements</a>
                 <a href="/#certifications" onClick={() => setIsMenuOpen(false)}>Certifications</a>
+                <a href="/#writing" onClick={() => setIsMenuOpen(false)}>Tech Blogs</a>
                 <a href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
             </div>
 

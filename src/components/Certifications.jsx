@@ -9,7 +9,6 @@ import cert6 from "../assets/certificates/Python.pdf";
 import cert7 from "../assets/certificates/React JS.pdf";
 import cert8 from "../assets/certificates/S-w Testing Techniques.pdf";
 import cert9 from "../assets/certificates/The Joy of Computing using Python IIT Madras.png";
-import cert10 from "../assets/certificates/The Joy of Computing using Python.pdf";
 import cert11 from "../assets/certificates/Udemy 100 Day of python.pdf";
 import cert12 from "../assets/certificates/WhatsApp Image 2026-02-04 at 11.43.03 PM.jpeg";
 import cert13 from "../assets/certificates/Zephyr Gen AI event.pdf";
@@ -26,17 +25,8 @@ const certifications = [
         desc: "Technical Workshop Winner",
         file: cert13
     },
-
     {
         id: 2,
-        issuer: "NPTEL / IIT MADRAS",
-        title: "The Joy of Computing Using Python",
-        desc: "Elite–Silver Certificate (PDF)",
-        file: cert10
-    },
-
-    {
-        id: 3,
         issuer: "NPTEL / IIT MADRAS",
         title: "The Joy of Computing Using Python",
         desc: "Elite–Silver Certificate (Image)",
@@ -44,7 +34,7 @@ const certifications = [
     },
 
     {
-        id: 4,
+        id: 3,
         issuer: "UDEMY",
         title: "100 Days of Python",
         desc: "Python development course",
@@ -52,7 +42,7 @@ const certifications = [
     },
 
     {
-        id: 5,
+        id: 4,
         issuer: "INFOSYS",
         title: "Fundamentals of Python",
         desc: "Infosys Springboard",
@@ -60,7 +50,7 @@ const certifications = [
     },
 
     {
-        id: 6,
+        id: 5,
         issuer: "INFOSYS",
         title: "Java Concepts",
         desc: "Infosys Springboard",
@@ -68,7 +58,7 @@ const certifications = [
     },
 
     {
-        id: 7,
+        id: 6,
         issuer: "INFOSYS",
         title: "C Programming",
         desc: "Infosys Springboard",
@@ -76,7 +66,7 @@ const certifications = [
     },
 
     {
-        id: 8,
+        id: 7,
         issuer: "INFOSYS",
         title: "React JS",
         desc: "Infosys Springboard",
@@ -84,7 +74,7 @@ const certifications = [
     },
 
     {
-        id: 9,
+        id: 8,
         issuer: "ONEROADMAP",
         title: "Data Analyst",
         desc: "Data analysis fundamentals",
@@ -92,7 +82,7 @@ const certifications = [
     },
 
     {
-        id: 10,
+        id: 9,
         issuer: "ONEROADMAP",
         title: "Full Stack Developer",
         desc: "Web Development",
@@ -100,7 +90,7 @@ const certifications = [
     },
 
     {
-        id: 11,
+        id: 10,
         issuer: "ONEROADMAP",
         title: "Python Development",
         desc: "Python Programming",
@@ -108,7 +98,7 @@ const certifications = [
     },
 
     {
-        id: 12,
+        id: 11,
         issuer: "CERTIFICATE",
         title: "React JS",
         desc: "Frontend Development",
@@ -116,7 +106,7 @@ const certifications = [
     },
 
     {
-        id: 13,
+        id: 12,
         issuer: "CERTIFICATE",
         title: "Software Testing Techniques",
         desc: "Testing Fundamentals",
@@ -124,7 +114,7 @@ const certifications = [
     },
 
     {
-        id: 14,
+        id: 13,
         issuer: "CERTIFICATE",
         title: "Mobile Application Dev",
         desc: "App Development",
@@ -132,7 +122,7 @@ const certifications = [
     },
 
     {
-        id: 15,
+        id: 14,
         issuer: "WORKSHOP",
         title: "AI Generalist Workshop",
         desc: "2-Day Intensive Training",
@@ -140,7 +130,7 @@ const certifications = [
     },
 
     {
-        id: 16,
+        id: 15,
         issuer: "COMPETITION",
         title: "Fusion Quiz",
         desc: "Participation",
@@ -148,10 +138,10 @@ const certifications = [
     },
 
     {
-        id: 17,
-        issuer: "ACHIEVEMENT",
-        title: "Certificate of Achievement",
-        desc: "Special Recognition",
+        id: 16,
+        issuer: "PARTICIPATION",
+        title: "Certificate of Participation",
+        desc: "Finalist in Paper Presentation Competition (2026)",
         file: cert12
     }
 ];

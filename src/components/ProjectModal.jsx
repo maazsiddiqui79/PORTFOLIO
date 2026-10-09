@@ -33,7 +33,7 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
                 <h2 id="modal-title" style={{ marginBottom: '10px' }}>{project.title}</h2>
                 
                 {project.achievement && (
-                    <div style={{ display: 'inline-block', marginBottom: '16px', background: 'var(--accent)', color: 'var(--background)', padding: '6px 12px', borderRadius: '4px', fontSize: '0.9rem', fontWeight: 'bold' }}>
+                    <div style={{ display: 'inline-block', marginBottom: '16px', background: 'var(--accent)', color: 'var(--bg)', padding: '6px 12px', borderRadius: '4px', fontSize: '0.9rem', fontWeight: 'bold' }}>
                         {project.achievement}
                     </div>
                 )}

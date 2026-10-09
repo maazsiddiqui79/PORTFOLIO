@@ -45,7 +45,7 @@ export default function Achievements() {
                         </div>
 
                         <div className="recognition-pill">
-                            <strong>03×</strong>
+                            <strong>04×</strong>
                             <span>Participant</span>
                         </div>
 

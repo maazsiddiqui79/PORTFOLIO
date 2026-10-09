@@ -30,9 +30,7 @@ This portfolio reflects my learning journey as a **Diploma student in Computer E
 <div align="center">
 <h1> 🚀 Live Portfolio</h1></div>
 
-📍 **Live Now on Vercel** 
-<br><a href="https://the-maaz-portfolio.vercel.app/"><img align="left" src="https://visitor-badge.laobi.icu/badge?page_id=maurodesouzas.maurodesouzas&left_color=maroon&right_color=cornflowerblue&left_text=Portfolio"  /></a>
-<br>
+**📍 Live Now on Vercel:** [www.maazdev.tech](https://maazdev.vercel.app/)
 
 ---
 
@@ -124,31 +122,28 @@ Portfolio/
 | ---------------------------- | ------ |
 | Add more academic projects   | ☑️     |
 | Blog/articles section        | ☑️     |
-| Interactive resume download  | ☑️     |
-| Dark mode toggle             | 🔜     |
 | Showcase AI/ML mini-projects | ☑️     |
 
 ---
 <div align="center">
-<h1><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> Author
-</2>
+  <h2><img src="https://media.giphy.com/media/WUlplcMpOCEmTGBtBW/giphy.gif" width="30"> About the Author</h2>
+  
+  **Maaz Siddiqui** <br>
+  🎓 Diploma Graduate in Computer Engineering | B.E at TCET <br>
+  💡 Passionate about **AI, backend systems, and clean UI design**
+
+  <br>
+
+  <a href="https://www.linkedin.com/in/siddiqui-maazzz/">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+  </a>&nbsp;
+  <a href="https://github.com/maazsiddiqui79">
+    <img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+  </a>&nbsp;
+  <a href="https://maazdev.vercel.app/">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
+  </a>
 </div>
-
-
-
-**Maaz Siddiqui**  
-🎓 Diploma Graduate in Computer Engineering | B.E at TCET
-
-💡 Passionate about **AI, backend systems, and clean UI design**
-
-<a href="https://www.linkedin.com/in/siddiqui-maazzz/">
-      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/linkedin.png?raw=true">
-   </a>&nbsp;&nbsp;
-   <a href="https://the-maaz-portfolio.vercel.app/">
-      <img height="30" src="https://raw.githubusercontent.com/8bithemant/8bithemant/master/devto.png?raw=true">
-   </a>&nbsp;&nbsp;
-   <a href="https://github.com/maazsiddiqui79">
-        <img src="https://cdn.simpleicons.org/github/181717" height="35" alt="github logo"  /></a>&nbsp;&nbsp;
 
 
 

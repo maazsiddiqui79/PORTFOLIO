@@ -71,9 +71,9 @@ function App() {
           <Experience />
           <Achievements />
           <Certifications />
-          <Github />
           <TechnicalWriting />
           <Contact />
+          <Github />
       </main>
       <Footer />
       <FloatingBackToTop />

@@ -3,7 +3,7 @@ import { projectData } from '../data/projects';
 import ProjectModal from './ProjectModal';
 
 export default function Projects() {
-    const [filter, setFilter] = useState('all');
+    const [filter, setFilter] = useState('selected');
     const [selectedProject, setSelectedProject] = useState(null);
 
     const projectsArray = Array.isArray(projectData) ? projectData : Object.keys(projectData).map(key => ({
@@ -18,14 +18,14 @@ export default function Projects() {
             allProjectTypes.add(p.type.toLowerCase());
         }
     });
-    
+
     // Sort types alphabetically and create the final filters array
     const availableFilters = ['all', 'selected', ...Array.from(allProjectTypes).sort()];
 
     const filteredProjects = projectsArray.filter(project => {
         if (filter === 'all') return true;
         if (filter === 'selected') return project.featured === true;
-        
+
         // Filter based on type
         return project.type && project.type.toLowerCase() === filter;
     });
@@ -79,7 +79,7 @@ export default function Projects() {
                                 <div style={{ position: 'absolute', top: '20px', right: '20px', display: 'flex', gap: '8px', zIndex: 10, alignItems: 'center' }}>
                                     {project.achievement && (
                                         <span className="project-type" style={{ position: 'relative', top: 'auto', right: 'auto', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                                             {project.achievement}
+                                            {project.achievement}
                                         </span>
                                     )}
                                     {project.type && <span className="project-type" style={{ position: 'relative', top: 'auto', right: 'auto' }}>{project.type.toUpperCase()}</span>}
@@ -121,22 +121,27 @@ export default function Projects() {
 
                     <div className="deployed-grid">
 
-                        <a href="https://go-todo-task.com" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
-                            <h4>ToDo List Web App</h4>
+                        <a href="https://maaz-social-card.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
+                            <h4>Digital Card</h4>
                             <div className="deployed-divider"></div>
-                            <span className="deployed-link-btn">go-todo-task.com</span>
+                            <span className="deployed-link-btn">digital-card.maazdev.tech</span>
+                        </a>
+                        <a href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
+                            <h4>Speak Easy</h4>
+                            <div className="deployed-divider"></div>
+                            <span className="deployed-link-btn">speak-easy-ai.maazdev.tech</span>
                         </a>
 
                         <a href="https://shortify-maazdev.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
-                            <h4>URL Shortner</h4>
+                            <h4>Shortify - URL Shortener</h4>
                             <div className="deployed-divider"></div>
-                            <span className="deployed-link-btn outline">shortify-maazdev.com</span>
+                            <span className="deployed-link-btn outline">shortify.maazdev.tech</span>
                         </a>
 
                         <a href="https://morse-origin.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
                             <h4>Morse Encoder & Decoder</h4>
                             <div className="deployed-divider"></div>
-                            <span className="deployed-link-btn">morse-origin.app</span>
+                            <span className="deployed-link-btn">morse-origin.maazdev.tech</span>
                         </a>
 
                         {/* You can easily add more deployed projects here later */}
