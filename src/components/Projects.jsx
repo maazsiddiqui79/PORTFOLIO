@@ -129,7 +129,7 @@ export default function Projects() {
                         <a href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">
                             <h4>Speak Easy</h4>
                             <div className="deployed-divider"></div>
-                            <span className="deployed-link-btn">speak-easy-ai.maazdev.tech</span>
+                            <span className="deployed-link-btn outline">speak-easy-ai.maazdev.tech</span>
                         </a>
 
                         <a href="https://shortify-maazdev.vercel.app/" target="_blank" rel="noopener noreferrer" className="deployed-card glass">

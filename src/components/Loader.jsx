@@ -37,7 +37,7 @@ export default function Loader({ onComplete }) {
             } else {
                 setCurrentGreeting(index);
             }
-        }, 300); // Speed of language change
+        }, 350); // Speed of language change
 
         // Lock scroll while loader is active
         document.body.style.overflow = 'hidden';
