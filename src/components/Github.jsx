@@ -290,6 +290,8 @@ export default function Github() {
                         </div>
 
 
+
+                    </div>
                         <div className="github-activity-footer">
 
                             <span>
@@ -301,76 +303,6 @@ export default function Github() {
                             </span>
 
                         </div>
-
-                    </div>
-
-
-                    {/* ==========================================
-                        PROFILE DETAILS
-                    ========================================== */}
-
-                    {!loading && github && (
-
-                        <div className="github-details">
-
-
-                            <div className="github-detail">
-
-                                <small>
-                                    USERNAME
-                                </small>
-
-                                <span>
-                                    @{github.login}
-                                </span>
-
-                            </div>
-
-
-                            <div className="github-detail">
-
-                                <small>
-                                    NAME
-                                </small>
-
-                                <span>
-                                    {github.name || "Maaz Siddiqui"}
-                                </span>
-
-                            </div>
-
-
-                            <div className="github-detail">
-
-                                <small>
-                                    ACCOUNT
-                                </small>
-
-                                <span>
-                                    Since{" "}
-                                    {new Date(
-                                        github.created_at
-                                    ).getFullYear()}
-                                </span>
-
-                            </div>
-
-
-                            <div className="github-detail">
-
-                                <small>
-                                    PROFILE
-                                </small>
-
-                                <span>
-                                    Public
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    )}
 
                 </div>
 

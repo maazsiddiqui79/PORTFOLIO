@@ -1,8 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-
-
-
 const greetings = [
     { text: "Hello" },
     { text: "Bonjour" },
@@ -21,6 +18,7 @@ const greetings = [
 export default function Loader({ onComplete }) {
     const [currentGreeting, setCurrentGreeting] = useState(0);
     const [isFadingOut, setIsFadingOut] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
     const intervalRef = useRef(null);
     const timeoutRef = useRef(null);
     const isPausedRef = useRef(false);
@@ -58,6 +56,28 @@ export default function Loader({ onComplete }) {
         setTimeout(onComplete, 800);
     };
 
+    const handleTogglePause = () => {
+        setIsPaused(prev => {
+            const nextPauseState = !prev;
+            isPausedRef.current = nextPauseState;
+            return nextPauseState;
+        });
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key.toLowerCase() === 'x') {
+                handleSkip();
+            } else if (e.key.toLowerCase() === 'p') {
+                handleTogglePause();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
     return (
         <div
             className={`loader-container ${isFadingOut ? 'fade-out' : ''}`}
@@ -65,8 +85,11 @@ export default function Loader({ onComplete }) {
             <div 
                 className="loader-content" 
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'default' }}
-                onMouseEnter={() => { isPausedRef.current = true; }}
-                onMouseLeave={() => { isPausedRef.current = false; }}
+                onMouseEnter={() => { if (!isPaused) isPausedRef.current = true; }}
+                onMouseLeave={() => { if (!isPaused) isPausedRef.current = false; }}
+                onClick={() => {
+                    handleTogglePause();
+                }}
             >
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <span className="loader-dot" style={{ position: 'relative', left: '0', marginRight: '15px' }}></span>
@@ -95,6 +118,26 @@ export default function Loader({ onComplete }) {
             </div>
 
             <div style={{ position: 'absolute', top: '5vh', right: '5vw', display: 'flex', flexDirection: 'column', alignItems: 'flex-end', zIndex: 10 }}>
+
+                <button
+                    onClick={handleTogglePause}
+                    style={{
+                        background: 'none',
+                        border: 'none',
+                        color: isPaused ? 'var(--accent)' : 'rgba(255, 255, 255, 0.4)',
+                        fontFamily: 'var(--mono)',
+                        fontSize: '0.8rem',
+                        cursor: 'pointer',
+                        letterSpacing: '0.1em',
+                        transition: 'color 0.3s ease'
+                    }}
+                    onMouseOver={(e) => { if (!isPaused) e.target.style.color = 'rgba(255, 255, 255, 0.8)' }}
+                    onMouseOut={(e) => { if (!isPaused) e.target.style.color = 'rgba(255, 255, 255, 0.4)' }}
+                >
+                    {isPaused ? 'RESUME [ ▶ ]' : 'PAUSE [ || ]'}
+                </button>
+
+                
                 <button
                     onClick={handleSkip}
                     style={{
@@ -118,10 +161,12 @@ export default function Loader({ onComplete }) {
                     fontFamily: 'var(--mono)',
                     fontSize: '0.65rem',
                     letterSpacing: '0.05em',
-                    pointerEvents: 'none'
+                    pointerEvents: 'none',
+                    marginBottom: '8px'
                 }}>
-                    Hover / Click text to pause
+                    Hover / Click pause to pause
                 </div>
+                
             </div>
         </div>
     );

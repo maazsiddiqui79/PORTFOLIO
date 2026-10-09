@@ -81,7 +81,7 @@ export function initAnimations() {
             heroCard.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(2deg)`;
         });
         heroCard.addEventListener("mouseleave", () => {
-            heroCard.style.transform = "rotate(4deg)";
+            heroCard.style.transform = "";
         });
     }
 

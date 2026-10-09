@@ -8,7 +8,7 @@ export default function TechnicalWriting() {
                     <div className="section-label">09 / Tech-Blogs & Articles</div>
                     <h2 className="section-title">
                         Technical<br />
-                        <span className="accent">Writing.</span>
+                        Writing.
                     </h2>
                     <p style={{ color: 'var(--muted)', marginTop: '1.5rem', maxWidth: '600px', fontSize: '1.05rem', lineHeight: '1.6' }}>
                         I occasionally share my engineering learnings, project insights, technical articles, documentation, coding notes, and development experiences.

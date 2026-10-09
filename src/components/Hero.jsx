@@ -7,16 +7,17 @@ export default function Hero() {
             <div className="container hero-grid">
                 <div className="hero-content reveal">
                     <div className="hero-kicker">
-                        <span className="status-dot"></span>
-                        B.TECH COMPUTER ENGINEERING / AI / WEB
+
+                         <span className="status-dot"></span>PURSUING B.E. IN COMPUTER ENGINEERING | DIPLOMA GRADUATE IN COMPUTER ENGINEERING 
                     </div>
 
                     <h1 className="reveal">
                         <span className="text-reveal">
                             <span style={{ transitionDelay: '0.2s' }}>Maaz</span>
                         </span>
+                        {' '}
                         <span className="outline text-reveal">
-                            <span style={{ transitionDelay: '0.35s' }}> Siddiqui.</span>
+                            <span style={{ transitionDelay: '0.35s' }}>Siddiqui.</span>
                         </span>
                     </h1>
 
@@ -44,7 +45,7 @@ export default function Hero() {
                     <div className="hero-meta">
                         <div className="meta-item">
                             <small>Currently</small>
-                            <strong>B.Tech Computer Engineering</strong>
+                            <strong>B.E Computer Engineering</strong>
                         </div>
                         <div className="meta-item">
                             <small>Institute</small>
@@ -52,7 +53,7 @@ export default function Hero() {
                         </div>
                         <div className="meta-item">
                             <small>Focus</small>
-                            <strong className="accent">AI + Full Stack</strong>
+                            <strong className="accent">Full Stack+AI / Cloud</strong>
                         </div>
                     </div>
                 </div>

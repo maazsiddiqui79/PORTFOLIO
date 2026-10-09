@@ -820,8 +820,6 @@ html[data-theme="light"] .theme-option.selected {
 
     -webkit-text-stroke:
         1px rgba(255, 255, 255, .4);
-
-    margin-left: 0.15em;
 }
 
 
@@ -978,11 +976,26 @@ html[data-theme="light"] .hero h1 .outline {
 
     top: 20px;
 
-    border-radius: 30px;
+    border-radius: 15px;
 
     overflow: hidden;
+    
 
-    transform: rotate(4deg);
+    transform: perspective(1000px) rotateY(-12deg) rotateX(8deg) rotateZ(3deg);
+    
+    box-shadow: 
+        -20px 20px 40px rgba(0, 0, 0, 0.4),
+        0 0 40px rgba(200, 255, 53, 0.1);
+        
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.9s ease;
+}
+
+.hero-card:hover {
+    transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(0deg) translateY(-15px);
+    
+    box-shadow: 
+        -30px 30px 50px rgba(0, 0, 0, 0.5),
+        0 0 60px rgba(200, 255, 53, 0.25);
 }
 
 
@@ -1015,16 +1028,17 @@ html[data-theme="light"] .hero h1 .outline {
     object-fit: cover;
 
     filter:
-        grayscale(.8) contrast(1.05);
+        grayscale(.8) contrast(2.05) sepia(0.50);
 
-    transition: .5s;
+
+    transition: .9s;
 }
 
 
 .hero-card:hover img {
 
     filter:
-        grayscale(.35) contrast(1.05);
+        grayscale(0) contrast(1.05);
 
     transform: scale(1.04);
 }
@@ -4208,13 +4222,13 @@ html[data-theme="light"] .command-item kbd {
 
 
     .hero-card {
-
         left: 50%;
-
         right: auto;
+        transform: perspective(1000px) translateX(-50%) rotateY(0deg) rotateX(6deg) rotateZ(3deg);
+    }
 
-        transform:
-            translateX(-50%) rotate(3deg);
+    .hero-card:hover {
+        transform: perspective(1000px) translateX(-50%) translateY(-10px) rotateY(0deg) rotateX(2deg) rotateZ(0deg);
     }
 
 
@@ -4762,6 +4776,8 @@ html[data-theme="light"] .command-item kbd {
     overflow: hidden;
     display: inline-block;
     vertical-align: top;
+        padding: 0.3em 0;
+    margin: -0.3em 0;
 }
 
 .text-reveal span {
@@ -4952,4 +4968,21 @@ html[data-theme="light"] .writing-bg-glow {
 @keyframes drawLine {
     0% { stroke-dashoffset: 100; }
     100% { stroke-dashoffset: 0; }
+}
+
+/* --- Project Modal Badge --- */
+.project-achievement-badge {
+    display: inline-block;
+    margin-bottom: 16px;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+html[data-theme="light"] .project-achievement-badge {
+    color: #000000;
+    background: var(--accent-dark);
 }
