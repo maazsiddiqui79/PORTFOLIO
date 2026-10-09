@@ -38,7 +38,7 @@ export default function Education() {
 
 
                             <h3>
-                                B.Tech in Computer Engineering
+                                B.E in Computer Engineering
                             </h3>
 
 
