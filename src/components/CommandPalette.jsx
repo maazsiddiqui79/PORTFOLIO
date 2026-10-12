@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useLenis } from 'lenis/react';
 import resumeFile from '../assets/Maaz_Siddiqui_Resume.pdf';
 import researchPaper from '../assets/IJPREMS60200006505.pdf';
 import researchCertificate from '../assets/Maaz IJPREMS60200006505-1.pdf';
@@ -6,30 +7,77 @@ import researchCertificate from '../assets/Maaz IJPREMS60200006505-1.pdf';
 export default function CommandPalette({ isOpen, onClose }) {
     const [search, setSearch] = useState('');
     const inputRef = useRef(null);
+    const overlayRef = useRef(null);
+    const lenis = useLenis();
 
-    useEffect(() => {
-        if (isOpen) {
-            inputRef.current?.focus();
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-            setSearch('');
-        }
-    }, [isOpen]);
+    const handleClose = useCallback(() => {
+        setSearch('');
+        onClose();
+    }, [onClose]);
 
+    // Close on Escape
     useEffect(() => {
+        if (!isOpen) return;
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
-                onClose();
-            }
-            if (isOpen && !e.ctrlKey && !e.metaKey) {
-                // Handle keyboard shortcuts if we want, but since they are typing in search, 
-                // maybe only if input is NOT focused? No, just keep it simple.
+                handleClose();
             }
         };
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isOpen, onClose]);
+    }, [isOpen, handleClose]);
+
+    // Prevent background scrolling while CommandPalette is open (Desktop & Mobile)
+    useEffect(() => {
+        if (!isOpen) return;
+
+        // Stop Lenis smooth scroll
+        lenis?.stop();
+
+        // Calculate scrollbar width on desktops to prevent layout shift when body scrollbar is hidden
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        const prevBodyOverflow = document.body.style.overflow;
+        const prevHtmlOverflow = document.documentElement.style.overflow;
+        const prevBodyPaddingRight = document.body.style.paddingRight;
+
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+
+        // Focus search input
+        inputRef.current?.focus();
+
+        return () => {
+            document.body.style.overflow = prevBodyOverflow;
+            document.documentElement.style.overflow = prevHtmlOverflow;
+            document.body.style.paddingRight = prevBodyPaddingRight;
+            lenis?.start();
+        };
+    }, [isOpen, lenis]);
+
+    // Block wheel & touch events originating directly on the backdrop (outside command-palette)
+    useEffect(() => {
+        if (!isOpen) return;
+        const overlayEl = overlayRef.current;
+        if (!overlayEl) return;
+
+        const handleBackdropScroll = (e) => {
+            // If user scrolls on the backdrop itself (outside the command palette box), prevent scroll
+            if (e.target === overlayEl) {
+                e.preventDefault();
+            }
+        };
+
+        overlayEl.addEventListener('wheel', handleBackdropScroll, { passive: false });
+        overlayEl.addEventListener('touchmove', handleBackdropScroll, { passive: false });
+
+        return () => {
+            overlayEl.removeEventListener('wheel', handleBackdropScroll);
+            overlayEl.removeEventListener('touchmove', handleBackdropScroll);
+        };
+    }, [isOpen]);
 
     if (!isOpen) return null;
 
@@ -59,8 +107,17 @@ export default function CommandPalette({ isOpen, onClose }) {
     const filteredActions = actionItems.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
     return (
-        <div className="command-overlay" onClick={onClose}>
-            <div className="command-palette" onClick={e => e.stopPropagation()}>
+        <div 
+            className="command-overlay" 
+            ref={overlayRef} 
+            onClick={handleClose}
+            data-lenis-prevent
+        >
+            <div 
+                className="command-palette" 
+                onClick={e => e.stopPropagation()}
+                data-lenis-prevent
+            >
                 <div className="command-search">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
@@ -75,12 +132,12 @@ export default function CommandPalette({ isOpen, onClose }) {
                     />
                 </div>
 
-                <div className="command-content">
+                <div className="command-content" data-lenis-prevent>
                     {filteredNav.length > 0 && (
                         <div className="command-section">
                             <div className="command-label">NAVIGATION</div>
                             {filteredNav.map((item, idx) => (
-                                <a href={item.id} className="command-item" onClick={onClose} key={idx}>
+                                <a href={item.id} className="command-item" onClick={handleClose} key={idx}>
                                     <span>{item.name}</span>
                                     <kbd>{item.key}</kbd>
                                 </a>
@@ -95,7 +152,7 @@ export default function CommandPalette({ isOpen, onClose }) {
                                 <a 
                                     href={item.id} 
                                     className="command-item" 
-                                    onClick={onClose} 
+                                    onClick={handleClose} 
                                     key={idx}
                                     target={item.isLink ? "_blank" : undefined}
                                     rel={item.isLink ? "noopener noreferrer" : undefined}

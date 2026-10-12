@@ -1,6 +1,11 @@
-import React, { useMemo, useEffect } from 'react';
+import React, { useMemo, useEffect, useRef } from 'react';
+import { useLenis } from 'lenis/react';
 
 export default function ProjectModal({ project, onClose, allProjects, onSelectProject }) {
+    const modalRef = useRef(null);
+    const modalBoxRef = useRef(null);
+    const lenis = useLenis();
+
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'Escape') {
@@ -11,19 +16,96 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
 
-    if (!project) return null;
+    // Prevent background scrolling while modal is open (Desktop & Mobile)
+    useEffect(() => {
+        // Stop Lenis smooth scroll
+        lenis?.stop();
+
+        // Calculate scrollbar width on desktops to prevent layout shift when body scrollbar is hidden
+        const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+        const prevBodyOverflow = document.body.style.overflow;
+        const prevHtmlOverflow = document.documentElement.style.overflow;
+        const prevBodyPaddingRight = document.body.style.paddingRight;
+
+        document.body.style.overflow = 'hidden';
+        document.documentElement.style.overflow = 'hidden';
+        if (scrollbarWidth > 0) {
+            document.body.style.paddingRight = `${scrollbarWidth}px`;
+        }
+
+        // Focus modal box for immediate keyboard accessibility (PageDown, ArrowDown) without showing focus outline
+        modalBoxRef.current?.focus({ preventScroll: true });
+
+        // Ensure modal-box starts scrolled at the top
+        if (modalBoxRef.current) {
+            modalBoxRef.current.scrollTop = 0;
+        }
+
+        return () => {
+            document.body.style.overflow = prevBodyOverflow;
+            document.documentElement.style.overflow = prevHtmlOverflow;
+            document.body.style.paddingRight = prevBodyPaddingRight;
+            lenis?.start();
+        };
+    }, [lenis]);
+
+    // Block wheel & touch events originating directly on the backdrop (outside modal-box)
+    useEffect(() => {
+        const modalEl = modalRef.current;
+        if (!modalEl) return;
+
+        const handleBackdropScroll = (e) => {
+            // If user scrolls on the backdrop itself (outside modal-box), prevent scroll
+            if (e.target === modalEl) {
+                e.preventDefault();
+            }
+        };
+
+        modalEl.addEventListener('wheel', handleBackdropScroll, { passive: false });
+        modalEl.addEventListener('touchmove', handleBackdropScroll, { passive: false });
+
+        return () => {
+            modalEl.removeEventListener('wheel', handleBackdropScroll);
+            modalEl.removeEventListener('touchmove', handleBackdropScroll);
+        };
+    }, []);
+
+    // Reset modal-box scroll position to top whenever project changes
+    useEffect(() => {
+        if (modalBoxRef.current) {
+            modalBoxRef.current.scrollTop = 0;
+        }
+    }, [project?.id]);
 
     // Get 3 random suggestions excluding the current project
     const suggestions = useMemo(() => {
-        if (!allProjects) return [];
+        if (!project || !allProjects) return [];
         const otherProjects = allProjects.filter(p => p.id !== project.id);
         const shuffled = [...otherProjects].sort(() => 0.5 - Math.random());
         return shuffled.slice(0, 3);
     }, [project, allProjects]);
 
+    if (!project) return null;
+
     return (
-        <div className="modal active" id="projectModal" onClick={onClose} role="dialog" aria-modal="true" aria-labelledby="modal-title">
-            <div className="modal-box glass" onClick={(e) => e.stopPropagation()}>
+        <div
+            className="modal active"
+            id="projectModal"
+            ref={modalRef}
+            onClick={onClose}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
+            data-lenis-prevent
+        >
+            <div
+                className="modal-box glass"
+                ref={modalBoxRef}
+                tabIndex={-1}
+                style={{ outline: 'none' }}
+                onClick={(e) => e.stopPropagation()}
+                data-lenis-prevent
+            >
                 <button className="modal-close" onClick={onClose} aria-label="Close modal">×</button>
                 
                 <div className="section-label">
@@ -136,7 +218,7 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
                     <div className="suggestions-section" style={{ marginTop: '60px', borderTop: '1px solid var(--line)', paddingTop: '40px' }}>
                         <h3 style={{ fontSize: '1.4rem', marginBottom: '24px' }}>You May Also Like</h3>
                         <div className="projects-grid" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '20px' }}>
-                            {suggestions.map((sug, index) => (
+                            {suggestions.map((sug) => (
                                 <article
                                     key={sug.id}
                                     className="project-card glass visible"

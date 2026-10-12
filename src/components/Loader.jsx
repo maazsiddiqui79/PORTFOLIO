@@ -10,9 +10,9 @@ const greetings = [
     { text: "こんにちは", sub: "Konnichiwa", meaning: "Good day / Hello" },
     { text: "你好", sub: "Nǐ hǎo", meaning: "Hello (Literally: You good)" },
     { text: "안녕하세요", sub: "Annyeonghaseyo", meaning: "Hello (Literally: Are you at peace?)" },
-    { text: "مرحبا", sub: "Marhaba", meaning: "Welcome" },
     { text: "नमस्ते", sub: "Namaste", meaning: "I bow to you" },
-    { text: "السلام علیکم", sub: "As-salamu alaykum", meaning: "Peace be upon you" }
+    { text: "مرحبا", sub: "Marhaba", meaning: "Welcome" },
+    { text: "السلام علیکم", sub: "As-salamu alaykum", meaning: "Peace be upon you" },
 ];
 
 export default function Loader({ onComplete }) {
@@ -82,8 +82,8 @@ export default function Loader({ onComplete }) {
         <div
             className={`loader-container ${isFadingOut ? 'fade-out' : ''}`}
         >
-            <div 
-                className="loader-content" 
+            <div
+                className="loader-content"
                 style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', cursor: 'default' }}
                 onMouseEnter={() => { if (!isPaused) isPausedRef.current = true; }}
                 onMouseLeave={() => { if (!isPaused) isPausedRef.current = false; }}
@@ -137,7 +137,7 @@ export default function Loader({ onComplete }) {
                     {isPaused ? 'RESUME [ ▶ ]' : 'PAUSE [ || ]'}
                 </button>
 
-                
+
                 <button
                     onClick={handleSkip}
                     style={{
@@ -164,9 +164,8 @@ export default function Loader({ onComplete }) {
                     pointerEvents: 'none',
                     marginBottom: '8px'
                 }}>
-                    Hover / Click pause to pause
                 </div>
-                
+
             </div>
         </div>
     );

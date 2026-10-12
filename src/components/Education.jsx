@@ -57,7 +57,7 @@ export default function Education() {
                                     </span>
 
                                     <strong>
-                                        B.Tech
+                                        B.E
                                     </strong>
 
                                 </div>

@@ -154,7 +154,6 @@ export default function Projects() {
 
             {selectedProject && (
                 <ProjectModal
-                    key={selectedProject.id}
                     project={selectedProject}
                     onClose={() => setSelectedProject(null)}
                     allProjects={projectsArray}

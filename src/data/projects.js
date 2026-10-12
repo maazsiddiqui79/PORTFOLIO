@@ -40,7 +40,7 @@ export const projectData = [
         "githubUrl": "https://github.com/maazsiddiqui79/To-Do-List-Web-Application",
         "liveUrl": "https://go-todo-task.vercel.app/",
         "featured": false,
-        "achievement": "",
+        "achievement": "First Project Deployed",
         "image": "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=1200&q=85"
     },
     {

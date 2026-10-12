@@ -81,7 +81,7 @@ export default function Achievements() {
                             <div className="achievement-content">
 
                                 <span className="achievement-kicker">
-                                    1× COMPETITION WINNER
+                                    COMPETITION WINNER
                                 </span>
 
                                 <h3 className="achievement-title">
@@ -94,6 +94,18 @@ export default function Achievements() {
                                     of Thakur College of Engineering
                                     and Technology, Mumbai.
                                 </p>
+                                <div className="research-information-item">
+
+                                    <small>
+                                        Link
+                                    </small>
+                                    <span>
+                                        <a href="https://speakeasy-ai-one.vercel.app/">https://speakeasy-ai-one.app/</a>
+                                        
+                                    </span>
+
+
+                                </div>
 
                             </div>
 
@@ -448,7 +460,7 @@ export default function Achievements() {
 
 
                                 <a
-                                    href="https://doi.org/10.58257/IJPREMS51347"
+                                    href="https://www.google.com/search?q=10.58257%2FIJPREMS51347&sca_esv=aae8b36161dbb831&sxsrf=APpeQnvDfABLEq1zoUmLj1yHehbigeQEKQ%3A1791808811675&source=hp&ei=K9XMav-SJp-dhvcPgfHd4Aw&iflsig=ABILxe8AAAAAaszjOxQm7qKU_ga3jhrRsXkH19VLbesY&ved=0ahUKEwi_1OP9v7SXAxWfjuEIHYF4F8wQ4dUDCCw&uact=5&oq=https%3A%2F%2Fdoi.org%2F10.58257%2FIJPREMS51347&gs_lp=Egdnd3Mtd2l6IiVodHRwczovL2RvaS5vcmcvMTAuNTgyNTcvSUpQUkVNUzUxMzQ3SL8HULcCWLcCcAF4AJABAJgBxQGgAcUBqgEDMC4xuAEDyAEA-AEC-AEBmAIBoAInqAIKwgINEC4YxwEY0QMY6gIYJ8ICDRAjGPAFGMkCGOoCGCfCAgcQIxjqAhgnwgIKECMY8AUY6gIYJ8ICDRAjGPAFGLQEGOoCGCfCAgoQIxjJAhjqAhgnwgINECMYtAQY8AUY6gIYJ5gDJ_EFY6LIDOZ5XKKSBwExoAc3sgcAuAcAwgcDNC0xyAcggAgB&sclient=gws-wiz"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="research-doi"
