@@ -70,7 +70,7 @@ export default function NotFound() {
                     </h1>
 
                     <p style={{ color: 'var(--text-soft)', marginBottom: '40px', maxWidth: '400px', lineHeight: '1.6', fontSize: '1.1rem' }}>
-                        The resource you requested is not available. It might have been moved, deleted, or never existed in the first place.
+                        The resource you requested is not available or it might have been moved, deleted, or never existed in the first place.
                     </p>
 
                     <a 

@@ -34,18 +34,20 @@ export default function Footer() {
                 </div>
 
                 <div className="footer-socials" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ 
-                        width: '8px', 
-                        height: '8px', 
-                        backgroundColor: '#00ff00', 
-                        borderRadius: '50%', 
+                    <span style={{
+                        width: '8px',
+                        height: '8px',
+                        backgroundColor: '#00ff00',
+                        borderRadius: '50%',
                         boxShadow: '0 0 10px rgba(0, 255, 0, 0.8)',
                         animation: 'pulse 2s infinite',
                         display: 'inline-block',
                         flexShrink: 0
                     }}></span>
                     <span style={{ color: 'var(--muted)', letterSpacing: '0.02em', fontSize: '0.75rem' }}>
-                        Code Every Day, Grow Everyday.
+                        All Power is Within You;<br />
+                        You Can Do Anything
+                        And Everything. <br /> <span className="qoute" >- Swami Vivekananda</span>
                     </span>
                 </div>
             </div>

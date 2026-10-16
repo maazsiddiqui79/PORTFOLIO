@@ -240,9 +240,9 @@ export default function Github() {
 
                             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
                                 {!loading && github && (
-                                    <select 
+                                    <select
                                         className="github-year-select"
-                                        value={selectedYear} 
+                                        value={selectedYear}
                                         onChange={(e) => setSelectedYear(parseInt(e.target.value))}
                                         style={{
                                             padding: '6px 12px',
@@ -292,17 +292,18 @@ export default function Github() {
 
 
                     </div>
-                        <div className="github-activity-footer">
+                    <div className="github-activity-footer">
 
-                            <span>
-                                Daily contribution activity
-                            </span>
+                        <span>
+                            {/* Daily contribution activity */}
+                            • CODE EVERY DAY,   GROW EVERY DAY
+                        </span>
 
-                            <span>
-                                Updated from GitHub
-                            </span>
+                        <span>
+                            Updated from GitHub
+                        </span>
 
-                        </div>
+                    </div>
 
                 </div>
 

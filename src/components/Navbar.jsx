@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLenis } from 'lenis/react';
 import CommandPalette from './CommandPalette';
 
 export default function Navbar() {
@@ -6,14 +7,42 @@ export default function Navbar() {
     const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
     const [currentTheme, setCurrentTheme] = useState('dark');
     const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
     
     const navRef = useRef(null);
+
+    const sectionIds = ['home', 'about', 'skills', 'projects', 'education', 'experience', 'achievements', 'certifications', 'writing', 'contact'];
 
     useEffect(() => {
         const savedTheme = localStorage.getItem("portfolio-theme") || "dark";
         setCurrentTheme(savedTheme);
         applyTheme(savedTheme);
     }, []);
+
+    // Active section tracking via Lenis scroll callback
+    useLenis(({ scroll }) => {
+        const windowHeight = window.innerHeight;
+        const docHeight = document.documentElement.scrollHeight;
+
+        // If at the very bottom, activate the last section
+        if (scroll + windowHeight >= docHeight - 10) {
+            setActiveSection(sectionIds[sectionIds.length - 1]);
+            return;
+        }
+
+        // Find the section whose top is closest to the viewport top
+        let current = sectionIds[0];
+        for (const id of sectionIds) {
+            const el = document.getElementById(id);
+            if (el) {
+                const rect = el.getBoundingClientRect();
+                if (rect.top <= windowHeight * 0.4) {
+                    current = id;
+                }
+            }
+        }
+        setActiveSection(current);
+    });
 
     useEffect(() => {
         const handleGlobalKeyDown = (e) => {
@@ -52,23 +81,36 @@ export default function Navbar() {
         setIsThemeMenuOpen(false);
     };
 
+    const navLinks = [
+        { id: 'about', label: 'About' },
+        { id: 'skills', label: 'Skills' },
+        { id: 'projects', label: 'Projects' },
+        { id: 'education', label: 'Education' },
+        { id: 'experience', label: 'Experience' },
+        { id: 'achievements', label: 'Achievements' },
+        { id: 'certifications', label: 'Certifications' },
+        { id: 'writing', label: 'Tech Blogs' },
+        { id: 'contact', label: 'Contact' },
+    ];
+
     return (
         <>
             <nav className={`nav ${isMenuOpen ? 'open' : ''}`} id="nav" ref={navRef}>
-            <a href="#home" className="logo">
+            <a href="#home" className={`logo ${activeSection === 'home' ? 'active' : ''}`}>
                 maazdev<span>.</span>tech
             </a>
 
             <div className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-                <a href="/#about" onClick={() => setIsMenuOpen(false)}>About</a>
-                <a href="/#skills" onClick={() => setIsMenuOpen(false)}>Skills</a>
-                <a href="/#projects" onClick={() => setIsMenuOpen(false)}>Projects</a>
-                <a href="/#education" onClick={() => setIsMenuOpen(false)}>Education</a>
-                <a href="/#experience" onClick={() => setIsMenuOpen(false)}>Experience</a>
-                <a href="/#achievements" onClick={() => setIsMenuOpen(false)}>Achievements</a>
-                <a href="/#certifications" onClick={() => setIsMenuOpen(false)}>Certifications</a>
-                <a href="/#writing" onClick={() => setIsMenuOpen(false)}>Tech Blogs</a>
-                <a href="/#contact" onClick={() => setIsMenuOpen(false)}>Contact</a>
+                {navLinks.map(({ id, label }) => (
+                    <a
+                        key={id}
+                        href={`/#${id}`}
+                        className={activeSection === id ? 'active' : ''}
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        {label}
+                    </a>
+                ))}
             </div>
 
             <div className="nav-actions">

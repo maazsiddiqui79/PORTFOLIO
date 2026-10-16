@@ -79,20 +79,25 @@ html {
 }
 
 /* LENIS RECOMMENDED STYLES */
-html.lenis, html.lenis body {
-  height: auto;
+html.lenis,
+html.lenis body {
+    height: auto;
 }
+
 .lenis.lenis-smooth {
-  scroll-behavior: auto !important;
+    scroll-behavior: auto !important;
 }
+
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
+    overscroll-behavior: contain;
 }
+
 .lenis.lenis-stopped {
-  overflow: hidden;
+    overflow: hidden;
 }
+
 .lenis.lenis-smooth iframe {
-  pointer-events: none;
+    pointer-events: none;
 }
 
 body {
@@ -136,20 +141,65 @@ html[data-theme="light"] body {
 
 
 ::-webkit-scrollbar {
-    width: 7px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #4b4f55;
-    border-radius: 20px;
+    background: linear-gradient(180deg,
+            rgba(200, 255, 53, 0.15),
+            rgba(255, 255, 255, 0.08) 40%,
+            rgba(200, 255, 53, 0.15));
+    border-radius: 99px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            var(--accent),
+            rgba(200, 255, 53, 0.6) 50%,
+            var(--accent));
+    box-shadow: 0 0 12px rgba(200, 255, 53, 0.35);
+}
+
+::-webkit-scrollbar-thumb:active {
     background: var(--accent);
+    box-shadow: 0 0 18px rgba(200, 255, 53, 0.5);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg,
+            rgba(120, 159, 0, 0.12),
+            rgba(0, 0, 0, 0.06) 40%,
+            rgba(120, 159, 0, 0.12));
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg,
+            var(--accent),
+            rgba(120, 159, 0, 0.5) 50%,
+            var(--accent));
+    box-shadow: 0 0 10px rgba(120, 159, 0, 0.25);
+}
+
+html[data-theme="light"] ::-webkit-scrollbar-thumb:active {
+    background: var(--accent);
+    box-shadow: 0 0 14px rgba(120, 159, 0, 0.4);
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(200, 255, 53, 0.15) transparent;
+}
+
+html[data-theme="light"] * {
+    scrollbar-color: rgba(120, 159, 0, 0.15) transparent;
 }
 
 
@@ -512,7 +562,27 @@ html[data-theme="light"] .nav.scrolled {
 
     font-size: .76rem;
 
-    transition: .25s;
+    transition: color .3s ease, background .3s ease;
+
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 60%;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--accent, #fff);
+    transition: transform .35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.nav-links a.active::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 
@@ -536,6 +606,10 @@ html[data-theme="light"] .nav-links a.active {
     background: rgba(0, 0, 0, .06);
 
     color: #111;
+}
+
+html[data-theme="light"] .nav-links a::after {
+    background: #111;
 }
 
 
@@ -996,21 +1070,21 @@ html[data-theme="light"] .hero h1 .outline {
     border-radius: 15px;
 
     overflow: hidden;
-    
+
 
     transform: perspective(1000px) rotateY(-12deg) rotateX(8deg) rotateZ(3deg);
-    
-    box-shadow: 
+
+    box-shadow:
         -20px 20px 40px rgba(0, 0, 0, 0.4),
         0 0 40px rgba(200, 255, 53, 0.1);
-        
+
     transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.9s ease;
 }
 
 .hero-card:hover {
     transform: perspective(1000px) rotateY(-4deg) rotateX(2deg) rotateZ(0deg) translateY(-15px);
-    
-    box-shadow: 
+
+    box-shadow:
         -30px 30px 50px rgba(0, 0, 0, 0.5),
         0 0 60px rgba(200, 255, 53, 0.25);
 }
@@ -3891,6 +3965,22 @@ footer {
 }
 
 
+.qoute {
+    color: white;
+    font-style: italic;
+    margin: 0.1rem;
+    text-align: left;
+    font-weight: bolder;
+}
+
+/* quote dark mode */
+
+
+html[data-theme="light"] .qoute {
+    color: black;
+}
+
+
 
 /* =========================================================
    BACK TO TOP
@@ -4801,7 +4891,7 @@ html[data-theme="light"] .command-item kbd {
     overflow: hidden;
     display: inline-block;
     vertical-align: top;
-        padding: 0.3em 0;
+    padding: 0.3em 0;
     margin: -0.3em 0;
 }
 
@@ -4921,14 +5011,16 @@ html[data-theme="light"] .back-to-top:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
     margin: 3.5rem auto 0 auto;
     width: 80%;
     min-width: 320px;
 }
+
 html[data-theme="light"] .writing-card {
-    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
+
 .writing-icon-container {
     position: relative;
     width: 80px;
@@ -4936,13 +5028,23 @@ html[data-theme="light"] .writing-card {
     margin-bottom: 1.5rem;
     perspective: 1000px;
 }
+
 .floating-item {
     animation: float 4s ease-in-out infinite;
 }
+
 @keyframes float {
-    0%, 100% { transform: translateY(0) rotateX(0deg); }
-    50% { transform: translateY(-12px) rotateX(10deg); }
+
+    0%,
+    100% {
+        transform: translateY(0) rotateX(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotateX(10deg);
+    }
 }
+
 .writing-bg-glow {
     position: absolute;
     inset: -20px;
@@ -4952,47 +5054,67 @@ html[data-theme="light"] .writing-card {
     opacity: 0.15;
     animation: pulseGlow 3s ease-in-out infinite alternate;
 }
+
 html[data-theme="light"] .writing-bg-glow {
     opacity: 0.25;
 }
+
 @keyframes pulseGlow {
-    0% { opacity: 0.1; transform: scale(0.8); }
-    100% { opacity: 0.3; transform: scale(1.1); }
+    0% {
+        opacity: 0.1;
+        transform: scale(0.8);
+    }
+
+    100% {
+        opacity: 0.3;
+        transform: scale(1.1);
+    }
 }
+
 .shimmer-text {
-    background: linear-gradient(
-        to right, 
-        var(--text) 20%, 
-        var(--accent) 50%, 
-        var(--text) 80%
-    );
+    background: linear-gradient(to right,
+            var(--text) 20%,
+            var(--accent) 50%,
+            var(--text) 80%);
     background-size: 200% auto;
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
     animation: shimmer 4s linear infinite;
 }
+
 @keyframes shimmer {
-    to { background-position: 200% center; }
+    to {
+        background-position: 200% center;
+    }
 }
+
 .animated-line {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     animation: drawLine 3s ease-in-out infinite alternate;
 }
+
 .animated-line-2 {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     animation: drawLine 3s ease-in-out infinite alternate 1s;
 }
+
 .animated-line-3 {
     stroke-dasharray: 100;
     stroke-dashoffset: 100;
     animation: drawLine 3s ease-in-out infinite alternate 2s;
 }
+
 @keyframes drawLine {
-    0% { stroke-dashoffset: 100; }
-    100% { stroke-dashoffset: 0; }
+    0% {
+        stroke-dashoffset: 100;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
 }
 
 /* --- Project Modal Badge --- */

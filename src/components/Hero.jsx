@@ -1,5 +1,6 @@
 import React from 'react';
 import myImage from '../assets/myimg.jpeg';
+import resumeFile from '../assets/Maaz_Siddiqui_Resume.pdf';
 
 export default function Hero() {
     return (
@@ -22,15 +23,15 @@ export default function Hero() {
                     </h1>
 
                     <p className="hero-copy reveal" style={{ transitionDelay: '0.4s' }}>
-                        Computer Engineering student and Python developer
+                        Hi, I'm Maaz Siddiqui. A Computer Engineering student and Python developer
                         building practical software, full-stack applications,
                         automation systems and AI-driven solutions for
                         real-world problems.
                     </p>
 
                     <div className="hero-actions">
-                        <a href="#projects" className="btn btn-primary magnetic">
-                            Explore Work ↘
+                        <a href={resumeFile} target="_blank" rel="noopener noreferrer" className="btn btn-primary magnetic">
+                            Resume ↘
                         </a>
                         <a
                             href="https://www.linkedin.com/in/siddiqui-maazzz/"
@@ -39,6 +40,14 @@ export default function Hero() {
                             className="btn btn-secondary magnetic"
                         >
                             LinkedIn ↗
+                        </a>
+                        <a
+                            href="https://github.com/maazsiddiqui79"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-secondary magnetic"
+                        >
+                            GitHub ↗
                         </a>
                     </div>
 
@@ -60,7 +69,7 @@ export default function Hero() {
 
                 <div className="hero-visual reveal">
                     <div className="floating-chip chip-one">
-                        WEB DEVELOPMENT
+                        DEVELOPER
                     </div>
 
 
@@ -71,7 +80,7 @@ export default function Hero() {
                         />
                         <div className="hero-card-info">
                             <span>CURRENT MODE</span>
-                            <strong>Build. Learn. Iterate.</strong>
+                            <strong>Learn. Build. Innovate.</strong>
                         </div>
                     </div>
                 </div>

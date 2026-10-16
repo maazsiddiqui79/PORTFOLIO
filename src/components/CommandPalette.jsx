@@ -3,6 +3,7 @@ import { useLenis } from 'lenis/react';
 import resumeFile from '../assets/Maaz_Siddiqui_Resume.pdf';
 import researchPaper from '../assets/IJPREMS60200006505.pdf';
 import researchCertificate from '../assets/Maaz IJPREMS60200006505-1.pdf';
+import instituteSubmissionUrl from '../assets/Institue Report.pdf';
 
 export default function CommandPalette({ isOpen, onClose }) {
     const [search, setSearch] = useState('');
@@ -83,9 +84,13 @@ export default function CommandPalette({ isOpen, onClose }) {
 
     const navItems = [
         { name: 'Go to Home', id: '#home', key: 'H' },
-        { name: 'View Skills', id: '#skills', key: 'S' },
-        { name: 'See Projects', id: '#projects', key: 'P' },
         { name: 'About Me', id: '#about', key: 'A' },
+        { name: 'See Projects', id: '#projects', key: 'P' },
+        { name: 'View Education', id: '#education', key: 'K' },
+        { name: 'View Experience', id: '#experience', key: 'X' },
+        { name: 'View Achievements', id: '#achievements', key: 'M' },
+        { name: 'View Certifications', id: '#certifications', key: 'Q' },
+        { name: 'View Tech Blogs', id: '#writing', key: 'T' },
         { name: 'Contact Me', id: '#contact', key: 'C' }
     ];
 
@@ -93,28 +98,97 @@ export default function CommandPalette({ isOpen, onClose }) {
     const DownloadIcon = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>;
     const AwardIcon = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>;
     const GithubIcon = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>;
+    const LinkedinIcon = <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>;
+    // Institute Submission Icon
+    const InstituteSubmissionIcon = (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="8" y1="13" x2="16" y2="13" /><line x1="8" y1="17" x2="13" y2="17" /><line x1="8" y1="9" x2="10" y2="9" /></svg>);
+
+    const CardIcon = (
+        <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            {/* Digital card */}
+            <rect
+                x="3"
+                y="5"
+                width="18"
+                height="14"
+                rx="2.5"
+                stroke="currentColor"
+                strokeWidth="2"
+            />
+
+            {/* Profile */}
+            <circle
+                cx="9"
+                cy="10"
+                r="2"
+                fill="currentColor"
+            />
+
+            {/* Profile body */}
+            <path
+                d="M6.5 15C7.1 13.7 8 13 9 13C10 13 10.9 13.7 11.5 15"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+
+            {/* Digital/contact lines */}
+            <path
+                d="M14 9H18"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+
+            <path
+                d="M14 12H18"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+
+            <path
+                d="M14 15H17"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+            />
+        </svg>
+    );
 
     const actionItems = [
+        { name: 'View Digital Card', id: 'https://maaz-social-card.vercel.app/', icon: CardIcon, isLink: true },
         { name: 'View Resume', id: resumeFile, icon: FileIcon, isLink: true },
+        { name: 'View GitHub', id: 'https://github.com/maazsiddiqui79', icon: GithubIcon, isLink: true },
+        { name: 'View LinkedIn', id: 'https://www.linkedin.com/in/siddiqui-maazzz/', icon: LinkedinIcon, isLink: true },
         { name: 'Download Resume', id: resumeFile, icon: DownloadIcon, isLink: true, download: 'Maaz_Siddiqui_Resume.pdf' },
         { name: 'View Research Paper', id: researchPaper, icon: FileIcon, isLink: true },
-        { name: 'Download Research Paper', id: researchPaper, icon: DownloadIcon, isLink: true, download: 'Maaz_Research_Paper.pdf' },
         { name: 'View Research Certificate', id: researchCertificate, icon: AwardIcon, isLink: true },
-        { name: 'View GitHub', id: 'https://github.com/maazsiddiqui79', icon: GithubIcon, isLink: true }
+        { name: 'View Final Year Diploma Project Report / Institute Submission', id: instituteSubmissionUrl, icon: InstituteSubmissionIcon, isLink: true },
+        { name: 'Download Research Paper', id: researchPaper, icon: DownloadIcon, isLink: true, download: 'Maaz_Research_Paper.pdf' },
     ];
 
-    const filteredNav = navItems.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
+    const filteredNav = navItems.filter(item =>
+        item.name.toLowerCase().includes(search.toLowerCase()) ||
+        (item.key && item.key.toLowerCase() === search.toLowerCase())
+    );
     const filteredActions = actionItems.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
 
     return (
-        <div 
-            className="command-overlay" 
-            ref={overlayRef} 
+        <div
+            className="command-overlay"
+            ref={overlayRef}
             onClick={handleClose}
             data-lenis-prevent
         >
-            <div 
-                className="command-palette" 
+            <div
+                className="command-palette"
                 onClick={e => e.stopPropagation()}
                 data-lenis-prevent
             >
@@ -123,9 +197,9 @@ export default function CommandPalette({ isOpen, onClose }) {
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
-                    <input 
-                        type="text" 
-                        placeholder="Type a command or search..." 
+                    <input
+                        type="text"
+                        placeholder="Type a command or search..."
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                         ref={inputRef}
@@ -149,10 +223,10 @@ export default function CommandPalette({ isOpen, onClose }) {
                         <div className="command-section">
                             <div className="command-label">ACTIONS</div>
                             {filteredActions.map((item, idx) => (
-                                <a 
-                                    href={item.id} 
-                                    className="command-item" 
-                                    onClick={handleClose} 
+                                <a
+                                    href={item.id}
+                                    className="command-item"
+                                    onClick={handleClose}
                                     key={idx}
                                     target={item.isLink ? "_blank" : undefined}
                                     rel={item.isLink ? "noopener noreferrer" : undefined}

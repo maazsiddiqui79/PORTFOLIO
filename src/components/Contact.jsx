@@ -36,8 +36,8 @@ export default function Contact() {
                             projects involving web development,
                             AI, automation and software engineering.
                         </p>
-                        
-                        
+
+
 
 
                     </div>
@@ -45,6 +45,30 @@ export default function Contact() {
 
                     <div className="contact-links reveal">
 
+                        <a
+                            className="contact-link"
+                            href="https://maaz-social-card.vercel.app/"
+                            target="_blank"
+                            rel="noopener"
+                        >
+
+                            <div>
+
+                                <small>
+                                    DIGITAL CARD
+                                </small>
+
+                                <strong>
+                                    https://maaz-social-card.app/
+                                </strong>
+
+                            </div>
+
+                            <span>
+                                ↗
+                            </span>
+
+                        </a>
 
                         <a
                             className="contact-link"
@@ -122,30 +146,6 @@ export default function Contact() {
                         </a>
 
 
-                        <a
-                            className="contact-link"
-                            href="https://maaz-social-card.vercel.app/"
-                            target="_blank"
-                            rel="noopener"
-                        >
-
-                            <div>
-
-                                <small>
-                                    DIGITAL CARD
-                                </small>
-
-                                <strong>
-                                    https://maaz-social-card.app/
-                                </strong>
-
-                            </div>
-
-                            <span>
-                                ↗
-                            </span>
-
-                        </a>
 
 
                     </div>
