@@ -1,11 +1,13 @@
 import React from "react";
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export default function Footer() {
     return (
         <footer>
             <div className="container footer-inner">
                 <div className="footer-copyright">
-                    <p>© {new Date().getFullYear()} • All Rights Reserved • Designed & Built with ♥ by Maaz Siddiqui
+                    <p>© {CURRENT_YEAR} • All Rights Reserved • Designed & Built with ♥ by Maaz Siddiqui
                         &nbsp;|&nbsp;
 
                         <a

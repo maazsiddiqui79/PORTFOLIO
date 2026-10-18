@@ -81,12 +81,13 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
         }
     }, [project?.id]);
 
-    // Get 3 random suggestions excluding the current project
+    // Get 3 relevant suggestions excluding current project
     const suggestions = useMemo(() => {
         if (!project || !allProjects) return [];
         const otherProjects = allProjects.filter(p => p.id !== project.id);
-        const shuffled = [...otherProjects].sort(() => 0.5 - Math.random());
-        return shuffled.slice(0, 3);
+        const sameType = otherProjects.filter(p => p.type === project.type);
+        const diffType = otherProjects.filter(p => p.type !== project.type);
+        return [...sameType, ...diffType].slice(0, 3);
     }, [project, allProjects]);
 
     if (!project) return null;
@@ -206,7 +207,7 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
                 </div>
 
                 <div className="modal-image" style={{ marginBottom: '40px' }}>
-                    <img src={project.image} alt={project.title} />
+                    <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                 </div>
 
                 <div className="project-content-sections">
@@ -292,7 +293,7 @@ export default function ProjectModal({ project, onClose, allProjects, onSelectPr
                                     }}
                                 >
                                     <div className="project-image" style={{ height: '140px', overflow: 'hidden', position: 'relative' }}>
-                                        <img src={sug.image} alt={sug.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        <img src={sug.image} alt={sug.title} loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                         <div className="project-overlay"></div>
                                         <div style={{ position: 'absolute', top: '10px', right: '10px', display: 'flex', gap: '4px', zIndex: 10, alignItems: 'center' }}>
                                             {sug.achievement && (

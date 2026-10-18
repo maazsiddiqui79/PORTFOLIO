@@ -49,20 +49,20 @@ export default function Loader({ onComplete }) {
         };
     }, [onComplete]);
 
-    const handleSkip = () => {
+    const handleSkip = React.useCallback(() => {
         clearInterval(intervalRef.current);
         clearTimeout(timeoutRef.current);
         setIsFadingOut(true);
         setTimeout(onComplete, 800);
-    };
+    }, [onComplete]);
 
-    const handleTogglePause = () => {
+    const handleTogglePause = React.useCallback(() => {
         setIsPaused(prev => {
             const nextPauseState = !prev;
             isPausedRef.current = nextPauseState;
             return nextPauseState;
         });
-    };
+    }, []);
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -76,7 +76,7 @@ export default function Loader({ onComplete }) {
         window.addEventListener('keydown', handleKeyDown);
 
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, []);
+    }, [handleSkip, handleTogglePause]);
 
     return (
         <div

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { GitHubCalendar } from "react-github-calendar";
 
 const GITHUB_USERNAME = "maazsiddiqui79";
+const CURRENT_YEAR = new Date().getFullYear();
 
 export default function Github() {
 
@@ -9,8 +10,16 @@ export default function Github() {
     const [extraStats, setExtraStats] = useState({ stars: 0, contributions: 0 });
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
-    const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+    const [selectedYear, setSelectedYear] = useState(CURRENT_YEAR);
     const [currentTheme, setCurrentTheme] = useState("dark");
+
+    const availableYears = React.useMemo(() => {
+        const createdAt = github?.created_at;
+        if (!createdAt) return [];
+        const startYear = new Date(createdAt).getFullYear();
+        const count = CURRENT_YEAR - startYear + 1;
+        return Array.from({ length: count }, (_, i) => CURRENT_YEAR - i);
+    }, [github?.created_at]);
 
     useEffect(() => {
         const checkTheme = () => {
@@ -100,6 +109,8 @@ export default function Github() {
                                         src={github.avatar_url}
                                         alt={`${github.login} GitHub profile`}
                                         className="github-avatar"
+                                        loading="lazy"
+                                        decoding="async"
                                     />
 
                                 ) : (
@@ -256,7 +267,7 @@ export default function Github() {
                                             outline: 'none'
                                         }}
                                     >
-                                        {Array.from({ length: new Date().getFullYear() - new Date(github.created_at).getFullYear() + 1 }, (_, i) => new Date().getFullYear() - i).map(year => (
+                                        {availableYears.map(year => (
                                             <option key={year} value={year}>{year}</option>
                                         ))}
                                     </select>

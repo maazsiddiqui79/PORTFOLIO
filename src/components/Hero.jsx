@@ -77,6 +77,8 @@ export default function Hero() {
                         <img
                             src={myImage}
                             alt="Aesthetic workspace graphic representing build, learn, iterate mentality"
+                            fetchPriority="high"
+                            decoding="sync"
                         />
                         <div className="hero-card-info">
                             <span>CURRENT MODE</span>

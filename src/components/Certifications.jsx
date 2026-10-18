@@ -16,17 +16,25 @@ import cert14 from "../assets/certificates/orm Data Analyst-Certificate.pdf";
 import cert15 from "../assets/certificates/orm Full Stack Developer-Certificate.pdf";
 import cert16 from "../assets/certificates/orm Python-Certificate.pdf";
 import cert17 from "../assets/certificates/react js infosys.pdf";
+import cert18 from "../assets/certificates/Zephyr Vibe Coding Hackathon.png";
 
 const certifications = [
     {
         id: 1,
         issuer: "ZEPHYR 2026",
         title: "Gen AI Event",
-        desc: "Technical Workshop Winner",
+        desc: "Competition Winner",
         file: cert13
     },
     {
         id: 2,
+        issuer: "ZEPHYR 2026",
+        title: "Vibe Coding Hackathon",
+        desc: "Participant",
+        file: cert18
+    },
+    {
+        id: 3,
         issuer: "NPTEL / IIT MADRAS",
         title: "The Joy of Computing Using Python",
         desc: "Elite–Silver Certificate (Image)",
@@ -34,7 +42,7 @@ const certifications = [
     },
 
     {
-        id: 3,
+        id: 4,
         issuer: "UDEMY",
         title: "100 Days of Python",
         desc: "Python development course",
@@ -42,7 +50,7 @@ const certifications = [
     },
 
     {
-        id: 4,
+        id: 5,
         issuer: "INFOSYS",
         title: "Fundamentals of Python",
         desc: "Infosys Springboard",
@@ -50,7 +58,7 @@ const certifications = [
     },
 
     {
-        id: 5,
+        id: 6,
         issuer: "INFOSYS",
         title: "Java Concepts",
         desc: "Infosys Springboard",
@@ -58,7 +66,7 @@ const certifications = [
     },
 
     {
-        id: 6,
+        id: 7,
         issuer: "INFOSYS",
         title: "C Programming",
         desc: "Infosys Springboard",
@@ -66,7 +74,7 @@ const certifications = [
     },
 
     {
-        id: 7,
+        id: 8,
         issuer: "INFOSYS",
         title: "React JS",
         desc: "Infosys Springboard",
@@ -74,21 +82,14 @@ const certifications = [
     },
 
     {
-        id: 8,
+        id: 9,
         issuer: "ONEROADMAP",
         title: "Data Analyst",
         desc: "Data analysis fundamentals",
         file: cert14
     },
 
-    {
-        id: 9,
-        issuer: "ONEROADMAP",
-        title: "Full Stack Developer",
-        desc: "Web Development",
-        file: cert15
-    },
-
+    
     {
         id: 10,
         issuer: "ONEROADMAP",
@@ -96,7 +97,7 @@ const certifications = [
         desc: "Python Programming",
         file: cert16
     },
-
+    
     {
         id: 11,
         issuer: "CERTIFICATE",
@@ -104,7 +105,7 @@ const certifications = [
         desc: "Frontend Development",
         file: cert7
     },
-
+    
     {
         id: 12,
         issuer: "CERTIFICATE",
@@ -143,7 +144,14 @@ const certifications = [
         title: "Certificate of Participation",
         desc: "Finalist in Paper Presentation Competition (2026)",
         file: cert12
-    }
+    },
+    {
+        id: 17,
+        issuer: "ONEROADMAP",
+        title: "Full Stack Developer",
+        desc: "Web Development",
+        file: cert15
+    },
 ];
 
 export default function Certifications() {

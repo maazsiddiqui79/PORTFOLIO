@@ -1,5 +1,5 @@
 export function initAnimations() {
-    // Reveal
+    // Reveal IntersectionObserver
     const revealObserver = new IntersectionObserver(
         entries => {
             entries.forEach(entry => {
@@ -12,46 +12,51 @@ export function initAnimations() {
         { threshold: 0.12 }
     );
 
+    // Initial elements
     document.querySelectorAll(".reveal").forEach(element => {
         revealObserver.observe(element);
     });
 
-    // Active Nav
-    const sections = document.querySelectorAll("section[id], header[id]");
-    const navLinks = document.querySelectorAll(".nav-links a");
-    const sectionObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    navLinks.forEach(link => link.classList.remove("active"));
-                    const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
-                    if (active) active.classList.add("active");
+    // Automatically observe newly mounted .reveal elements from lazy-loaded components
+    const mutationObserver = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                    if (node.classList?.contains("reveal")) {
+                        revealObserver.observe(node);
+                    }
+                    node.querySelectorAll?.(".reveal").forEach(child => {
+                        revealObserver.observe(child);
+                    });
                 }
             });
-        },
-        { rootMargin: "-30% 0px -60% 0px" }
-    );
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
+        });
     });
 
-    // Scroll Progress & Back to Top
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
+
+    // Active Nav — handled by React Navbar component (Navbar.jsx)
+
+    // Scroll Progress & Back to Top — throttled with requestAnimationFrame + passive listener
     const progress = document.getElementById("progress");
     const backToTop = document.getElementById("backToTop");
     const nav = document.getElementById("nav");
+    let scrollRafId = null;
 
     const onScroll = () => {
-        const scrollTop = window.scrollY;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const percentage = (scrollTop / height) * 100;
-        
-        if (progress) progress.style.width = percentage + "%";
-        if (nav) nav.classList.toggle("scrolled", scrollTop > 50);
-        if (backToTop) backToTop.classList.toggle("show", scrollTop > 500);
+        if (scrollRafId) cancelAnimationFrame(scrollRafId);
+        scrollRafId = requestAnimationFrame(() => {
+            const scrollTop = window.scrollY;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const percentage = height > 0 ? (scrollTop / height) * 100 : 0;
+            
+            if (progress) progress.style.width = percentage + "%";
+            if (nav) nav.classList.toggle("scrolled", scrollTop > 50);
+            if (backToTop) backToTop.classList.toggle("show", scrollTop > 500);
+        });
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
 
     // Magnetic Buttons
     const magneticElements = document.querySelectorAll(".magnetic");
@@ -87,7 +92,8 @@ export function initAnimations() {
 
     return () => {
         window.removeEventListener("scroll", onScroll);
+        if (scrollRafId) cancelAnimationFrame(scrollRafId);
         revealObserver.disconnect();
-        sectionObserver.disconnect();
+        mutationObserver.disconnect();
     };
 }

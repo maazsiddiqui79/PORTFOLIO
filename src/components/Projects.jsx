@@ -1,34 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { projectData } from '../data/projects';
-import ProjectModal from './ProjectModal';
+
+const ProjectModal = lazy(() => import('./ProjectModal'));
 
 export default function Projects() {
     const [filter, setFilter] = useState('selected');
     const [selectedProject, setSelectedProject] = useState(null);
 
-    const projectsArray = Array.isArray(projectData) ? projectData : Object.keys(projectData).map(key => ({
-        id: key,
-        ...projectData[key]
-    }));
+    const projectsArray = useMemo(() => {
+        return Array.isArray(projectData) ? projectData : Object.keys(projectData).map(key => ({
+            id: key,
+            ...projectData[key]
+        }));
+    }, []);
 
     // Extract unique project types and convert to lowercase for filters
-    const allProjectTypes = new Set();
-    projectsArray.forEach(p => {
-        if (p.type && typeof p.type === 'string') {
-            allProjectTypes.add(p.type.toLowerCase());
-        }
-    });
+    const availableFilters = useMemo(() => {
+        const allProjectTypes = new Set();
+        projectsArray.forEach(p => {
+            if (p.type && typeof p.type === 'string') {
+                allProjectTypes.add(p.type.toLowerCase());
+            }
+        });
+        return ['all', 'selected', ...Array.from(allProjectTypes).sort()];
+    }, [projectsArray]);
 
-    // Sort types alphabetically and create the final filters array
-    const availableFilters = ['all', 'selected', ...Array.from(allProjectTypes).sort()];
-
-    const filteredProjects = projectsArray.filter(project => {
-        if (filter === 'all') return true;
-        if (filter === 'selected') return project.featured === true;
-
-        // Filter based on type
-        return project.type && project.type.toLowerCase() === filter;
-    });
+    const filteredProjects = useMemo(() => {
+        return projectsArray.filter(project => {
+            if (filter === 'all') return true;
+            if (filter === 'selected') return project.featured === true;
+            return project.type && project.type.toLowerCase() === filter;
+        });
+    }, [projectsArray, filter]);
 
     return (
         <section className="section" id="projects">
@@ -73,7 +76,7 @@ export default function Projects() {
                             }}
                         >
                             <div className="project-image">
-                                <img src={project.image} alt={project.title} />
+                                <img src={project.image} alt={project.title} loading="lazy" decoding="async" />
                                 <div className="project-overlay"></div>
                                 <span className="project-number">{(index + 1).toString().padStart(2, '0')}</span>
                                 <div style={{ position: 'absolute', top: '20px', right: '20px', display: 'flex', gap: '8px', zIndex: 10, alignItems: 'center' }}>
@@ -153,12 +156,14 @@ export default function Projects() {
             </div>
 
             {selectedProject && (
-                <ProjectModal
-                    project={selectedProject}
-                    onClose={() => setSelectedProject(null)}
-                    allProjects={projectsArray}
-                    onSelectProject={setSelectedProject}
-                />
+                <Suspense fallback={null}>
+                    <ProjectModal
+                        project={selectedProject}
+                        onClose={() => setSelectedProject(null)}
+                        allProjects={projectsArray}
+                        onSelectProject={setSelectedProject}
+                    />
+                </Suspense>
             )}
         </section>
     );
