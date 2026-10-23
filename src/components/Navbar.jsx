@@ -23,7 +23,7 @@ const NAV_LINKS = [
     { id: 'contact', label: 'Contact' },
 ];
 
-export default function Navbar() {
+export default function Navbar({ simpleMode, setSimpleMode }) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isThemeMenuOpen, setIsThemeMenuOpen] = useState(false);
     const [currentTheme, setCurrentTheme] = useState(() => localStorage.getItem('portfolio-theme') || 'dark');
@@ -39,6 +39,7 @@ export default function Navbar() {
     const rafId = useRef(null);
     const isScrollingToSection = useRef(false);
     const scrollTimeoutId = useRef(null);
+
 
     // ── Theme ──────────────────────────────────────────────────────────
     const applyTheme = (theme) => {
@@ -377,6 +378,22 @@ export default function Navbar() {
                                 onClick={() => applyTheme('system')}
                             >
                                 ◐ System
+                            </button>
+                            <button
+                                className="theme-option mode-button"
+                                data-theme-choice="simple"
+                                onClick={() => {
+                                    setSimpleMode(!simpleMode);
+                                    setIsThemeMenuOpen(false);
+                                }}
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                                    <path d="M12 4v16" />
+                                    <path d="M6.5 8h3M6.5 11h3M6.5 14h3" />
+                                    <rect x="14.5" y="7" width="4" height="4" rx="0.8" />
+                                    <path d="M14.5 14h4M14.5 16.5h4" />
+                                </svg> {simpleMode ? 'Visual Mode' : 'Focus Mode'}
                             </button>
                         </div>
                     </div>

@@ -315,7 +315,7 @@ export const projectData = [
             "Maaz Siddiqui"
         ],
         "builtBy": "Solo-built by Maaz Siddiqui",
-        "githubUrl": "https://github.com/maazsiddiqui79",
+        "githubUrl": "https://github.com/maazsiddiqui79/100-Days-Python-Project/tree/main/33.%20-Mini%20Banking%20System%20[Practice%20project]",
         "liveUrl": "",
         "featured": false,
         "achievement": "",

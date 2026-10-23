@@ -52,7 +52,7 @@ html[data-theme="light"] {
     --muted-dark: #898d92;
 
     --line: rgba(0, 0, 0, .13);
-    --line-soft: rgba(0, 0, 0, .055);
+    --line-soft: rgb(0, 0, 0);
 
     --accent: #789f00;
     --accent-dark: #587700;
@@ -60,6 +60,11 @@ html[data-theme="light"] {
     --shadow: 0 30px 80px rgba(0, 0, 0, .12);
 }
 
+.mode-button {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
 
 /* =========================================================
    RESET

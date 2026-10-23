@@ -113,7 +113,7 @@ export default function Achievements() {
                             <div className="achievement-footer">
 
                                 <span>
-                                    IETE · TECH
+                                    GEN AI
                                 </span>
 
                                 <span>
@@ -473,7 +473,7 @@ export default function Achievements() {
                             {/* ACHIEVEMENT FOOTER */}
                             <div className="achievement-footer">
                                 <span>IJPREMS</span>
-                                <span>FEB 2026</span>
+                                <span>DEC 2025 - FEB 2026</span>
                             </div>
 
                         </article>
