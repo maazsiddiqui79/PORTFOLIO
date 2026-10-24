@@ -123,9 +123,9 @@ body.simple-mode-active .progress {
 .status-dot {
     width: 7px;
     height: 7px;
-    background: var(#7FA30F);
+    background: #7FA30F;
     border-radius: 50%;
-    box-shadow: 0 0 18px var(#7FA30F);
+    box-shadow: 0 0 18px #7FA30F;
     animation: pulse 2s infinite;
 }
 
