@@ -2,6 +2,53 @@
    SIMPLE / READER MODE - MAAZ SIDDIQUI PORTFOLIO
    ========================================================= */
 
+
+/* =========================================================
+   REVEAL
+========================================================= */
+/* .reveal {
+
+    opacity: 0;
+
+    transform:
+        translateY(30px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2, .8, .2, 1);
+}
+
+
+.reveal.visible {
+
+    opacity: 1;
+
+    transform: none;
+}
+ */
+
+ .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 0.7s ease-in-out,
+        transform all 2s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
 body.simple-mode-active {
     background: var(--bg) !important;
     color: var(--text) !important;

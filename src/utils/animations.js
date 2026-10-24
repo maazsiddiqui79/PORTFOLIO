@@ -1,16 +1,29 @@
 export function initAnimations() {
     // Reveal IntersectionObserver
+    // const revealObserver = new IntersectionObserver(
+    //     entries => {
+    //         entries.forEach(entry => {
+    //             if (entry.isIntersecting) {
+    //                 entry.target.classList.add("visible");
+    //                 revealObserver.unobserve(entry.target);
+    //             }
+    //         });
+    //     },
+    //     { threshold: 0.12 }
+    // );
+
     const revealObserver = new IntersectionObserver(
-        entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                    revealObserver.unobserve(entry.target);
-                }
-            });
-        },
-        { threshold: 0.12 }
-    );
+    entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+            } else {
+                entry.target.classList.remove("visible");
+            }
+        });
+    },
+    { threshold: 0.3 }
+);
 
     // Initial elements
     document.querySelectorAll(".reveal").forEach(element => {
@@ -81,8 +94,8 @@ export function initAnimations() {
             const rect = heroCard.getBoundingClientRect();
             const x = (event.clientX - rect.left) / rect.width;
             const y = (event.clientY - rect.top) / rect.height;
-            const rotateY = (x - 0.5) * 12;
-            const rotateX = (y - 0.5) * -12;
+            const rotateY = (x - 0.5) * 22;
+            const rotateX = (y - 0.5) * -22;
             heroCard.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(2deg)`;
         });
         heroCard.addEventListener("mouseleave", () => {

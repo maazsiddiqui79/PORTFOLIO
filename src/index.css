@@ -1027,7 +1027,6 @@ html[data-theme="light"] .theme-option.selected {
     line-height: .8;
 
     letter-spacing: -.085em;
-    word-spacing: 0.15em;
 
     max-width: 900px;
 }
@@ -1246,8 +1245,8 @@ html[data-theme="light"] .hero h1 .outline {
 
     object-fit: cover;
 
-    filter:
-        grayscale(.8) contrast(2.05) sepia(0.50);
+    filter:grayscale(.8) contrast(2.05) sepia(0.50);
+    transform: scale(1.10);
 
 
     transition: .9s;
