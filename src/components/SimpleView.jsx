@@ -18,12 +18,12 @@ import cert18 from "../assets/certificates/Zephyr Vibe Coding Hackathon.png";
 import React from 'react';
 import '../simple-mode.css';
 
-function SimpleView(){
+function SimpleView() {
     return (
-        <main className=" simple-mode">
+        <main className=" simple-mode" id="home">
             {/* Header */}
             <header className=" simple-header">
-                <h1 className="reveal simple-name">MAAZ SIDDIQUI</h1>
+                <h1 className="reveal simple-name" >MAAZ SIDDIQUI</h1>
                 <p className="reveal simple-role p-text">
                     <span className="status-dot"></span> Pursuing B.E. in Computer Engineering | Diploma Graduate in Computer Engineering
                 </p>
@@ -86,86 +86,87 @@ function SimpleView(){
                     <span className='reveal spl-label'> 🏆 Winner <br />Zephyr Gen AI Competition(TCET)</span>
                     <h3 className="reveal simple-project-title">SpeakEasy AI</h3>
                     <p className="reveal simple-project-description">
-                        An AI-powered, voice-first communication training platform designed to help users improve interviews, presentations, debates, fluency, and overall communication skills through realistic interactive sessions. The platform provides multiple training modes and uses AI-assisted analysis to give users structured feedback about their communication performance.
+                        An AI-powered voice-first platform for improving interviews, presentations, debates, fluency, and communication skills through interactive sessions and AI-driven feedback.<br />
+                        <a className="reveal simple-project-link" href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/SpeakEasy--GEN-AI" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/SpeakEasy--GEN-AI" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Text ↔ Morse Code Translator</h3>
                     <p className="reveal simple-project-description">
-                        A responsive Flask web application that converts English text into Morse code and Morse code back into readable English text. The application provides a simple two-way conversion interface along with useful functionality such as output display and copy-to-clipboard support.
+                        A responsive Flask web application for two-way English-to-Morse and Morse-to-English conversion, with output display and copy-to-clipboard functionality.<br />
+                        <a className="reveal simple-project-link" href="https://morse-origin.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Morse-Code-Encoder-Decoder" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://morse-origin.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Morse-Code-Encoder-Decoder" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Shortify - URL Shortener</h3>
                     <p className="reveal simple-project-description">
-                        A Flask-based URL shortening web application that converts long URLs into short, shareable links while providing password-protected deletion functionality. The application demonstrates how a complete web workflow can be implemented using a Flask backend, database integration, form handling, validation, and a responsive frontend.
+                        A Flask-based URL shortener that converts long URLs into shareable short links with password-protected deletion, database integration, form validation, and a responsive frontend.<br />
+                        <a className="reveal simple-project-link" href="https://shortify-maazdev.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/URL-Shortner-Python" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://shortify-maazdev.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/URL-Shortner-Python" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                 </article>
 
                 <article className=" simple-project">
                     <span className='reveal spl-label'> Diploma Final Year Project</span>
                     <h3 className="reveal simple-project-title">SmartBlogger</h3>
                     <p className="reveal simple-project-description">
-                        A final-year smart blogging platform designed to provide a modern environment for creating, managing, and publishing blog content with intelligent functionality. The project combines web development concepts with intelligent features to create a more structured and feature-rich blogging experience.
+                        A smart blogging platform for **creating, managing, and publishing content** with intelligent features that deliver a structured and modern blogging experience.<br />
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Smart_Blogging-Platform-FYP" target="_blank" rel="noopener noreferrer">GitHub →</a> &nbsp;
+                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/IJPREMS60200006505-BoCePTXX.pdf" target="_blank" rel="noopener noreferrer">Research Paper →</a> &nbsp;<br />
+                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Maaz%20IJPREMS60200006505-1-BB9nlw-S.pdf" target="_blank" rel="noopener noreferrer">Research Paper Certificate →</a> &nbsp;<br />
+                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Institue%20Report-B8uSq188.pdf" target="_blank" rel="noopener noreferrer">Institute Report →</a> &nbsp;
                     </p>
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Smart_Blogging-Platform-FYP" target="_blank" rel="noopener noreferrer">GitHub →</a> &nbsp;
-                    <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/IJPREMS60200006505-BoCePTXX.pdf" target="_blank" rel="noopener noreferrer">Research Paper →</a> &nbsp;<br />
-                    <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Maaz%20IJPREMS60200006505-1-BB9nlw-S.pdf" target="_blank" rel="noopener noreferrer">Research Paper Certificate →</a> &nbsp;<br />
-                    <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Institue%20Report-B8uSq188.pdf" target="_blank" rel="noopener noreferrer">Institute Report →</a> &nbsp;
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Digital Card</h3>
                     <p className="reveal simple-project-description">
-                        A modern digital card built with React, featuring a responsive layout, interactive elements, social links, and a structured presentation of personal and professional information.
+                        A modern React-based digital card featuring a responsive layout, interactive elements, social links, and structured personal and professional information.<br />
+                        <a className="reveal simple-project-link" href="https://maaz-social-card.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Card →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://maaz-social-card.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Card →</a>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">To-Do List</h3>
                     <p className="reveal simple-project-description">
-                        A CRUD-based task management application built with Flask, Flask-Login, SQLite and SQLAlchemy. Users can manage their tasks through an authenticated web interface.
+                        A Flask-based task management application with CRUD operations, user authentication, SQLite database integration, and SQLAlchemy for managing tasks through a web interface.<br />
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/To-Do-List-Web-Application" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Typing Speed Test</h3>
                     <p className="reveal simple-project-description">
-                        An interactive typing speed testing application that allows users to measure their typing speed and accuracy through timed typing exercises. The project provides a practical environment for users to test their performance while demonstrating frontend interaction and backend web development concepts.
+                        An interactive typing speed test that measures typing speed and accuracy through timed exercises while demonstrating frontend interaction and backend web development.<br />
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Typing-Speed-Test" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Typing-Speed-Test" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Mini Banking System</h3>
                     <p className="reveal simple-project-description">
-                        A Python-based banking application demonstrating fundamental banking operations such as account handling, balance management, and transaction-related operations. The project focuses on programming fundamentals and provides a practical example of how real-world banking concepts can be represented through software logic.
+                        A Python-based mini banking application demonstrating account handling, balance management, and transaction operations through practical software logic.<br />
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/100-Days-Python-Project/tree/main/33.%20-Mini%20Banking%20System%20[Practice%20project]" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/100-Days-Python-Project/tree/main/33.%20-Mini%20Banking%20System%20[Practice%20project]" target="_blank" rel="noopener noreferrer">Git Hub →</a>
                 </article>
 
                 <article className=" simple-project">
                     <h3 className="reveal simple-project-title">Digital Clock</h3>
                     <p className="reveal simple-project-description">
-                        A lightweight frontend project that displays the current time through a dynamic digital clock interface. The project demonstrates the use of JavaScript timing functions to continuously update the displayed time and create a simple real-time browser experience.
+                        A lightweight frontend project featuring a real-time digital clock that dynamically updates the current time using JavaScript timing functions.<br />
+                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/digitalClock]" target="_blank" rel="noopener noreferrer">Git Hub →</a> &nbsp;
+                        <a className="reveal simple-project-link" href="https://maazsiddiqui79.github.io/digitalClock/" target="_blank" rel="noopener noreferrer">Visit Site →</a>
                     </p>
-                    <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/digitalClock]" target="_blank" rel="noopener noreferrer">Git Hub →</a> &nbsp;
-                    <a className="reveal simple-project-link" href="https://maazsiddiqui79.github.io/digitalClock/" target="_blank" rel="noopener noreferrer">Visit Site →</a>
                 </article>
             </section>
 
             {/* Education */}
             <section id="education" className=" simple-section">
-                <h2 className="reveal simple-section-title">5. EDUCATION</h2>
+                <h2 className="reveal simple-section-title">4. EDUCATION</h2>
 
                 <article className=" simple-education">
                     <h3 className="reveal simple-education-title">
@@ -196,31 +197,21 @@ function SimpleView(){
 
             {/* Experience */}
             <section id="experience" className=" simple-section">
-                <h2 className="reveal simple-section-title">4. EXPERIENCE</h2>
+                <h2 className="reveal simple-section-title">5. EXPERIENCE</h2>
 
                 <article className=" simple-education">
                     <h3 className="reveal simple-education-title">
                         Frontend Development Trainee <span className='reveal simple-location p-text'>(MAY 26 - JUL 26)</span>
+                        <p className="reveal simple-education-description">Heuristic Academy · Mumbai</p>
                     </h3>
-                    <p className="reveal simple-education-description">Heuristic Academy · Mumbai</p>
-                    <ul className='list'>
-                        <li className='reveal simple-experience-description'>Successfully completed a three-month training program focused on frontend development.</li>
-                        <li className='reveal simple-experience-description'>Strengthened practical skills in building structured, responsive and user-focused web interfaces.</li>
-                        <li className='reveal simple-experience-description'>Applied frontend development concepts through practical exercises and project-based learning.</li>
-                    </ul>
-                </article><br />
+                </article>
 
                 <article className=" simple-education">
                     <h3 className="reveal simple-education-title">
                         Python Development Intern <span className='reveal simple-location p-text'>(JUN 25 - AUG 25)</span>
+                        <p className="reveal simple-education-description">Quality Software Technologies · Thane</p>
                     </h3>
-                    <p className="reveal simple-education-description">Quality Software Technologies · Thane</p>
-                    <ul className='list'>
-                        <li className='reveal simple-experience-description'>Developed responsive frontend pages using HTML and CSS.</li>
-                        <li className='reveal simple-experience-description'>Built and integrated backend functionality using Python and Django.</li>
-                        <li className='reveal simple-experience-description'>Collaborated with a team of four to design and deploy a functional web application.</li>
-                    </ul>
-                </article><br />
+                </article>
             </section>
 
             {/* Achievements */}
@@ -306,25 +297,15 @@ function SimpleView(){
             <section id="writing" className=" simple-section">
                 <h2 className="reveal simple-section-title">8. TECHNICAL WRITING</h2>
                 <p className="reveal simple-text">
-                    <span className='reveal simple-location p-text'>Ideas are Currently compiling.</span><br />
-                    Article Coming Soon...
+                    <span className='reveal simple-location '>Ideas are Currently compiling.<br />Article Coming Soon...</span><br />
+
                 </p>
             </section>
 
-            {/* Current Focus */}
-            <section id="focus" className=" simple-section">
-                <h2 className="reveal simple-section-title">9. `CURRENT FOCUS</h2>
-                <p className="reveal simple-text">
-                    <span className="reveal capsule">Full-Stack Development</span><br /><br />
-                    <span className="reveal capsule"> AI Technologies</span><br /><br />
-                    <span className="reveal capsule"> Understanding Core concepts</span><br /><br />
-                    <span className="reveal capsule"> Cloud</span>
-                </p>
-            </section>
 
             {/* Contact */}
             <section id="contact" className=" simple-section">
-                <h2 className="reveal simple-section-title">10. CONTACT</h2>
+                <h2 className="reveal simple-section-title">9. CONTACT</h2>
                 <p className="reveal simple-text">
                     Open to collaborations, internships, freelance work and technically interesting projects involving web development, AI, automation and software engineering.
                 </p>
@@ -335,8 +316,18 @@ function SimpleView(){
                     <a className="reveal simple-link" href="https://github.com/maazsiddiqui79" target="_blank" rel="noopener noreferrer">GITHUB↗</a>
                 </nav>
             </section>
+            {/* Current Focus */}
+            <section id="focus" className=" simple-section">
+                <h2 className="reveal simple-section-title">10. CURRENT FOCUS</h2>
+                <p className="reveal simple-text">
+                    <span className="reveal capsule">Full-Stack Development</span><br /><br />
+                    <span className="reveal capsule"> AI Technologies</span><br /><br />
+                    <span className="reveal capsule"> Understanding Core concepts</span><br /><br />
+                    <span className="reveal capsule"> Cloud</span>
+                </p>
+            </section>
         </main>
     );
 }
 
-    export default SimpleView;
+export default SimpleView;
