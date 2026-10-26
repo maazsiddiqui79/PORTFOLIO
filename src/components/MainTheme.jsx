@@ -50,7 +50,7 @@ function MainTheme() {
             const cleanup = initAnimations();
             return cleanup;
         }
-    }, [isNotFound, showLoader]);
+    }, [isNotFound, showLoader, simpleMode]);
 
     useEffect(() => {
         if (simpleMode) {

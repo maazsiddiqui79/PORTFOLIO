@@ -20,13 +20,14 @@ import '../simple-mode.css';
 
 function SimpleView() {
     return (
-        <main className=" simple-mode" id="home">
+        <main className="simple-mode" id="home">
+        <div className="simple-mode-container" id="home">
             {/* Header */}
             <header className=" simple-header">
-                <h1 className="reveal simple-name" >MAAZ SIDDIQUI</h1>
                 <p className="reveal simple-role p-text">
                     <span className="status-dot"></span> Pursuing B.E. in Computer Engineering | Diploma Graduate in Computer Engineering
                 </p>
+                <h1 className="reveal simple-name" >MAAZ SIDDIQUI</h1>
                 <p className="reveal simple-location p-text">Mumbai, India</p>
                 <nav className=" simple-social-links">
                     <a className="reveal simple-link" href="https://www.maazdev.tech/assets/Maaz_Siddiqui_Resume-BmqMCuCF.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
@@ -39,13 +40,14 @@ function SimpleView() {
             <section id="about" className=" simple-section">
                 <h2 className="reveal simple-section-title">1. ABOUT</h2>
                 <p className="reveal simple-text">
-                    I'm Maaz Siddiqui, a Computer Engineering student and developer based in Mumbai, India. I enjoy turning ideas into practical software and building applications that solve real-world problems. My journey started during my Diploma in Computer Engineering, where I began with Python programs, Web Dev, Automation and small applications.
+                    I'm Maaz Siddiqui, a Computer Engineering student and developer based in Mumbai, India. I enjoy turning ideas into practical software and building applications that solve real-world problems. My journey started during my Diploma in Computer Engineering, where I began with Python programs, Web Dev  and small applications.
                 </p>
                 <p className="reveal simple-text">
-                    Over time, I progressed towards building complete web and full-stack applications using Python, Django, Flask, React, SQL, APIs, automation and AI. I learn primarily through building, from understanding a problem and designing a solution to developing, testing, integrating APIs or databases, and deploying the final application.
+                    Over time, I progressed towards building complete web and full-stack applications using Python, Django, Flask, React, SQL, APIs and AI. I learn primarily through building, from understanding a problem and designing a solution to developing, testing, integrating APIs or databases, and deploying the final application.
                 </p>
                 <p className="reveal simple-text">
-                    I am currently pursuing my BE in Computer Engineering at Thakur College of Engineering & Technology (TCET). Alongside academics, I am strengthening my skills in software development, backend engineering, system design, cloud technologies, automation and AI, with the goal of becoming a well-rounded software engineer.
+                    Currently pursuing BE in Computer Engineering at Thakur College of Engineering & Technology (TCET) focused on product engineering, web and backend development, system design, cloud, and AI - with a vision to build innovative products and startups.
+
                 </p>
             </section>
 
@@ -66,7 +68,7 @@ function SimpleView() {
                 </div>
                 <div className=" simple-skill-group">
                     <h3 className="reveal simple-subtitle">- Modern Development</h3>
-                    <p className="reveal simple-text">Full-Stack Development, REST APIs, Web Scraping, Data Structures, OOPS, Generative AI, Prompt Engineering, Vibe Coding, Agile Methodology, Markdown, Software Testing</p>
+                    <p className="reveal simple-text">Full-Stack Development,  Web Scraping, Data Structures, OOPS, Generative AI, Prompt Engineering, Vibe Coding, Agile Methodology, Markdown, Software Testing</p>
                 </div>
                 <div className=" simple-skill-group">
                     <h3 className="reveal simple-subtitle">- Libraries & Tools</h3>
@@ -83,13 +85,17 @@ function SimpleView() {
                 <h2 className="reveal simple-section-title">3. PROJECTS</h2>
 
                 <article className=" simple-project">
-                    <span className='reveal spl-label'> 🏆 Winner <br />Zephyr Gen AI Competition(TCET)</span>
-                    <h3 className="reveal simple-project-title">SpeakEasy AI</h3>
-                    <p className="reveal simple-project-description">
-                        An AI-powered voice-first platform for improving interviews, presentations, debates, fluency, and communication skills through interactive sessions and AI-driven feedback.<br />
-                        <a className="reveal simple-project-link" href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
-                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/SpeakEasy--GEN-AI" target="_blank" rel="noopener noreferrer">Git Hub →</a>
-                    </p>
+                    <span className='reveal spl-label'>
+                        <span className="spl-center">
+                            <span className="spl-tag">🏆 Winner <br />Zephyr Gen AI Competition(TCET)</span>
+                        </span>
+                        <h3 className="reveal simple-project-title">SpeakEasy AI</h3>
+                        <p className="reveal simple-project-description">
+                            An AI-powered voice-first platform for improving interviews, presentations, debates, fluency, and communication skills through interactive sessions and AI-driven feedback.<br />
+                            <a className="reveal simple-project-link" href="https://speakeasy-ai-one.vercel.app/" target="_blank" rel="noopener noreferrer">Visit Site →</a> &nbsp;
+                            <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/SpeakEasy--GEN-AI" target="_blank" rel="noopener noreferrer">Git Hub →</a>
+                        </p>
+                    </span>
                 </article>
 
                 <article className=" simple-project">
@@ -111,15 +117,19 @@ function SimpleView() {
                 </article>
 
                 <article className=" simple-project">
-                    <span className='reveal spl-label'> Diploma Final Year Project</span>
-                    <h3 className="reveal simple-project-title">SmartBlogger</h3>
-                    <p className="reveal simple-project-description">
-                        A smart blogging platform for **creating, managing, and publishing content** with intelligent features that deliver a structured and modern blogging experience.<br />
-                        <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Smart_Blogging-Platform-FYP" target="_blank" rel="noopener noreferrer">GitHub →</a> &nbsp;
-                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/IJPREMS60200006505-BoCePTXX.pdf" target="_blank" rel="noopener noreferrer">Research Paper →</a> &nbsp;<br />
-                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Maaz%20IJPREMS60200006505-1-BB9nlw-S.pdf" target="_blank" rel="noopener noreferrer">Research Paper Certificate →</a> &nbsp;<br />
-                        <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Institue%20Report-B8uSq188.pdf" target="_blank" rel="noopener noreferrer">Institute Report →</a> &nbsp;
-                    </p>
+                    <span className='reveal spl-label'>
+                        <span className="spl-center">
+                            <span className="spl-tag">Diploma Final Year Project</span>
+                        </span>
+                        <h3 className="reveal simple-project-title">SmartBlogger</h3>
+                        <p className="reveal simple-project-description">
+                            A smart blogging platform for creating, managing, and publishing content with intelligent features that deliver a structured and modern blogging experience.<br />
+                            <a className="reveal simple-project-link" href="https://github.com/maazsiddiqui79/Smart_Blogging-Platform-FYP" target="_blank" rel="noopener noreferrer">GitHub →</a> &nbsp;
+                            <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/IJPREMS60200006505-BoCePTXX.pdf" target="_blank" rel="noopener noreferrer">Research Paper →</a> &nbsp;<br />
+                            <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Maaz%20IJPREMS60200006505-1-BB9nlw-S.pdf" target="_blank" rel="noopener noreferrer">Research Paper Certificate →</a> &nbsp;<br />
+                            <a className="reveal simple-project-link" href="https://www.maazdev.tech/assets/Institue%20Report-B8uSq188.pdf" target="_blank" rel="noopener noreferrer">Institute Report →</a> &nbsp;
+                        </p>
+                    </span>
                 </article>
 
                 <article className=" simple-project">
@@ -326,6 +336,7 @@ function SimpleView() {
                     <span className="reveal capsule"> Cloud</span>
                 </p>
             </section>
+        </div>
         </main>
     );
 }
