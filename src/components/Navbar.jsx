@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect, lazy, Suspense } from 'react';
+import Magnetic from './Magnetic';
+import { transitionModeWithCurtain } from '../utils/viewTransition';
 
 const CommandPalette = lazy(() => import('./CommandPalette'));
 
@@ -191,13 +193,15 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
                 return;
             }
 
+            // Target the stable magnetic wrapper or the link element to avoid offset during hover
+            const targetEl = linkEl.closest('.magnetic-wrapper') || linkEl;
             const containerRect = container.getBoundingClientRect();
-            const linkRect = linkEl.getBoundingClientRect();
+            const targetRect = targetEl.getBoundingClientRect();
 
             setPillStyle({
                 opacity: 1,
-                width: linkRect.width,
-                transform: `translateX(${linkRect.left - containerRect.left}px)`,
+                width: targetRect.width,
+                transform: `translateX(${targetRect.left - containerRect.left}px)`,
             });
         };
 
@@ -288,6 +292,68 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
         return () => document.removeEventListener('mousedown', handleClickOutside);
     }, [isMenuOpen]);
 
+    // ── Floating Navbar magnetic dock attraction ────────────────────────
+    useEffect(() => {
+        const nav = navRef.current;
+        if (!nav) return;
+
+        const isCoarse = window.matchMedia('(pointer: coarse)').matches;
+        const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (isCoarse || isReduced) return;
+
+        let navRafId = null;
+
+        const handleNavMouseMove = (e) => {
+            if (isThemeMenuOpen || isMenuOpen) return;
+
+            const rect = nav.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const deltaX = (e.clientX - centerX) * 0.04;
+            const deltaY = (e.clientY - centerY) * 0.06;
+
+            const pullX = Math.max(-4, Math.min(4, deltaX));
+            const pullY = Math.max(-3, Math.min(3, deltaY));
+
+            if (navRafId) cancelAnimationFrame(navRafId);
+            navRafId = requestAnimationFrame(() => {
+                nav.style.transform = `translate3d(calc(-50% + ${pullX.toFixed(2)}px), ${pullY.toFixed(2)}px, 0)`;
+                nav.style.transition = 'transform 0.15s cubic-bezier(0.25, 1, 0.5, 1)';
+            });
+        };
+
+        const handleNavMouseLeave = () => {
+            if (navRafId) cancelAnimationFrame(navRafId);
+            navRafId = requestAnimationFrame(() => {
+                nav.style.transform = 'translate3d(-50%, 0px, 0px)';
+                nav.style.transition = 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)';
+            });
+        };
+
+        nav.addEventListener('mousemove', handleNavMouseMove, { passive: true });
+        nav.addEventListener('mouseleave', handleNavMouseLeave, { passive: true });
+
+        return () => {
+            if (navRafId) cancelAnimationFrame(navRafId);
+            nav.removeEventListener('mousemove', handleNavMouseMove);
+            nav.removeEventListener('mouseleave', handleNavMouseLeave);
+        };
+    }, [isThemeMenuOpen, isMenuOpen]);
+
+    // ── Liquid Curtain View Transition Mode Switch ───────────────────────
+    const handleModeSwitch = (e) => {
+        const nextMode = !simpleMode;
+        transitionModeWithCurtain(e, () => {
+            if (nextMode) {
+                document.body.classList.add('simple-mode-active');
+            } else {
+                document.body.classList.remove('simple-mode-active');
+            }
+            setSimpleMode(nextMode);
+            setIsThemeMenuOpen(false);
+        });
+    };
+
     // ── Render ─────────────────────────────────────────────────────────
     return (
         <>
@@ -299,14 +365,16 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
                 aria-label="Main navigation"
             >
                 {/* Logo — active when "home" section is in view */}
-                <a
-                    href="/"
-                    className={`logo ${activeSection === 'home' ? 'active' : ''}`}
-                    onClick={(e) => handleNavClick(e, 'home')}
-                    aria-current={activeSection === 'home' ? 'true' : undefined}
-                >
-                    maazdev<span>.</span>tech
-                </a>
+                <Magnetic maxPull={8} strength={0.25}>
+                    <a
+                        href="/"
+                        className={`logo ${activeSection === 'home' ? 'active' : ''}`}
+                        onClick={(e) => handleNavClick(e, 'home')}
+                        aria-current={activeSection === 'home' ? 'true' : undefined}
+                    >
+                        maazdev<span>.</span>tech
+                    </a>
+                </Magnetic>
 
                 {/* Navigation links with sliding pill indicator */}
                 <div
@@ -321,38 +389,41 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
                     />
 
                     {NAV_LINKS.map(({ id, label }) => (
-                        <a
-                            key={id}
-                            href={`#${id}`}
-                            ref={(el) => { linkRefs.current[id] = el; }}
-                            className={activeSection === id ? 'active' : ''}
-                            aria-current={activeSection === id ? 'true' : undefined}
-                            onClick={(e) => handleNavClick(e, id)}
-                        >
-                            {label}
-                        </a>
+                        <Magnetic key={id} maxPull={6} strength={0.25}>
+                            <a
+                                href={`#${id}`}
+                                ref={(el) => { linkRefs.current[id] = el; }}
+                                className={activeSection === id ? 'active' : ''}
+                                aria-current={activeSection === id ? 'true' : undefined}
+                                onClick={(e) => handleNavClick(e, id)}
+                            >
+                                {label}
+                            </a>
+                        </Magnetic>
                     ))}
                 </div>
 
                 <div className="nav-actions">
                     <div style={{ position: 'relative' }}>
-                        <button
-                            className="theme-toggle"
-                            id="themeToggle"
-                            aria-label="Change theme"
-                            onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
-                        >
-                            <svg
-                                className="theme-icon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="1.8"
+                        <Magnetic maxPull={8} strength={0.3}>
+                            <button
+                                className="theme-toggle"
+                                id="themeToggle"
+                                aria-label="Change theme"
+                                onClick={() => setIsThemeMenuOpen(!isThemeMenuOpen)}
                             >
-                                <circle cx="12" cy="12" r="4" />
-                                <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
-                            </svg>
-                        </button>
+                                <svg
+                                    className="theme-icon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="1.8"
+                                >
+                                    <circle cx="12" cy="12" r="4" />
+                                    <path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42" />
+                                </svg>
+                            </button>
+                        </Magnetic>
 
                         <div
                             className={`theme-menu ${isThemeMenuOpen ? 'open' : ''}`}
@@ -382,12 +453,9 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
                             <button
                                 className="theme-option mode-button"
                                 data-theme-choice="simple"
-                                onClick={() => {
-                                    setSimpleMode(!simpleMode);
-                                    setIsThemeMenuOpen(false);
-                                }}
+                                onClick={handleModeSwitch}
                             >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
                                     <rect x="3" y="4" width="18" height="16" rx="2" />
                                     <path d="M12 4v16" />
                                     <path d="M6.5 8h3M6.5 11h3M6.5 14h3" />
@@ -398,23 +466,27 @@ export default function Navbar({ simpleMode, setSimpleMode }) {
                         </div>
                     </div>
 
-                    <button
-                        className="command-btn"
-                        onClick={() => setIsCommandPaletteOpen(true)}
-                        aria-label="Open command palette"
-                    >
-                        <span>Command</span>
-                        <kbd>Ctrl K</kbd>
-                    </button>
+                    <Magnetic maxPull={8} strength={0.3}>
+                        <button
+                            className="command-btn"
+                            onClick={() => setIsCommandPaletteOpen(true)}
+                            aria-label="Open command palette"
+                        >
+                            <span>Command</span>
+                            <kbd>Ctrl K</kbd>
+                        </button>
+                    </Magnetic>
 
-                    <button
-                        className="menu-btn"
-                        id="menuBtn"
-                        aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'}
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? '✕' : '☰'}
-                    </button>
+                    <Magnetic maxPull={8} strength={0.3}>
+                        <button
+                            className="menu-btn"
+                            id="menuBtn"
+                            aria-label={isMenuOpen ? 'Close navigation' : 'Open navigation'}
+                            onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        >
+                            {isMenuOpen ? '✕' : '☰'}
+                        </button>
+                    </Magnetic>
                 </div>
             </nav>
             {isCommandPaletteOpen && (

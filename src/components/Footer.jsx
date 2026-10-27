@@ -1,4 +1,5 @@
 import React from "react";
+import Magnetic from "./Magnetic";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -10,27 +11,33 @@ export default function Footer() {
                     <p>© {CURRENT_YEAR} • All Rights Reserved • Designed & Built with ♥ by Maaz Siddiqui
                         &nbsp;|&nbsp;
 
-                        <a
-                            href="https://github.com/maazsiddiqui79"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="magnetic"
-                        >
-                            GITHUB
-                        </a> &nbsp;|&nbsp;
+                        <Magnetic maxPull={6} strength={0.25}>
+                            <a
+                                href="https://github.com/maazsiddiqui79"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="magnetic"
+                            >
+                                GITHUB
+                            </a>
+                        </Magnetic> &nbsp;|&nbsp;
 
-                        <a
-                            href="https://www.linkedin.com/in/siddiqui-maazzz/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="magnetic"
-                        >
-                            LINKEDIN
-                        </a>
+                        <Magnetic maxPull={6} strength={0.25}>
+                            <a
+                                href="https://www.linkedin.com/in/siddiqui-maazzz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="magnetic"
+                            >
+                                LINKEDIN
+                            </a>
+                        </Magnetic>
 
-                        &nbsp;|&nbsp;  <a href="#home" className="magnetic">
-                            TOP ↑
-                        </a>
+                        &nbsp;|&nbsp;  <Magnetic maxPull={6} strength={0.25}>
+                            <a href="#home" className="magnetic">
+                                TOP ↑
+                            </a>
+                        </Magnetic>
                     </p>
 
                 </div>
